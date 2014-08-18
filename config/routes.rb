@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
+  resources :post_attachments
+
+  resources :posts
+  resources :paintings
   resources :products
   resources :home
   devise_for :users
- 
-   devise_scope :user do
-   authenticated :user do
+  devise_scope :user do
+  
+  authenticated :user do
     root :to => 'home#index'
   end
-
+  
   unauthenticated :user do
     root :to => 'devise/registrations#new', as: :unauthenticated_root
   end
