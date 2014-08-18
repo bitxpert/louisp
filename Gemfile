@@ -15,8 +15,7 @@ group :production do
 	gem 'mysql2'
 	gem 'pg'
 end
-	
-end
+
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
