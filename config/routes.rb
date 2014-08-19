@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :post_attachments
 
   resources :posts
+  resources :entertainments
   resources :paintings
   resources :products
   resources :home
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   devise_scope :user do
   
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'devise/registrations#edit', as: :authenticated_root
   end
   
   unauthenticated :user do

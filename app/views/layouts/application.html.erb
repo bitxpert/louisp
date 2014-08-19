@@ -7,21 +7,43 @@
   <%= csrf_meta_tags %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert 	%></p>
-  <div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <%= link_to "Upload Image", new_painting_path %>
-    <%= link_to "My Profile", edit_user_registration_path %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-	</div>
   
 </head>
 <body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 main_layout">
+      <div class="col-md-3 side_bar">
+        <div id="user_nav">
+          <div class="image_holder">
+            <% @painting = Painting.last %>
+            <%if @painting.nil? %>
+            <img src="/assets/user.png">
+            <%else%>
+            <%= image_tag @painting.image_url(:thumb).to_s %>
+            <%end%>            
+          </div>
+          <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path,  :method => :delete%>
+            <%= link_to "UPLOAD NEW IMAGE", new_painting_path, { :class=>"btn btn_side"}%>
+            <%= link_to "UPDATE PROFILE", edit_user_registration_path, { :class=>"btn btn_side"} %>
+            <%= link_to "ADD/EDIT ENTERTAINMENT <br/> ESTABLISHMENTS".html_safe, new_entertainment_path, { :class=>"btn btn_side "} %>
+            <%= link_to "CONTACTS LIST", authenticated_root_path, { :class=>"btn btn_side"} %>
+            <%= link_to "CALENDAR", authenticated_root_path, { :class=>"btn btn_side"} %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path,{ :class=>"btn btn_side"} %>
+          <% end %>
+          </div>
+      </div>
+      <div class="col-md-9 border-left">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= yield %>
+
 
 </body>
 </html>

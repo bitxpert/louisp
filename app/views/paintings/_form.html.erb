@@ -1,13 +1,11 @@
+<div class"image-upload" style="margin: 254px 31%;">
 <%= form_for @painting, :html => {:multipart => true} do |f| %>
   
   
   
   <p>
-    <%= f.file_field :image %>
+    <%= f.file_field :image , { :class=>"btn btn_side"}%>
   </p>
-   <p>
-    <%= f.label :remote_image_url, "or image URL" %><br />
-    <%= f.text_field :remote_image_url %>
-  </p> 
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Upload Your Photo", :class=>"btn btn_side"%></p>
 <% end %>
+</div>
