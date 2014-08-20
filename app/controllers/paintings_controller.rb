@@ -4,14 +4,22 @@ class PaintingsController < ApplicationController
 	end
 
 	def create
-		@painting = Painting.new(product_params)
+		@painting = current_user.build_painting(product_params)
 		if @painting.save
-		redirect_to authenticated_root_url
-		end	
+			redirect_to authenticated_root_url
+		end
+					
 	end
 
+	def update
+		
+		if current_user.painting.update(product_params)
+			redirect_to authenticated_root_url
+		end	
+	end
+		
 	def show
-		@painting = Painting.last
+		@painting = User.find(current_user.id).painting
 	end 
 
 	private

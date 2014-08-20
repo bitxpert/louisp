@@ -1,6 +1,6 @@
 class EntertainmentsController < ApplicationController
 	 def index
-    @entertainment = Entertainment.all
+    @entertainments = current_user.entertainments.all
   end
 
   # GET /products/1
@@ -15,16 +15,17 @@ class EntertainmentsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @entertainment = current_user.entertainments.find(params[:id])
   end
 
   # POST /products
   # POST /products.json
   def create
-    @entertainment = Entertainment.new(entertainment_params)
+    @entertainment = current_user.entertainments.build(entertainment_params)
 
     respond_to do |format|
       if @entertainment.save
-        format.html { redirect_to @entertainment, notice: 'Entertainment was successfully established.' }
+        format.html { redirect_to new_entertainment_path, notice: 'Entertainment was successfully established.' }
         format.json { render :show, status: :created, location: @entertainment }
       else
         format.html { render :new }
@@ -50,6 +51,7 @@ class EntertainmentsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    @entertainment = current_user.entertainments.find(params[:id])
     @entertainment.destroy
     respond_to do |format|
       format.html { redirect_to entertainments_url, notice: 'Entertainment was successfully destroyed.' }

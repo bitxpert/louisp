@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819094606) do
+ActiveRecord::Schema.define(version: 20140820101625) do
 
   create_table "entertainments", force: true do |t|
     t.string   "region"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140819094606) do
     t.string   "webpage_director_contact_person_first_name"
     t.string   "webpage_director_company"
     t.string   "password"
-    t.string   "user_id"
+    t.integer  "user_id",                                     limit: 255
     t.string   "contact_person_position"
     t.string   "contact_person_phone"
     t.string   "contact_person_email"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20140819094606) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.integer  "user_id"
   end
 
   create_table "post_attachments", force: true do |t|

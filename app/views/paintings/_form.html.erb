@@ -1,8 +1,5 @@
 <div class"image-upload" style="margin: 254px 31%;">
-<%= form_for @painting, :html => {:multipart => true} do |f| %>
-  
-  
-  
+<%= form_for @painting,:url=>url, :html => {:multipart => true } , :method => method do |f| %>
   <p>
     <%= f.file_field :image , { :class=>"btn btn_side"}%>
   </p>

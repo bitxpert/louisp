@@ -16,11 +16,15 @@
       <div class="col-md-3 side_bar">
         <div id="user_nav">
           <div class="image_holder">
-            <% @painting = Painting.last %>
-            <%if @painting.nil? %>
-            <img src="/assets/user.png">
+            <% if user_signed_in? %>
+              <% @painting = current_user.painting %>
+              <%if @painting.nil? %>
+              <img src="/assets/user.png">
+              <%else%>
+              <%= image_tag @painting.image_url(:thumb).to_s %>
+              <%end%>
             <%else%>
-            <%= image_tag @painting.image_url(:thumb).to_s %>
+              <img src="/assets/user.png">  
             <%end%>            
           </div>
           <% if user_signed_in? %>
@@ -32,7 +36,8 @@
             <%= link_to "CONTACTS LIST", authenticated_root_path, { :class=>"btn btn_side"} %>
             <%= link_to "CALENDAR", authenticated_root_path, { :class=>"btn btn_side"} %>
           <% else %>
-            <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path,{ :class=>"btn btn_side"} %>
+            <%= link_to "sign in", new_user_session_path,{ :class=>"btn btn_side"} %>
+            <%= link_to "Sign up", new_user_registration_path, { :class=>"btn btn_side"} %>
           <% end %>
           </div>
       </div>
