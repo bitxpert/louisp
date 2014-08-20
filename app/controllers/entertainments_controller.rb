@@ -1,4 +1,6 @@
 class EntertainmentsController < ApplicationController
+  before_filter :authenticate_user!
+  
 	 def index
     @entertainments = current_user.entertainments.all
   end
