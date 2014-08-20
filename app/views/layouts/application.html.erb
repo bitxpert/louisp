@@ -28,8 +28,10 @@
             <%end%>            
           </div>
           <% if user_signed_in? %>
-            Signed in as <%= current_user.email %>. Not you?
-            <%= link_to "Sign out", destroy_user_session_path,  :method => :delete%>
+            <div class = "user_name">
+            <%= current_user.email %>
+            <%= link_to "Sign out", destroy_user_session_path,  :method => :delete,:class => 'btn btn-xs btn-danger'%>
+            </div>
             <%= link_to "UPLOAD NEW IMAGE", new_painting_path, { :class=>"btn btn_side"}%>
             <%= link_to "UPDATE PROFILE", edit_user_registration_path, { :class=>"btn btn_side"} %>
             <%= link_to "ADD/EDIT ENTERTAINMENT <br/> ESTABLISHMENTS".html_safe, new_entertainment_path, { :class=>"btn btn_side "} %>

@@ -1,3 +1,11 @@
+.user_name{
+	margin: 10px 0;
+	padding: 0 5px;
+}
+.user_name .btn {
+	float: right;
+	color: #fff ! important;
+}
 .main_layout{
 	border: 6px solid #3fb897;
 }
