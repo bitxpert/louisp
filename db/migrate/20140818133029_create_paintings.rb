@@ -1,8 +1,8 @@
 class CreatePaintings < ActiveRecord::Migration
   def change
     create_table :paintings do |t|
-
-      t.timestamps
+    			
+      	t.timestamps
     end
   end
 end

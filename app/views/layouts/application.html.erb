@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert 	%></p>
-  
 </head>
 <body>
 <div class="container">
@@ -18,10 +17,14 @@
           <div class="image_holder">
             <% if user_signed_in? %>
               <% @painting = current_user.painting %>
+              <% @funny_image = current_user.funny_image %>
+
               <%if @painting.nil? %>
               <img src="/assets/user.png">
               <%else%>
-              <%= image_tag @painting.image_url(:thumb).to_s %>
+              <%= image_tag @funny_image.image_url(:thumb).to_s%>
+              <%= image_tag @painting.image_url(:thumb).to_s, { :id=>"pro_image", :onmouseover=>"$(this).fadeTo(2000,0);", :onmouseout=>"$(this).fadeTo(2000,1);"} %>
+              
               <%end%>
             <%else%>
               <img src="/assets/user.png">  

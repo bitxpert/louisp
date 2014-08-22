@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   resources :post_attachments
-
+  resources :regions
   resources :posts
   resources :entertainments
-  resources :paintings
+  resources :paintings do
+    member do
+         patch 'update_funny_image'
+    end
+    collection do
+         post 'create_funny_image'
+    end     
+  end  
   resources :products
   resources :home
   devise_for :users

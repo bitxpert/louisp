@@ -1,0 +1,71 @@
+
+<%= form_for @region, :html => { :class => "form-horizontal entertainment" } do |f| %>
+
+    <% if @region.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @region.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :territory, :class => 'form-control' %>
+    </div>
+    <%= f.label :territory, :class => 'control-label user_feild' %>
+    <%= error_span(@region[:territory]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :gdp_usd_billion, :class => 'form-control' %>
+    </div>
+    <%= f.label :gdp_usd_billion, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:gdp_usd_billion]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :population, :class => 'form-control' %>
+    </div>
+    <%= f.label :population, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:population]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :ee_score, :class => 'form-control' %>
+    </div>
+    <%= f.label :ee_score, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:ee_score]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :first_language, :class => 'form-control' %>
+    </div>
+    <%= f.label :first_language, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:first_language]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :second_language, :class => 'form-control' %>
+    </div>
+    <%= f.label :second_language, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:second_language]) %>
+  </div>
+   
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            regions_path, :class => 'btn btn-default' %>
+
+<% end %>

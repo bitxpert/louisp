@@ -1,0 +1,5 @@
+<%- model_class = Region -%>
+<div class="page-header">
+  <h3><b><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></b></h3>
+</div>
+<%= render :partial => 'form' %>

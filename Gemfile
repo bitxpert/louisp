@@ -15,6 +15,7 @@ group :production do
 	# gem 'mysql2'
 	gem 'pg', '~> 0.17.1'
 end
+gem 'bootstrap-modal-rails'
 gem "fog"
 gem "rmagick"
 gem 'carrierwave'

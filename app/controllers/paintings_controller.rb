@@ -21,6 +21,20 @@ class PaintingsController < ApplicationController
 		
 	def show
 		@painting = User.find(current_user.id).painting
+	end
+
+	def create_funny_image
+		@painting = current_user.build_funny_image(product_params)
+		if @painting.save
+			redirect_to authenticated_root_url
+		end
+	
+	end
+
+	def update_funny_image
+		if current_user.funny_image.update(product_params)
+			redirect_to authenticated_root_url
+		end
 	end 
 
 	private

@@ -3,3 +3,9 @@
 <% else %>
 <%= render 'form', :url=> paintings_path, :method => "post" %>
 <% end %>
+
+<% if current_user.funny_image.present? %>
+<%= render 'form', :url=> update_funny_image_painting_path(current_user.funny_image), :method => "patch"%>
+<% else %>
+<%= render 'form', :url=> create_funny_image_paintings_path, :method => "post" %>
+<% end %>
