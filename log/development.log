@@ -74170,3 +74170,739 @@ Processing by PaintingsController#new as HTML
   Rendered paintings/_form.html.erb (0.4ms)
   Rendered paintings/new.html.erb within layouts/application (5.2ms)
 Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 11:48:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mRegion Load (0.2ms)[0m  [1mSELECT "regions".* FROM "regions"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "regions".* FROM "regions"
+  Rendered devise/registrations/edit.html.erb within layouts/application (375.9ms)
+  [1m[36mPainting Load (0.2ms)[0m  [1mSELECT  "paintings".* FROM "paintings"  WHERE "paintings"."user_id" = ? LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFunnyImage Load (0.1ms)[0m  SELECT  "funny_images".* FROM "funny_images"  WHERE "funny_images"."user_id" = ? LIMIT 1  [["user_id", 7]]
+Completed 200 OK in 1140ms (Views: 1122.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/entertainments.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/paintings.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/post_attachments.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/entertainments.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/paintings.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/post_attachments.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 11:48:17 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1[0m
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mRegion Load (0.2ms)[0m  SELECT "regions".* FROM "regions"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "regions".* FROM "regions"[0m
+  Rendered devise/registrations/edit.html.erb within layouts/application (23.3ms)
+  [1m[35mPainting Load (0.1ms)[0m  SELECT  "paintings".* FROM "paintings"  WHERE "paintings"."user_id" = ? LIMIT 1  [["user_id", 7]]
+  [1m[36mFunnyImage Load (0.1ms)[0m  [1mSELECT  "funny_images".* FROM "funny_images"  WHERE "funny_images"."user_id" = ? LIMIT 1[0m  [["user_id", 7]]
+Completed 200 OK in 38ms (Views: 37.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/entertainments.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/post_attachments.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/paintings.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/entertainments.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/paintings.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/post_attachments.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:01 -0400
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AZL+UzSRrzEQ30YHnD0XWpXtkLchk+HSP82PphaS6Vk="}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 62ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (3.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (76.5ms)
+Completed 200 OK in 118ms (Views: 117.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/entertainments.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/paintings.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/post_attachments.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/entertainments.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/paintings.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/post_attachments.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/assets/user.png" for 127.0.0.1 at 2014-08-22 11:56:04 -0400
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-08-22 11:56:05 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (88.1ms)
+Completed 200 OK in 113ms (Views: 111.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Li++Q+TBMriIkU0IZej3Mh8Ye4FrSJ9FKQWwkuRmfIQ=", "user"=>{"email"=>"ittsel.ali@devsinc.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'ittsel.ali@devsinc.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 7[0m  [["current_sign_in_at", "2014-08-22 15:56:10.227452"], ["last_sign_in_at", "2014-08-21 08:38:49.379228"], ["sign_in_count", 20], ["updated_at", "2014-08-22 15:56:10.228665"]]
+  [1m[35m (120.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 340ms (ActiveRecord: 120.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1[0m
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mRegion Load (0.2ms)[0m  SELECT "regions".* FROM "regions"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "regions".* FROM "regions"[0m
+  Rendered devise/registrations/edit.html.erb within layouts/application (19.9ms)
+  [1m[35mPainting Load (0.1ms)[0m  SELECT  "paintings".* FROM "paintings"  WHERE "paintings"."user_id" = ? LIMIT 1  [["user_id", 7]]
+  [1m[36mFunnyImage Load (0.1ms)[0m  [1mSELECT  "funny_images".* FROM "funny_images"  WHERE "funny_images"."user_id" = ? LIMIT 1[0m  [["user_id", 7]]
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/entertainments.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/post_attachments.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/paintings.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/paintings.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/entertainments.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/post_attachments.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 11:56:10 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 13:15:50 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mRegion Load (0.2ms)[0m  [1mSELECT "regions".* FROM "regions"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "regions".* FROM "regions"
+  Rendered devise/registrations/edit.html.erb within layouts/application (451.2ms)
+  [1m[36mPainting Load (0.9ms)[0m  [1mSELECT  "paintings".* FROM "paintings"  WHERE "paintings"."user_id" = ? LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFunnyImage Load (0.3ms)[0m  SELECT  "funny_images".* FROM "funny_images"  WHERE "funny_images"."user_id" = ? LIMIT 1  [["user_id", 7]]
+Completed 200 OK in 1924ms (Views: 1904.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 13:15:52 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1[0m
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mRegion Load (0.9ms)[0m  SELECT "regions".* FROM "regions"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "regions".* FROM "regions"[0m
+  Rendered devise/registrations/edit.html.erb within layouts/application (24.1ms)
+  [1m[35mPainting Load (0.1ms)[0m  SELECT  "paintings".* FROM "paintings"  WHERE "paintings"."user_id" = ? LIMIT 1  [["user_id", 7]]
+  [1m[36mFunnyImage Load (0.1ms)[0m  [1mSELECT  "funny_images".* FROM "funny_images"  WHERE "funny_images"."user_id" = ? LIMIT 1[0m  [["user_id", 7]]
+Completed 200 OK in 44ms (Views: 42.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/entertainments.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/paintings.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/post_attachments.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/paintings.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/post_attachments.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/entertainments.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 13:15:53 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 7  ORDER BY "users"."id" ASC LIMIT 1
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mRegion Load (0.2ms)[0m  [1mSELECT "regions".* FROM "regions"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "regions".* FROM "regions"
+  Rendered devise/registrations/edit.html.erb within layouts/application (22.3ms)
+  [1m[36mPainting Load (0.1ms)[0m  [1mSELECT  "paintings".* FROM "paintings"  WHERE "paintings"."user_id" = ? LIMIT 1[0m  [["user_id", 7]]
+  [1m[35mFunnyImage Load (0.1ms)[0m  SELECT  "funny_images".* FROM "funny_images"  WHERE "funny_images"."user_id" = ? LIMIT 1  [["user_id", 7]]
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/paintings.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/entertainments.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/post_attachments.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/regions.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/entertainments.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/paintings.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/post_attachments.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/regions.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 13:16:13 -0400
