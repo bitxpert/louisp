@@ -1,8 +1,15 @@
+<div class="page-header">
+  <h3>Upload Professional Photo:</h3>
+</div>
 <% if current_user.painting.present? %>
 <%= render 'form', :url=> painting_path(current_user.painting), :method => "patch"%>
 <% else %>
 <%= render 'form', :url=> paintings_path, :method => "post" %>
 <% end %>
+
+<div class="page-header">
+  <h3>Upload Funny Photo:</h3>
+</div>
 
 <% if current_user.funny_image.present? %>
 <%= render 'form', :url=> update_funny_image_painting_path(current_user.funny_image), :method => "patch"%>
