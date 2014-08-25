@@ -6,15 +6,14 @@ gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets
 group :development do 
-
 	gem 'sqlite3'
 end
-
 group :production do 
-
-	# gem 'mysql2'
 	gem 'pg', '~> 0.17.1'
 end
+
+gem 'carmen-rails'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'bootstrap-modal-rails'
 gem "fog"
 gem "rmagick"

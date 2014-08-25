@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :post_attachments
   resources :regions
   resources :posts
@@ -13,9 +16,11 @@ Rails.application.routes.draw do
   end  
   resources :products
   resources :home
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
   devise_scope :user do
   
+  get '/users/subregion_options' => 'registrations#subregion_options'
   authenticated :user do
     root :to => 'devise/registrations#edit', as: :authenticated_root
   end

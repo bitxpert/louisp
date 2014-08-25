@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :first_name, :middle_name, :last_name, :sex, :age) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:parent_region,:company_mailing_state_or_province, :password, :password_confirmation, :first_name, :middle_name, :last_name, :sex, :age) }
     devise_parameter_sanitizer.for(:account_update) << :salutation
     devise_parameter_sanitizer.for(:account_update) << :first_name
     devise_parameter_sanitizer.for(:account_update) << :middle_name
@@ -46,6 +46,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :personal_mailing_state_or_province
     devise_parameter_sanitizer.for(:account_update) << :personal_mailing_city
     devise_parameter_sanitizer.for(:account_update) << :personal_mailing_street_2
+    devise_parameter_sanitizer.for(:account_update) << :parent_region
     
   end
+
+ 
 end

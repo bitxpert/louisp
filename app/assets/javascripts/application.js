@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery
+//= require jquery-ui
+//= require autocomplete_select
 //= require turbolinks
 //= require_tree .

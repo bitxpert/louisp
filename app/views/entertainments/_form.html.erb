@@ -15,6 +15,7 @@
     </div>
   <% end %>
 
+  
   <div class="control-group col-md-6">
     
     <div class="controls">
@@ -43,10 +44,35 @@
     <div class="controls">
       <%= f.text_field :name, :class => 'form-control' %>
     </div>
-    <%= f.label :name, :class => 'control-label user_feild' %>
+    <%= f.label :name, "EE Name", :class => 'control-label user_feild' %>
 
     <%= error_span(@entertainment[:name]) %>
   </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%= f.label :user_id , "User Id", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:user_id]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls ">
+      <%= f.password_field :password, :class => 'form-control' %>
+    </div>
+    <%= f.label :password, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:name]) %>
+  </div>
+   
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :category, :class => 'form-control' %>
+    </div>
+    <%= f.label :category, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:category]) %>
+  </div> 
    <div class="control-group col-md-6">
     <div class="controls">
       <%= f.text_field :sub_category, :class => 'form-control' %>
@@ -60,17 +86,9 @@
       <%= f.text_field :function, :class => 'form-control' %>
     </div>
     <%= f.label :function, :class => 'control-label user_feild' %>
-
     <%= error_span(@entertainment[:function]) %>
   </div>
-   <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :category, :class => 'form-control' %>
-    </div>
-    <%= f.label :category, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:category]) %>
-  </div>
+   
    <div class="control-group col-md-6">
     <div class="controls">
       <%= f.text_field :icon, :class => 'form-control' %>
@@ -311,22 +329,7 @@
 
     <%= error_span(@entertainment[:webpage_director_company]) %>
   </div>
-  <div class="control-group col-md-6">
-    <div class="controls ">
-      <%= f.password_field :password, :class => 'form-control' %>
-    </div>
-    <%= f.label :password, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:name]) %>
-  </div>
-   <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :user_id, :class => 'form-control' %>
-    </div>
-    <%= f.label :user_id, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:user_id]) %>
-  </div>
+  
    <div class="control-group col-md-6">
     <div class="controls">
       <%= f.text_field :contact_person_position, :class => 'form-control' %>
