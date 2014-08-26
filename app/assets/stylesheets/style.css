@@ -1,3 +1,10 @@
+.region-breaker{
+	background: black;
+	text-align: center;
+	color: white;
+	margin: 10px 0;
+	display: block;
+}
  .custom-combobox {
     position: relative;
     display: inline-block;
