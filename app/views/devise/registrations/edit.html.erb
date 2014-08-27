@@ -8,6 +8,11 @@
       <h3 class="region-breaker">LouisP INFORMATION</h3>
       <div class="form-group col-md-6">
         
+        <%= f.text_field :user_main_id, :autocomplete => "off", class: "form-control" %>
+        <%= f.label :user_main_id,"User ID", class: "user_feild" %>
+      </div>
+      <div class="form-group col-md-6">
+        
         <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
         <%= f.label :password,"Password (leave blank if you don't want to change it)", class: "user_feild" %>
       </div>
@@ -18,15 +23,15 @@
       </div>
       
       <div class="form-group col-md-6">
-        <% options = options_from_collection_for_select(Region.all, 'territory', 'territory') %>
-        <%= f.select :division,   options, { :include_blank=>"Select Devision" }, { :class => 'form-control division' } %>
-        <%= f.label :division, class: "user_feild" %>
+        
+        <%= f.text_field :division,value: current_user.division.name, :autocomplete => "off", class: "form-control" %>
+        <%= f.label :division,"Division", class: "user_feild" %>
       </div>
       <div class="form-group col-md-6">
         
-        <% options = options_from_collection_for_select(Region.all, 'territory', 'territory') %>
-        <%= f.select :region,   options, { :include_blank=>"Select Region"}, { :class => 'form-control region' } %>
-        <%= f.label :region , class: "user_feild"%>
+         <%= f.text_field :region,value: current_user.region.territory, :autocomplete => "off", class: "form-control" %>
+        <%= f.label :region,"Region", class: "user_feild" %>
+        
       </div>
       <div class="form-group col-md-6">
         

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825053911) do
+ActiveRecord::Schema.define(version: 20140827142244) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,19 @@ ActiveRecord::Schema.define(version: 20140825053911) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "assigned_regions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "region_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "divisions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "entertainments", force: true do |t|
     t.string   "region"
@@ -156,6 +169,7 @@ ActiveRecord::Schema.define(version: 20140825053911) do
     t.string   "second_language"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
@@ -209,6 +223,10 @@ ActiveRecord::Schema.define(version: 20140825053911) do
     t.string   "personal_mailing_state_or_province"
     t.string   "personal_mailing_city"
     t.string   "personal_mailing_street_2"
+    t.string   "user_main_id"
+    t.integer  "region_id"
+    t.integer  "division_id"
+    t.integer  "region_user_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

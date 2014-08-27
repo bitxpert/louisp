@@ -30,6 +30,20 @@
             <%= f.label :email %>
             <%= f.email_field :email, class: "form-control" %>
           </div>
+          <div class="form-group col-md-12">
+        
+        <%= f.label :region_id %>
+        <% options = options_from_collection_for_select(Region.all, 'id', 'territory') %>
+        <%= f.select :region_id,   options, { :include_blank=>"Select Region"}, { :class => 'form-control region' } %>
+        
+        </div>
+        <div class="form-group col-md-12">
+        
+        <%= f.label :division %>
+        <% options = options_from_collection_for_select(Division.all, 'id', 'name') %>
+        <%= f.select :division_id,   options, { :include_blank=>"Select Division"}, { :class => 'form-control region' } %>
+        
+        </div>
           <div class="form-group">
             <%= f.label :password %><br />
             <%= f.password_field :password, class: "form-control" %>
@@ -37,6 +51,12 @@
           <div class="form-group">
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :user_main_id, hidden: "hidden" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :region_user_number, hidden: "hidden" %>
           </div>
           <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
         <% end %>
