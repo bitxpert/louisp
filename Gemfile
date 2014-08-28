@@ -12,6 +12,13 @@ group :production do
 	gem 'pg', '~> 0.17.1'
 end
 
+
+gem 'will_filter', "~> 3.1.0" 
+gem 'kaminari'
+gem 'jquery-datatables-editable-rails', github: 'kindjal/jquery-datatables-editable-rails'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'jquery-ui-rails'
+gem 'will_paginate'
 gem 'carmen-rails'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'bootstrap-modal-rails'

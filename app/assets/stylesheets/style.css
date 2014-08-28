@@ -120,4 +120,9 @@ background: linear-gradient(to bottom, rgba(130,202,178,1) 0%,rgba(140,212,188,1
 .image-upload{
 	margin: 130px 31%;
 }
-
+.sorting_1{
+	background-color: #70AD47;
+}
+.first-column{
+	color: white !important;
+}

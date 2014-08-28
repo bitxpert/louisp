@@ -15,6 +15,8 @@
 //= require twitter/bootstrap
 //= require jquery
 //= require jquery-ui
+//= require dataTables/jquery.dataTables
 //= require autocomplete_select
-//= require turbolinks
+//= require jquery.jeditable.js
+//= require dataTables/jquery.dataTables.editable
 //= require_tree .

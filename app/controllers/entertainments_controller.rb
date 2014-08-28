@@ -2,7 +2,11 @@ class EntertainmentsController < ApplicationController
   before_filter :authenticate_user!
   
 	 def index
-    @entertainments = current_user.entertainments.all
+    #render json: ::EntertainmentsDatatable.new(view_context)
+    respond_to do |format|
+    format.html
+    format.json { render json: ::EntertainmentsDatatable.new(view_context) }
+    end
   end
 
   # GET /products/1
