@@ -13,8 +13,6 @@ group :production do
 end
 
 
-gem 'will_filter', "~> 3.1.0" 
-gem 'kaminari'
 gem 'jquery-datatables-editable-rails', github: 'kindjal/jquery-datatables-editable-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
