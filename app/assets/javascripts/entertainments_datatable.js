@@ -10,6 +10,8 @@ $(document).ready(function() {
         sAjaxSource: $('#entertainments').data('source')
     } );
 
+
+
    var row_id
    $('#entertainments tbody').on('keyup', 'tr', function () {
         row_id = $('td', this).eq(0).text();
@@ -22,21 +24,21 @@ $(document).ready(function() {
                         {   
                             className: "hello",    
                             placeholder: '',
-                            method: 'PATCH',
+                            method: 'GET',
                             value: "pop",
                             aaData: "asdsd"
                         },
                         {
                             placeholder: '',
-                            method: 'PUT'
+                            method: 'GET'
                         },
                         {
                             placeholder: '',
-                            method: 'PUT'
+                            method: 'GET'
                         },
                         {
                             placeholder: '',
-                            method: 'PUT'
+                            method: 'GET'
                         }
                 ],
         fnOnEditing: function(input)
@@ -78,7 +80,6 @@ $(document).ready(function() {
                     console.log(otable.fnGetData(aPos));
                     console.log(input);*/
                     // update_url = "http://localhost:3000/entertainments/"+row_id
-                    var authenticity_token = "JFIvGUr/JRiFDuvwsX92QPoHBg4TqgE/mADquIuAiZw="    
                     $.ajax({
                         url: "http://localhost:3000/entertainments/"+row_id,
                         type: "put",
@@ -91,13 +92,12 @@ $(document).ready(function() {
                           }
                     });
 
-                    otable.ajax.reload();
-                    otable.sAjaxSource.reload();
-                    otable.ajax.url( 'entertainments.json' ).load();
-                    oTable.fnUpdate()  
                       
                     return true;
-                }        
+                },
+            fnOnEdited: function(input){
+                otable.fnDraw();
+            }            
     });
 
     
