@@ -80,7 +80,7 @@ $(document).ready(function() {
                     // update_url = "http://localhost:3000/entertainments/"+row_id
                     var authenticity_token = "JFIvGUr/JRiFDuvwsX92QPoHBg4TqgE/mADquIuAiZw="    
                     $.ajax({
-                        url: "/entertainments/"+row_id,
+                        url: "http://localhost:3000/entertainments/"+row_id,
                         type: "put",
                         data: {
                             'entertainment[id]' : x[0].innerHTML,
