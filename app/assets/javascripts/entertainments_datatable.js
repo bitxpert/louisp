@@ -81,7 +81,7 @@ $(document).ready(function() {
                     console.log(input);*/
                     // update_url = "http://localhost:3000/entertainments/"+row_id
                     $.ajax({
-                        url: "http://localhost:3000/entertainments/"+row_id,
+                        url: "/entertainments/"+row_id,
                         type: "put",
                         data: {
                             'entertainment[id]' : x[0].innerHTML,
