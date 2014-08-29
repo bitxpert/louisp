@@ -19,4 +19,5 @@
 //= require autocomplete_select
 //= require jquery.jeditable.js
 //= require dataTables/jquery.dataTables.editable
+//= require entertainments_datatable
 //= require_tree .

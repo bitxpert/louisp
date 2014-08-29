@@ -19,7 +19,8 @@ private
   def data
     entertainments.map do |entertainment|
       [
-        link_to(entertainment.country, url_options = {}, html_options = {class: "first-column"}),
+        #link_to(entertainment.country, url_options = {}, html_options = {class: "first-column"}),
+        entertainment.id,
         entertainment.name,
         entertainment.state_or_province,
         entertainment.url,
