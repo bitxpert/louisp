@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   resources :post_attachments
   resources :regions
   resources :posts
-  resources :entertainments
+  resources :entertainments do
+   collection do
+    post 'dumy_update' 
+   end 
+  end
   resources :paintings do
     member do
-         patch 'update_funny_image'
+      patch 'update_funny_image'
     end
     collection do
-         post 'create_funny_image'
+      post 'create_funny_image'
     end     
   end  
   resources :products

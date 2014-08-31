@@ -16,17 +16,14 @@ $(document).ready(function() {
    $('#entertainments tbody').on('keyup', 'tr', function () {
         row_id = $('td', this).eq(0).text();
     } );
-   var update_url = ""
+   var update_url = "/entertainments/dumy_update"
    otable.makeEditable({
         sUpdateURL: update_url,
         aoColumns: [
                         null,
                         {   
-                            className: "hello",    
                             placeholder: '',
                             method: 'GET',
-                            value: "pop",
-                            aaData: "asdsd"
                         },
                         {
                             placeholder: '',
@@ -49,7 +46,6 @@ $(document).ready(function() {
                     console.log(aData)
                     });*/
 
-                      console.log(otable)  
                     update_url = "http://localhost:3000/entertainments/"+row_id
                     try {
                         x = $('#'+row_id+' td')
@@ -57,10 +53,8 @@ $(document).ready(function() {
                                 if(x[i].childNodes[0].childNodes[0])
                                     {
                                     x[i].innerHTML = input.val()
-                                    console.log(x[i].innerHTML);
                                     }   
-                                    else 
-                                    console.log(x[i].innerHTML);
+                                    
                             }    
                     }
                     catch(err) {
@@ -93,11 +87,8 @@ $(document).ready(function() {
                     });
 
                       
-                    return true;
-                },
-            fnOnEdited: function(input){
-                otable.fnDraw();
-            }            
+                   otable.fnDraw();
+                }    
     });
 
     
