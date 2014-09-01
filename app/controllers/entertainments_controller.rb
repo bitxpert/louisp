@@ -68,8 +68,13 @@ class EntertainmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   def dumy_update
+  end
+
+  def initial_page
   end  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     

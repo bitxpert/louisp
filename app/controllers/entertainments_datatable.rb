@@ -1,5 +1,5 @@
 class EntertainmentsDatatable
-  delegate :params, :h, :link_to, to: :@view
+  delegate :params, :h,:current_user, :link_to, to: :@view
 
   def initialize(view)
     @view = view
@@ -25,9 +25,7 @@ private
         entertainment.state_or_province,
         entertainment.url,
         entertainment.phone_number,
-        "N/A"
-                      
-       
+        link_to("edit", "/entertainments/#{entertainment.id}/edit", method: :get)
       ]
     end
   end
@@ -37,7 +35,15 @@ private
   end
 
   def fetch_entertainments
-    entertainments = Entertainment.order("#{sort_column} #{sort_direction}")
+    if current_user.role.present?
+      if current_user.role.name == "Division Director"
+        entertainments = Entertainments.order("#{sort_column} #{sort_direction}")
+      else
+        entertainments = current_user.entertainments.order("#{sort_column} #{sort_direction}")
+      end
+    else
+      entertainments = current_user.entertainments.order("#{sort_column} #{sort_direction}")  
+    end
     entertainments = entertainments.page(page).per_page(per_page)
     if params[:sSearch].present?
       entertainments = entertainments.where("name like :search or country like :search or state_or_province like :search  or url like :search or phone_number like :search", search: "%#{params[:sSearch]}%")

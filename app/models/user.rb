@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   belongs_to :region
   belongs_to :division
   has_many :entertainments
+  belongs_to :role
+  validates_presence_of :role_id, :division_id, :region_id
   validates_numericality_of :age, :only_integer =>true, 
                           :greater_than_or_equal_to =>0, 
                           :message => "invalid"

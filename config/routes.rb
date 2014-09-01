@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :entertainments do
    collection do
-    post 'dumy_update' 
+    post 'dumy_update'
+    get 'initial_page' 
    end 
   end
   resources :paintings do

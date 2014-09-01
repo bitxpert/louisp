@@ -15,9 +15,9 @@
     </div>
   <% end %>
 
+    <h3 class="region-breaker"> DAP 1 INFO </h3>
   
   <div class="control-group col-md-6">
-    
     <div class="controls">
       <%= f.text_field :region, :class => 'form-control' %>
     </div>
@@ -161,22 +161,12 @@
 
     <%= error_span(@entertainment[:postal_code]) %>
   </div>
-  <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :contact_person_first_name, :class => 'form-control' %>
-    </div>
-    <%= f.label :contact_person_first_name, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:contact_person_first_name]) %>
-  </div>
-  <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :contact_person_last_name, :class => 'form-control' %>
-    </div>
-    <%= f.label :contact_person_last_name, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:contact_person_last_name]) %>
-  </div>
+  <h3 class="region-breaker col-md-12"> DAP 1 INFO </h3>
+  <div class="col-md-12"></div>
+  <br><br>
+  <h4 class="region-breaker col-md-12">PARENT COMPANY INFORMATION</h4>
+  <div class="col-md-12"></div>
+  
   <div class="control-group col-md-6">
     <div class="controls">
       <%= f.text_field :url_picture, :class => 'form-control' %>
@@ -233,22 +223,7 @@
 
     <%= error_span(@entertainment[:parent_company_state_or_province]) %>
   </div>
-  <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :parent_company_contact_person_email_address, :class => 'form-control' %>
-    </div>
-    <%= f.label :parent_company_contact_person_email_address, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:parent_company_contact_person_email_address]) %>
-  </div>
-  <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :parent_company_contact_person_last_name, :class => 'form-control' %>
-    </div>
-    <%= f.label :parent_company_contact_person_last_name, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:parent_company_contact_person_last_name]) %>
-  </div>
+ 
   <div class="control-group col-md-6">
     <div class="controls">
       <%= f.text_field :parent_company_country, :class => 'form-control' %>
@@ -257,13 +232,32 @@
 
     <%= error_span(@entertainment[:parent_company_country]) %>
   </div>
+  
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :parent_company_contact_person_phone_number, :class => 'form-control' %>
+      <%= f.text_field :parent_comapny_name, :class => 'form-control' %>
     </div>
-    <%= f.label :parent_company_contact_person_phone_number, :class => 'control-label user_feild' %>
+    <%= f.label :parent_comapny_name, :class => 'control-label user_feild' %>
 
-    <%= error_span(@entertainment[:parent_company_contact_person_phone_number]) %>
+    <%= error_span(@entertainment[:parent_comapny_name]) %>
+  </div>
+  
+  <h3 class="region-breaker col-md-12">PARENT COMPANY CONTACT PERSON</h3>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :contact_person_first_name, :class => 'form-control' %>
+    </div>
+    <%= f.label :contact_person_first_name, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:contact_person_first_name]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :contact_person_last_name, :class => 'form-control' %>
+    </div>
+    <%= f.label :contact_person_last_name, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:contact_person_last_name]) %>
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
@@ -275,12 +269,63 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :parent_comapny_name, :class => 'form-control' %>
+      <%= f.text_field :parent_company_contact_person_last_name, :class => 'form-control' %>
     </div>
-    <%= f.label :parent_comapny_name, :class => 'control-label user_feild' %>
+    <%= f.label :parent_company_contact_person_last_name, :class => 'control-label user_feild' %>
 
-    <%= error_span(@entertainment[:parent_comapny_name]) %>
+    <%= error_span(@entertainment[:parent_company_contact_person_last_name]) %>
+  </div> 
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_contact_person_email_address, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_contact_person_email_address, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:parent_company_contact_person_email_address]) %>
   </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_contact_person_phone_number, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_contact_person_phone_number, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:parent_company_contact_person_phone_number]) %>
+  </div>
+
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :contact_person_position, :class => 'form-control' %>
+    </div>
+    <%= f.label :contact_person_position, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:contact_person_position]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :contact_person_phone, :class => 'form-control' %>
+    </div>
+    <%= f.label :contact_person_phone, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:contact_person_phone]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.email_field :contact_person_email, :class => 'form-control' %>
+    </div>
+    <%= f.label :contact_person_email, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:contact_person_email]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :contact_person_salutation, :class => 'form-control' %>
+    </div>
+    <%= f.label :contact_person_salutation, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:contact_person_salutation]) %>
+  </div>
+  
+  <h3 class="region-breaker col-md-12">EE WEBMASTER INFORMATION</h3>
   <div class="control-group col-md-6">
     <div class="controls">
       <%= f.text_field :webpage_director_phone_number, :class => 'form-control' %>
@@ -330,41 +375,8 @@
     <%= error_span(@entertainment[:webpage_director_company]) %>
   </div>
   
-   <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :contact_person_position, :class => 'form-control' %>
-    </div>
-    <%= f.label :contact_person_position, :class => 'control-label user_feild' %>
+   
 
-    <%= error_span(@entertainment[:contact_person_position]) %>
-  </div>
-   <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :contact_person_phone, :class => 'form-control' %>
-    </div>
-    <%= f.label :contact_person_phone, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:contact_person_phone]) %>
-  </div>
-   <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.email_field :contact_person_email, :class => 'form-control' %>
-    </div>
-    <%= f.label :contact_person_email, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:contact_person_email]) %>
-  </div>
-   <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :contact_person_salutation, :class => 'form-control' %>
-    </div>
-    <%= f.label :contact_person_salutation, :class => 'control-label user_feild' %>
-
-    <%= error_span(@entertainment[:contact_person_salutation]) %>
-  </div>
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            entertainments_path, :class => 'btn btn-default' %>
-
+  <%= f.submit nil, :class => 'btn btn-primary col-md-12' %>
+  
 <% end %>
