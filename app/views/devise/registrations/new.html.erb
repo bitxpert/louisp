@@ -32,13 +32,6 @@
           </div>
           <div class="form-group col-md-12">
         
-        <%= f.label :role_id %>
-        <% options = options_from_collection_for_select(Role.all, 'id', 'name') %>
-        <%= f.select :role_id,   options, { :include_blank=>"Select Role"}, { :class => 'form-control region' } %>
-        
-        </div>
-          <div class="form-group col-md-12">
-        
         <%= f.label :region_id %>
         <% options = options_from_collection_for_select(Region.all, 'id', 'territory') %>
         <%= f.select :region_id,   options, { :include_blank=>"Select Region"}, { :class => 'form-control region' } %>
