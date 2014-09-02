@@ -6,6 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     @user_number = User.where(division_id: resource[:division_id],region_id: resource[:region_id]).order("region_user_number DESC").first
+    
     if @user_number.present?
       resource[:region_user_number] = @user_number.region_user_number+1 
     else

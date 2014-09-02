@@ -6,62 +6,67 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert 	%></p>
 </head>
 <body>
-<div class="container">
-  <div class="row">a
-    <div class="col-md-12 main_layout">
-      <div class="col-md-3 side_bar">
-        <div id="user_nav">
-          <div class="image_holder">
-            <% if user_signed_in? %>
-              <% @painting = current_user.painting %>
-              <% @funny_image = current_user.funny_image %>
+<% if user_signed_in? %>
+  <div class="container">
+    <div class="row">a
+      <div class="col-md-12 main_layout">
+        <div class="col-md-3 side_bar">
+          <div id="user_nav">
+            <div class="image_holder">
+              <% if user_signed_in? %>
+                <% @painting = current_user.painting %>
+                <% @funny_image = current_user.funny_image %>
 
-              <%if @funny_image.nil? %>
-              <img src="/assets/user.png">
-              <%else%>
-              <%= image_tag @funny_image.image_url(:thumb).to_s%>
-              
-              <%end%>  
+                <% if @funny_image.nil? %>
+                <img src="/assets/user.png">
+                <%else%>
+                <%= image_tag @funny_image.image_url(:thumb).to_s%>
+                
+                <%end%>  
 
-              <%if @painting.nil? %>
-              <%= image_tag "/assets/user.png", { :id=>"pro_image", :onmouseover=>"$(this).fadeTo(2000,0);", :onmouseout=>"$(this).fadeTo(2000,1);"} %>
-              <%else%>
-              
-              <%= image_tag @painting.image_url(:thumb).to_s, { :id=>"pro_image", :onmouseover=>"$(this).fadeTo(2000,0);", :onmouseout=>"$(this).fadeTo(2000,1);"} %>
-              
-              <%end%>
-            <%else%>
-              <img src="/assets/user.png">  
-            <%end%>            
-          </div>
-          <% if user_signed_in? %>
-            <div class = "user_name">
-            <%= current_user.email %>
-            <%= link_to "Sign out", destroy_user_session_path,  :method => :delete,:class => 'btn btn-xs btn-danger'%>
+                <% if @painting.nil? %>
+                <%= image_tag "/assets/user.png", { :id=>"pro_image", :onmouseover=>"$(this).fadeTo(2000,0);", :onmouseout=>"$(this).fadeTo(2000,1);"} %>
+                <%else%>
+                
+                <%= image_tag @painting.image_url(:thumb).to_s, { :id=>"pro_image", :onmouseover=>"$(this).fadeTo(2000,0);", :onmouseout=>"$(this).fadeTo(2000,1);"} %>
+                
+                <%end%>
+                <%else%>
+                  <img src="/assets/user.png">  
+                <%end%>            
             </div>
-            <%= link_to "UPLOAD NEW IMAGE", new_painting_path, { :class=>"btn btn_side"}%>
-            <%= link_to "UPDATE PROFILE", edit_user_registration_path, { :class=>"btn btn_side"} %>
-            <%= link_to "ADD/EDIT ENTERTAINMENT ESTABLISHMENTS".html_safe, initial_page_entertainments_path, { :class=>"btn btn_side "} %>
-            <%= link_to "CONTACTS LIST", authenticated_root_path, { :class=>"btn btn_side"} %>
-            <%= link_to "CALENDAR", authenticated_root_path, { :class=>"btn btn_side"} %>
-          <% else %>
-            <%= link_to "sign in", new_user_session_path,{ :class=>"btn btn_side"} %>
-            <%= link_to "Sign up", new_user_registration_path, { :class=>"btn btn_side"} %>
-          <% end %>
-          </div>
-      </div>
-      <div class="col-md-9 border-left">
-        <%= yield %>
+            <% if user_signed_in? %>
+              <div class = "user_name">
+              <%= current_user.email %>
+              <%= link_to "Sign out", destroy_user_session_path,  :method => :delete,:class => 'btn btn-xs btn-danger'%>
+              </div>
+              <%= link_to "UPLOAD NEW IMAGE", new_painting_path, { :class=>"btn btn_side"}%>
+              <%= link_to "UPDATE PROFILE", edit_user_registration_path, { :class=>"btn btn_side"} %>
+              <%= link_to "ADD/EDIT ENTERTAINMENT ESTABLISHMENTS".html_safe, initial_page_entertainments_path, { :class=>"btn btn_side "} %>
+              <%= link_to "CONTACTS LIST", authenticated_root_path, { :class=>"btn btn_side"} %>
+              <%= link_to "CALENDAR", authenticated_root_path, { :class=>"btn btn_side"} %>
+            <% else %>
+              <%= link_to "sign in", new_user_session_path,{ :class=>"btn btn_side"} %>
+              <%= link_to "Sign up", new_user_registration_path, { :class=>"btn btn_side"} %>
+            <% end %>
+            </div>
+        </div>
+        <div class="col-md-9 border-left">
+          <%= yield %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-
+<% else %>
+  <iframe src='http://192.169.197.70/' id="info" class="iframe" name='info' width="100%" height="613px" seamless align="left"></iframe>
+  <%= yield %>
+<% end %>
 
 </body>
 </html>

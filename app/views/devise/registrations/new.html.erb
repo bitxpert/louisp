@@ -1,68 +1,60 @@
 <%= bootstrap_devise_error_messages! %>
 <div class="col-md-offset-3 col-md-6 panel">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4><%= t('.sign_up', :default => "Sign up") %></h4>
-      </div>
-      <div class="panel-body">
+      
+      <div class="panel-body signin-body col-md-6">
         <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
-          <div class="form-group">
-            <%= f.label :first_name %>
-            <%= f.text_field :first_name, class: "form-control" %>
+          <div class="form-group background-signup">
+            <%= f.label :first_name, class: "align-label" %>
+            <%= f.text_field :first_name, class: "form-control signin-field" %>
           </div>
-          <div class="form-group">
-            <%= f.label :middle_name %>
-            <%= f.text_field :middle_name, class: "form-control" %>
+          <div class="form-group background-signup">
+            <%= f.label :middle_name, class: "align-label" %>
+            <%= f.text_field :middle_name, class: "form-control signin-field" %>
           </div>
-          <div class="form-group">
-            <%= f.label :last_name %>
-            <%= f.text_field :last_name, class: "form-control" %>
+          <div class="form-group background-signup">
+            <%= f.label :last_name, class: "align-label" %>
+            <%= f.text_field :last_name, class: "form-control signin-field" %>
           </div>
-          <div class="form-group">
-            <%= f.label :age %>
-            <%= f.text_field :age, class: "form-control" %>
+          <div class="form-group background-signup">
+            <%= f.label :age, class: "align-label" %>
+            <%= f.text_field :age, class: "form-control signin-field" %>
           </div>
-          <div class="form-group">
-            <%= f.label :sex %>
-            <%= f.text_field :sex, class: "form-control" %>
+          <div class="form-group background-signup">
+            <%= f.label :sex, class: "align-label" %>
+            <%= f.text_field :sex, class: "form-control signin-field" %>
           </div>
-          <div class="form-group">
-            <%= f.label :email %>
-            <%= f.email_field :email, class: "form-control" %>
+          <div class="form-group background-signup">
+            <%= f.label :email, class: "align-label" %>
+            <%= f.email_field :email, class: "form-control signin-field" %>
           </div>
-          <div class="form-group col-md-12">
-        
-        <%= f.label :role_id %>
-        <% options = options_from_collection_for_select(Role.all, 'id', 'name') %>
-        <%= f.select :role_id,   options, { :include_blank=>"Select Role"}, { :class => 'form-control region' } %>
-        
-        </div>
-          <div class="form-group col-md-12">
-        
-        <%= f.label :region_id %>
-        <% options = options_from_collection_for_select(Region.all, 'id', 'territory') %>
-        <%= f.select :region_id,   options, { :include_blank=>"Select Region"}, { :class => 'form-control region' } %>
-        
-        </div>
-        <div class="form-group col-md-12">
-        
-        <%= f.label :division %>
-        <% options = options_from_collection_for_select(Division.all, 'id', 'name') %>
-        <%= f.select :division_id,   options, { :include_blank=>"Select Division"}, { :class => 'form-control region' } %>
-        
-        </div>
-          <div class="form-group">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, class: "form-control" %>
+          <div class="form-group  background-signup">
+            <%= f.label :role_id, class: "align-label" %>
+            <% options = options_from_collection_for_select(Role.all, 'id', 'name') %>
+            <%= f.select :role_id,   options, { :include_blank=>"Select Role"}, { :class => 'form-control region signin-field' } %>
           </div>
-          <div class="form-group">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, class: "form-control" %>
+          <div class="form-group  background-signup">
+            <%= f.label :region_id, class: "align-label" %>
+            <% options = options_from_collection_for_select(Region.all, 'id', 'name') %>
+            <%= f.select :region_id,   options, { :include_blank=>"Select Region"}, { :class => 'form-control region signin-field' } %>
           </div>
-          <div class="form-group">
+          <div class="form-group  background-signup">
+            <%= f.label :division, class: "align-label" %>
+            <% options = options_from_collection_for_select(Division.all, 'id', 'name') %>
+            <%= f.select :division_id,   options, { :include_blank=>"Select Division"}, { :class => 'form-control region signin-field' } %>
+          </div>
+          <div class="form-group background-signup">
+            <%= f.label :password, class: "align-label" %><br />
+            <%= f.password_field :password, class: "form-control signin-field" %>
+          </div>
+          <div class="form-group background-signup">
+            <%= f.label :password_confirmation, class: "small-label" %>
+            <%= f.password_field :password_confirmation, class: "form-control signin-field" %>
+          </div>
+          <div class="form-group background-signup">
             <%= f.text_field :user_main_id, hidden: "hidden" %>
           </div>
-          <div class="form-group">
+          <div class="form-group background-signup">
             <%= f.text_field :region_user_number, hidden: "hidden" %>
           </div>
           <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
@@ -70,5 +62,4 @@
       </div>
   </div>
 
-<%= render "devise/shared/links" %>
 </div>   

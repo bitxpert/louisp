@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :painting
   has_one :funny_image
-  belongs_to :region
+  belongs_to :region, foreign_key: "region_id"
   belongs_to :division
   has_many :entertainments
   belongs_to :role
