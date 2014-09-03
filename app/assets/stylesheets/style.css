@@ -193,3 +193,9 @@ background: linear-gradient(to bottom, rgb(55, 124, 164) 0%, rgb(0, 0, 0) 21%, r
 .hide{
 	display: none;
 }
+.select2-choice{
+	height: 100% !important;
+}
+.select2-width{
+	width: 100% !important;
+}

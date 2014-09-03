@@ -13,6 +13,7 @@
  *= require bootstrap_and_overrides
  *= require_tree .
  *= require_self
+ *= require select2
  *= jquery-ui-autocomplete
  *= require dataTables/jquery.dataTables
  *= require style

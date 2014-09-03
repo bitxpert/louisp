@@ -14,7 +14,7 @@
 <body>
 <% if user_signed_in? %>
   <div class="container">
-    <div class="row">a
+    <div class="row">
       <div class="col-md-12 main_layout">
         <div class="col-md-3 side_bar">
           <div id="user_nav">
@@ -25,21 +25,17 @@
 
                 <% if @funny_image.nil? %>
                 <img src="/assets/user.png">
-                <%else%>
+                <% else %>
                 <%= image_tag @funny_image.image_url(:thumb).to_s%>
-                
-                <%end%>  
-
+                <% end %>  
                 <% if @painting.nil? %>
                 <%= image_tag "/assets/user.png", { :id=>"pro_image", :onmouseover=>"$(this).fadeTo(2000,0);", :onmouseout=>"$(this).fadeTo(2000,1);"} %>
-                <%else%>
-                
+                <% else%>
                 <%= image_tag @painting.image_url(:thumb).to_s, { :id=>"pro_image", :onmouseover=>"$(this).fadeTo(2000,0);", :onmouseout=>"$(this).fadeTo(2000,1);"} %>
-                
-                <%end%>
-                <%else%>
+                <% end %>
+                <% else %>
                   <img src="/assets/user.png">  
-                <%end%>            
+                <% end %>            
             </div>
             <% if user_signed_in? %>
               <div class = "user_name">

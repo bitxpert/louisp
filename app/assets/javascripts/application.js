@@ -20,4 +20,5 @@
 //= require jquery.jeditable.js
 //= require dataTables/jquery.dataTables.editable
 //= require entertainments_datatable
+//= requre select2
 //= require_tree .

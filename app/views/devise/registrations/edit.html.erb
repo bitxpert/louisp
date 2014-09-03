@@ -24,12 +24,12 @@
       
       <div class="form-group col-md-6">
         
-        <%= f.text_field :division,value: current_user.division.name, :autocomplete => "off", class: "form-control" %>
+        <%= f.text_field :division,value: current_user.division.name, :autocomplete => "off", class: "form-control"  %>
         <%= f.label :division,"Division", class: "user_feild" %>
       </div>
       <div class="form-group col-md-6">
         
-         <%= f.text_field :region,value: current_user.region.territory, :autocomplete => "off", class: "form-control" %>
+         <%= f.text_field :region,value: current_user.region.name, :autocomplete => "off", class: "form-control" %>
         <%= f.label :region,"Region", class: "user_feild" %>
         
       </div>
@@ -53,19 +53,7 @@
         <%= f.text_field :company_mailing_street_address_2, class: "form-control" %>
         <%= f.label :company_mailing_street_address_2,"Company Mailing Street Address 2" , class: "user_feild"%>
       </div>
-      <div class="form-group col-md-6">
-        <div class="form-control">
-          <%= f.country_select :company_mailing_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
-        </div>
-        <%= f.label :company_mailing_country ,"Company Mailing Country", class: "user_feild"%>
-      </div>
-      <div class="form-group col-md-6">
       
-        <div class="form-control">
-        <%= render partial: 'subregion_select', locals: {parent_region: f.object.company_mailing_country} %>
-        </div>
-        <%= f.label :company_mailing_state_or_province,"Company Mailing State or Province", class: "user_feild" %>
-      </div>
       <div class="form-group col-md-6">
         
         <%= f.text_field :company_mailing_postal_code, class: "form-control" %>
@@ -75,6 +63,15 @@
         
         <%= f.password_field :current_password, class: "form-control error" %>
         <%= f.label :current_password,"Current Password (we need your current password to confirm your changes)", class: "user_feild error" %> 
+      </div>
+      <div class="form-group col-md-6">
+          <%= f.country_select :company_mailing_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+        <%= f.label :company_mailing_country ,"Company Mailing Country", class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+      
+        <%= render partial: 'subregion_select', locals: {parent_region: f.object.company_mailing_country} %>
+        <%= f.label :company_mailing_state_or_province,"Company Mailing State or Province", class: "user_feild" %>
       </div>
       <div class="col-md-12">
       <h3 class = "region-breaker"> PERSONAL INFORMATION</h3>
@@ -155,20 +152,16 @@
         <%= f.label :federal_id_number,"Federal ID Number" , class: "user_feild"%>
       </div>
       <div class="form-group col-md-6">
-        <div class="form-control">
           <!--<div class="ui-widget">-->
             <%= f.country_select :country_of_residence, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
           <!--</div>
           <button id="toggle">Show underlying select</button>-->
-        </div>
         <%= f.label :country_of_residence,"Country of Residence" , class: "user_feild"%>
 
       </div>
       <div class="form-group col-md-6">
        
-        <div class="form-control">
           <%= f.country_select :country_of_citizenship, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
-        </div>
          <%= f.label :country_of_citizenship,"Country of Citizenship" , class: "user_feild"%>
       </div>
       <div class="form-group col-md-6">
@@ -176,13 +169,7 @@
         <%= f.text_field :date_of_hire, class: "form-control" %>
          <%= f.label :date_of_hire ,"Date of Hire", class: "user_feild"%>
       </div>
-      <div class="form-group col-md-6">
-        
-        <div class="form-control">
-          <%= f.country_select :personal_mailing_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
-        </div>
-        <%= f.label :personal_mailing_country,"Personal Mailing Country" , class: "user_feild"%>
-      </div>
+      
       <div class="form-group col-md-6">
         
         <%= f.text_field :personal_mailing_postal_code, class: "form-control" %>
@@ -202,6 +189,11 @@
         
         <%= f.text_field :personal_mailing_street_2, class: "form-control" %>
         <%= f.label :personal_mailing_street_2,"Personal Mailing Street 2" , class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+        
+          <%= f.country_select :personal_mailing_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+        <%= f.label :personal_mailing_country,"Personal Mailing Country" , class: "user_feild"%>
       </div>
       <div class="col-md-12">
       <h3 class="region-breaker">EMERGENCY CONTACT INFORMATION</h3>
@@ -360,6 +352,12 @@
     url = "/users/subregion_options?parent_region="+yourSelect.options[yourSelect.selectedIndex].value;;
     select_wrapper.load(url)
   });
- 
+  $("#user_country_of_citizenship").select2();
+   $("#user_country_of_residence").select2();
+  $("#user_personal_mailing_country").select2();
+  $("#company_mailing_state_or_province").select2();
+  $("#user_company_mailing_country").select2();
+  $("#user_company_mailing_state_or_province").select2();
+  
   
 </script>

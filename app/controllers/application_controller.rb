@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:role_id,:division_id, :region_user_number, :parent_region, :region_id,:user_main_id,:company_mailing_state_or_province, :password, :password_confirmation, :first_name, :middle_name, :last_name, :sex, :age) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:role_id,:division_id,:division, :region_user_number, :parent_region, :region_id,:user_main_id,:company_mailing_state_or_province, :password, :password_confirmation, :first_name, :middle_name, :last_name, :sex, :age) }
     devise_parameter_sanitizer.for(:account_update) << :salutation
     devise_parameter_sanitizer.for(:account_update) << :first_name
     devise_parameter_sanitizer.for(:account_update) << :middle_name
@@ -15,8 +15,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :sex
     devise_parameter_sanitizer.for(:account_update) << :age
     devise_parameter_sanitizer.for(:account_update) << :title
-    devise_parameter_sanitizer.for(:account_update) << :division
-    devise_parameter_sanitizer.for(:account_update) << :region
     devise_parameter_sanitizer.for(:account_update) << :company_email
     devise_parameter_sanitizer.for(:account_update) << :company_phone
     devise_parameter_sanitizer.for(:account_update) << :company_mailing_street_address_1
