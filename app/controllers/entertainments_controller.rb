@@ -13,7 +13,6 @@ class EntertainmentsController < ApplicationController
 
   def new
     @entertainment = Entertainment.new
-    @bomb = "asd"
   end
 
   def edit

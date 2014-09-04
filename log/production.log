@@ -1,0 +1,239 @@
+I, [2014-09-05T02:41:25.218653 #20544]  INFO -- : Migrating to DeviseCreateUsers (20140815073147)
+I, [2014-09-05T02:41:25.234161 #20544]  INFO -- : Migrating to CreateProducts (20140815085601)
+I, [2014-09-05T02:41:25.237556 #20544]  INFO -- : Migrating to AddFirstNameToUsers (20140818100735)
+I, [2014-09-05T02:41:25.241182 #20544]  INFO -- : Migrating to AddLastNameToUsers (20140818100744)
+I, [2014-09-05T02:41:25.243993 #20544]  INFO -- : Migrating to AddMiddleNameToUsers (20140818100759)
+I, [2014-09-05T02:41:25.247689 #20544]  INFO -- : Migrating to AddSexToUsers (20140818100832)
+I, [2014-09-05T02:41:25.251161 #20544]  INFO -- : Migrating to AddAgeToUsers (20140818100853)
+I, [2014-09-05T02:41:25.253883 #20544]  INFO -- : Migrating to AddDefaultValueToAge (20140818113839)
+I, [2014-09-05T02:41:25.258025 #20544]  INFO -- : Migrating to CreatePaintings (20140818133029)
+I, [2014-09-05T02:41:25.261591 #20544]  INFO -- : Migrating to AddImageToPaintings (20140818133228)
+I, [2014-09-05T02:41:25.264601 #20544]  INFO -- : Migrating to AddFirstNameToEntertainments (20140819085452)
+I, [2014-09-05T02:41:25.266958 #20544]  INFO -- : Migrating to CreateEntertainments (20140819090748)
+I, [2014-09-05T02:41:25.271215 #20544]  INFO -- : Migrating to AddColumnsToUsers (20140819094606)
+I, [2014-09-05T02:41:25.288459 #20544]  INFO -- : Migrating to AddUserIdToPaintings (20140820055310)
+I, [2014-09-05T02:41:25.292020 #20544]  INFO -- : Migrating to ChangeDataTypeForEntertainmentsUserId (20140820101625)
+I, [2014-09-05T02:41:25.315941 #20544]  INFO -- : Migrating to CreateFunnyImages (20140822080540)
+I, [2014-09-05T02:41:25.318956 #20544]  INFO -- : Migrating to AddUserIdToFunnyImage (20140822084703)
+I, [2014-09-05T02:41:25.321965 #20544]  INFO -- : Migrating to CreateRegions (20140822130047)
+I, [2014-09-05T02:41:25.325000 #20544]  INFO -- : Migrating to DeviseCreateAdminUsers (20140825053902)
+E, [2014-09-05T02:41:25.434883 #20544] ERROR -- : Binary data inserted for `string` type on column `encrypted_password`
+I, [2014-09-05T02:41:25.437968 #20544]  INFO -- : Migrating to CreateActiveAdminComments (20140825053911)
+I, [2014-09-05T02:41:25.450493 #20544]  INFO -- : Migrating to AddUserMainIdToUser (20140827092859)
+I, [2014-09-05T02:41:25.494650 #20544]  INFO -- : Migrating to AddUserIdToRegion (20140827093418)
+I, [2014-09-05T02:41:25.499779 #20544]  INFO -- : Migrating to CreateAssignedRegions (20140827094535)
+I, [2014-09-05T02:41:25.505194 #20544]  INFO -- : Migrating to AddRegionIdToUser (20140827105000)
+I, [2014-09-05T02:41:25.510198 #20544]  INFO -- : Migrating to CreateDivisions (20140827112946)
+I, [2014-09-05T02:41:25.517862 #20544]  INFO -- : Migrating to AddDivisionIdToUser (20140827114350)
+I, [2014-09-05T02:41:25.524165 #20544]  INFO -- : Migrating to AddRegionUserNumberToUser (20140827142244)
+I, [2014-09-05T02:41:25.528940 #20544]  INFO -- : Migrating to CreateWillFilterFilters (20140828122749)
+I, [2014-09-05T02:41:25.536078 #20544]  INFO -- : Migrating to AddRoleIdToUsers (20140901110240)
+I, [2014-09-05T02:41:25.540290 #20544]  INFO -- : Migrating to CreateRoles (20140901110322)
+I, [2014-09-05T02:41:25.543091 #20544]  INFO -- : Migrating to AddNameToRoles (20140901111457)
+I, [2014-09-05T02:41:25.547280 #20544]  INFO -- : Migrating to AddUserIdToRole (20140901113209)
+I, [2014-09-05T02:41:25.552054 #20544]  INFO -- : Migrating to AddRegionIdToRegions (20140902073959)
+I, [2014-09-05T02:41:25.556518 #20544]  INFO -- : Migrating to CreateTerritories (20140902081959)
+I, [2014-09-05T02:41:25.561612 #20544]  INFO -- : Migrating to AddNameToRegions (20140902100351)
+I, [2014-09-05T02:41:25.569951 #20544]  INFO -- : Migrating to AddEmergencyContactMailingStateToUsers (20140904065700)
+I, [2014-09-05T02:41:25.590197 #20544]  INFO -- : Migrating to AddEmergencyContactMailingCountryToUsers (20140904065717)
+I, [2014-09-05T02:41:25.596106 #20544]  INFO -- : Migrating to AddRepresentativeNameToEntertainments (20140904081705)
+I, [2014-09-05T02:41:25.602254 #20544]  INFO -- : Migrating to AddDivisionToEntertainments (20140904082531)
+I, [2014-09-05T02:41:25.608646 #20544]  INFO -- : Migrating to AddParentCompanyContactPersonSkypeIdToEntertainments (20140904094331)
+I, [2014-09-05T02:41:25.614245 #20544]  INFO -- : Migrating to AddWebpageDirectorSkypeIdToEntertainments (20140904095022)
+I, [2014-09-05T02:41:25.622080 #20544]  INFO -- : Migrating to AddWebpageDirectorFirstNameToEntertainments (20140904095514)
+I, [2014-09-05T02:41:25.634291 #20544]  INFO -- : Migrating to AddCorporateEmailToUsers (20140904113711)
+I, [2014-09-05T02:41:25.639427 #20544]  INFO -- : Migrating to AddPersonalMailingStreetAddress2ToUsers (20140904114455)
+I, [2014-09-05T02:41:25.643210 #20544]  INFO -- : Migrating to AddSkypeIdToUsers (20140904115757)
+I, [2014-09-05T02:41:25.646734 #20544]  INFO -- : Migrating to AddGovernmentTaxIdNumberToUsers (20140904120518)
+I, [2014-09-05T02:41:25.653351 #20544]  INFO -- : Migrating to AddPhotoIdToUsers (20140904120743)
+I, [2014-09-05T02:41:25.659460 #20544]  INFO -- : Migrating to AddBirthdayOUsers (20140904124504)
+I, [2014-09-05T02:42:15.386408 #20550]  INFO -- : Started GET "/" for 192.168.3.102 at 2014-09-05 02:42:15 +0500
+I, [2014-09-05T02:42:15.436164 #20550]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-09-05T02:42:15.493704 #20550]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (4.1ms)
+I, [2014-09-05T02:42:15.495793 #20550]  INFO -- : Completed 200 OK in 59ms (Views: 14.8ms | ActiveRecord: 2.7ms)
+I, [2014-09-05T02:42:15.551831 #20550]  INFO -- : Started GET "/assets/application-ad54603d6858746e866bf2abe73550f4.css" for 192.168.3.102 at 2014-09-05 02:42:15 +0500
+I, [2014-09-05T02:42:22.296457 #20550]  INFO -- : Started GET "/assets/application-c4eab6cb20679c41d2d5c64913260e70.js" for 192.168.3.102 at 2014-09-05 02:42:22 +0500
+I, [2014-09-05T02:43:01.989076 #20550]  INFO -- : Started GET "/users/sign_up" for 192.168.3.102 at 2014-09-05 02:43:01 +0500
+I, [2014-09-05T02:43:01.992846 #20550]  INFO -- : Processing by RegistrationsController#new as HTML
+I, [2014-09-05T02:43:02.020594 #20550]  INFO -- :   Rendered devise/registrations/new.html.erb within layouts/application (14.0ms)
+I, [2014-09-05T02:43:02.022121 #20550]  INFO -- : Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 1.4ms)
+I, [2014-09-05T02:43:03.601353 #20550]  INFO -- : Started GET "/favicon.ico" for 192.168.3.102 at 2014-09-05 02:43:03 +0500
+F, [2014-09-05T02:43:03.603116 #20550] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+E, [2014-09-05T02:56:37.609571 #20620] ERROR -- : SQLite3::ConstraintException: PRIMARY KEY must be unique: INSERT INTO "territories" ("created_at", "division_id", "id", "name", "region_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)
+I, [2014-09-05T03:07:38.130736 #20625]  INFO -- : Started GET "/users/sign_up" for 127.0.0.1 at 2014-09-05 03:07:38 +0500
+I, [2014-09-05T03:07:38.218311 #20625]  INFO -- : Processing by RegistrationsController#new as HTML
+I, [2014-09-05T03:07:38.420938 #20625]  INFO -- :   Rendered devise/registrations/new.html.erb within layouts/application (130.4ms)
+I, [2014-09-05T03:07:38.426115 #20625]  INFO -- : Completed 200 OK in 208ms (Views: 155.7ms | ActiveRecord: 7.9ms)
+I, [2014-09-05T03:07:38.491605 #20625]  INFO -- : Started GET "/assets/application-ad54603d6858746e866bf2abe73550f4.css" for 127.0.0.1 at 2014-09-05 03:07:38 +0500
+I, [2014-09-05T03:07:38.602053 #20625]  INFO -- : Started GET "/assets/application-c4eab6cb20679c41d2d5c64913260e70.js" for 127.0.0.1 at 2014-09-05 03:07:38 +0500
+I, [2014-09-05T03:07:46.867528 #20625]  INFO -- : Started GET "/users/sign_up" for 127.0.0.1 at 2014-09-05 03:07:46 +0500
+I, [2014-09-05T03:07:46.868803 #20625]  INFO -- : Processing by RegistrationsController#new as HTML
+I, [2014-09-05T03:07:46.882949 #20625]  INFO -- :   Rendered devise/registrations/new.html.erb within layouts/application (11.9ms)
+I, [2014-09-05T03:07:46.883804 #20625]  INFO -- : Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.7ms)
+I, [2014-09-05T03:07:47.001478 #20625]  INFO -- : Started GET "/assets/application-c4eab6cb20679c41d2d5c64913260e70.js" for 127.0.0.1 at 2014-09-05 03:07:47 +0500
+I, [2014-09-05T03:07:47.007015 #20625]  INFO -- : Started GET "/assets/application-ad54603d6858746e866bf2abe73550f4.css" for 127.0.0.1 at 2014-09-05 03:07:47 +0500
+I, [2014-09-05T03:08:17.486229 #20625]  INFO -- : Started POST "/users" for 127.0.0.1 at 2014-09-05 03:08:17 +0500
+I, [2014-09-05T03:08:17.488031 #20625]  INFO -- : Processing by RegistrationsController#create as HTML
+I, [2014-09-05T03:08:17.488595 #20625]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"kiERgPsdzm+CH/XeVvNbepRhrIgdRWPZsJ+HxNPpO4I=", "user"=>{"first_name"=>"sdaf", "middle_name"=>"asdf", "last_name"=>"Asif", "birthday"=>"", "sex"=>"male", "email"=>"mail.usmanasif@gmail.com", "role_id"=>"2", "region_id"=>"3", "division_id"=>"2", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user_main_id"=>"", "region_user_number"=>""}, "commit"=>"Sign up"}
+E, [2014-09-05T03:08:17.611623 #20625] ERROR -- : Binary data inserted for `string` type on column `encrypted_password`
+E, [2014-09-05T03:08:17.617841 #20625] ERROR -- : Binary data inserted for `string` type on column `current_sign_in_ip`
+E, [2014-09-05T03:08:17.617941 #20625] ERROR -- : Binary data inserted for `string` type on column `last_sign_in_ip`
+I, [2014-09-05T03:08:17.628516 #20625]  INFO -- : Redirected to http://localhost:3000/
+I, [2014-09-05T03:08:17.628740 #20625]  INFO -- : Completed 302 Found in 140ms (ActiveRecord: 5.1ms)
+I, [2014-09-05T03:08:17.636187 #20625]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-09-05 03:08:17 +0500
+I, [2014-09-05T03:08:17.640781 #20625]  INFO -- : Processing by Devise::RegistrationsController#edit as HTML
+I, [2014-09-05T03:08:17.712417 #20625]  INFO -- :   Rendered devise/registrations/_subregion_select.html.erb (0.8ms)
+I, [2014-09-05T03:08:17.777506 #20625]  INFO -- :   Rendered devise/registrations/edit.html.erb within layouts/application (134.0ms)
+I, [2014-09-05T03:08:17.790060 #20625]  INFO -- : Completed 200 OK in 149ms (Views: 147.1ms | ActiveRecord: 1.4ms)
+I, [2014-09-05T03:08:17.886344 #20625]  INFO -- : Started GET "/assets/application-ad54603d6858746e866bf2abe73550f4.css" for 127.0.0.1 at 2014-09-05 03:08:17 +0500
+I, [2014-09-05T03:08:17.892043 #20625]  INFO -- : Started GET "/assets/application-c4eab6cb20679c41d2d5c64913260e70.js" for 127.0.0.1 at 2014-09-05 03:08:17 +0500
+I, [2014-09-05T03:08:17.897729 #20625]  INFO -- : Started GET "/assets/user.png" for 127.0.0.1 at 2014-09-05 03:08:17 +0500
+I, [2014-09-05T03:08:18.053269 #20625]  INFO -- : Started GET "/assets/select2x2.png" for 127.0.0.1 at 2014-09-05 03:08:18 +0500
+F, [2014-09-05T03:08:18.082928 #20625] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/select2x2.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-09-05T03:08:18.147796 #20625]  INFO -- : Started GET "/assets/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2014-09-05 03:08:18 +0500
+F, [2014-09-05T03:08:18.158381 #20625] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_flat_75_ffffff_40x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-09-05T03:08:20.795330 #20625]  INFO -- : Started GET "/entertainments/initial_page" for 127.0.0.1 at 2014-09-05 03:08:20 +0500
+I, [2014-09-05T03:08:20.802071 #20625]  INFO -- : Processing by EntertainmentsController#initial_page as HTML
+I, [2014-09-05T03:08:20.818940 #20625]  INFO -- :   Rendered entertainments/initial_page.html.erb within layouts/application (2.1ms)
+I, [2014-09-05T03:08:20.824948 #20625]  INFO -- : Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 0.7ms)
+I, [2014-09-05T03:08:20.892749 #20625]  INFO -- : Started GET "/assets/application-c4eab6cb20679c41d2d5c64913260e70.js" for 127.0.0.1 at 2014-09-05 03:08:20 +0500
+I, [2014-09-05T03:08:20.897969 #20625]  INFO -- : Started GET "/assets/application-ad54603d6858746e866bf2abe73550f4.css" for 127.0.0.1 at 2014-09-05 03:08:20 +0500
+I, [2014-09-05T03:08:23.081639 #20625]  INFO -- : Started GET "/entertainments/new" for 127.0.0.1 at 2014-09-05 03:08:23 +0500
+I, [2014-09-05T03:08:23.083443 #20625]  INFO -- : Processing by EntertainmentsController#new as HTML
+I, [2014-09-05T03:08:23.181599 #20625]  INFO -- :   Rendered entertainments/_form.html.erb (84.5ms)
+I, [2014-09-05T03:08:23.181752 #20625]  INFO -- :   Rendered entertainments/new.html.erb within layouts/application (87.7ms)
+I, [2014-09-05T03:08:23.184288 #20625]  INFO -- : Completed 200 OK in 101ms (Views: 91.4ms | ActiveRecord: 1.9ms)
+I, [2014-09-05T03:08:23.230863 #20625]  INFO -- : Started GET "/assets/application-ad54603d6858746e866bf2abe73550f4.css" for 127.0.0.1 at 2014-09-05 03:08:23 +0500
+I, [2014-09-05T03:08:23.234865 #20625]  INFO -- : Started GET "/assets/application-c4eab6cb20679c41d2d5c64913260e70.js" for 127.0.0.1 at 2014-09-05 03:08:23 +0500
+I, [2014-09-05T03:08:23.397158 #20625]  INFO -- : Started GET "/assets/select2x2.png" for 127.0.0.1 at 2014-09-05 03:08:23 +0500
+F, [2014-09-05T03:08:23.417865 #20625] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/select2x2.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-09-05T03:08:31.252408 #20625]  INFO -- : Started POST "/entertainments" for 127.0.0.1 at 2014-09-05 03:08:31 +0500
+I, [2014-09-05T03:08:31.254676 #20625]  INFO -- : Processing by EntertainmentsController#create as HTML
+I, [2014-09-05T03:08:31.254920 #20625]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"kiERgPsdzm+CH/XeVvNbepRhrIgdRWPZsJ+HxNPpO4I=", "entertainment"=>{"representative_name"=>"sdaf asdf Asif", "representative_id"=>"200301", "division"=>"East Central", "region"=>"Region 3", "country"=>"", "url"=>"", "name"=>"", "category"=>"", "sub_category"=>"", "function"=>"", "icon"=>"", "email"=>"", "phone_number"=>"", "street_address_1"=>"", "street_address_2"=>"", "city"=>"", "state_or_province"=>"", "postal_code"=>"", "parent_comapny_name"=>"", "user_id"=>"200301", "password"=>"[FILTERED]", "parent_company_street_address_1"=>"", "parent_company_street_address_2"=>"", "parent_company_city"=>"", "parent_company_state_or_province"=>"", "parent_company_country"=>"", "parent_company_postal_code"=>"", "parent_company_contact_person_salutation"=>"", "parent_company_contact_person_first_name"=>"", "parent_company_contact_person_last_name"=>"", "parent_company_contact_person_phone_number"=>"", "parent_company_contact_person_email_address"=>"", "parent_company_contact_person_skype_id"=>"", "webpage_director_company"=>"", "webpage_director_first_name"=>"", "webpage_director_last_name"=>"", "webpage_director_phone_number"=>"", "webpage_director_email_address"=>"", "webpage_director_skype_id"=>""}, "commit"=>"Create Entertainment"}
+I, [2014-09-05T03:08:31.329751 #20625]  INFO -- :   Rendered entertainments/_form.html.erb (48.3ms)
+I, [2014-09-05T03:08:31.329896 #20625]  INFO -- :   Rendered entertainments/new.html.erb within layouts/application (49.2ms)
+I, [2014-09-05T03:08:31.332331 #20625]  INFO -- : Completed 200 OK in 77ms (Views: 51.7ms | ActiveRecord: 1.0ms)
+I, [2014-09-05T03:08:31.378572 #20625]  INFO -- : Started GET "/assets/application-c4eab6cb20679c41d2d5c64913260e70.js" for 127.0.0.1 at 2014-09-05 03:08:31 +0500
+I, [2014-09-05T03:08:31.388571 #20625]  INFO -- : Started GET "/assets/application-ad54603d6858746e866bf2abe73550f4.css" for 127.0.0.1 at 2014-09-05 03:08:31 +0500
+I, [2014-09-05T03:08:31.665424 #20625]  INFO -- : Started GET "/assets/select2x2.png" for 127.0.0.1 at 2014-09-05 03:08:31 +0500
+F, [2014-09-05T03:08:31.684706 #20625] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/select2x2.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/usman/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
