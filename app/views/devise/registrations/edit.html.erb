@@ -5,7 +5,7 @@
     </div>
     <div class="panel-body">
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-      <h3 class="region-breaker">LouisP INFORMATION</h3>
+      <h3 class="region-breaker">louišP INFORMATION</h3>
       <div class="form-group col-md-6">
         
         <%= f.text_field :user_main_id, :autocomplete => "off", class: "form-control" %>
@@ -104,9 +104,36 @@
          <%= f.label :last_name ,"Last Name", class: "user_feild"%>
       </div>
       <div class="form-group col-md-6">
+       
+        <%= f.text_field :personal_phone, class: "form-control" %>
+         <%= f.label :personal_phone ,"Personal Phone", class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+       
+        <%= f.email_field :email, class: "form-control" %>
+         <%= f.label :email,"Personal Email" , class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+       
+        <%= f.email_field :skype_id, class: "form-control" %>
+         <%= f.label :skype_id,"Skype ID" , class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+       
+        <%= f.email_field :photo_id, class: "form-control" %>
+         <%= f.label :photo_id,"Photo ID" , class: "user_feild"%>
+      </div>
+
+      <div class="form-group col-md-6">
+       
+        <%= f.email_field :government_tax_id_number, class: "form-control" %>
+         <%= f.label :government_tax_id_number,"Government Tax ID Number" , class: "user_feild"%>
+      </div>
+      
+      <div class="form-group col-md-6">
         
-        <%= f.text_field :age, class: "form-control" %>
-        <%= f.label :age , class: "user_feild" %>
+        <%= f.text_field :birthday, class: "form-control birthday" %>
+        <%= f.label :birthday , class: "user_feild" %>
       </div>
       <div class="form-group col-md-6">
         
@@ -114,37 +141,50 @@
         <%= f.label :sex , class: "user_feild"%>
       </div>
       <div class="form-group col-md-6">
-       
-        <%= f.email_field :email, class: "form-control" %>
-         <%= f.label :email , class: "user_feild"%>
+        
+        <%= f.text_field :corporate_email, class: "form-control" %>
+        <%= f.label :corporate_email ,"Corporate Email", class: "user_feild"%>
       </div>
       
-      <div class="form-group col-md-6">
-        
-        <%= f.text_field :title, class: "form-control" %>
-        <%= f.label :title , class: "user_feild"%>
-      </div>
-      
-      <div class="form-group col-md-6">
-        
-        <%= f.text_field :personal_email, class: "form-control" %>
-        <%= f.label :personal_email ,"Personal Email", class: "user_feild"%>
-      </div>
-      <div class="form-group col-md-6">
-       
-        <%= f.text_field :personal_phone, class: "form-control" %>
-         <%= f.label :personal_phone ,"Personal Phone", class: "user_feild"%>
-      </div>
       <div class="form-group col-md-6">
         
         <%= f.text_field :personal_mailing_street_address, class: "form-control" %>
-        <%= f.label :personal_mailing_street_address ,"Personal Mailing Street Address", class: "user_feild"%>
+        <%= f.label :personal_mailing_street_address ,"Personal Mailing Street Address 1", class: "user_feild"%>
       </div>
-      
+      <div class="form-group col-md-6">
+        
+        <%= f.text_field :personal_mailing_street_address_2, class: "form-control" %>
+        <%= f.label :personal_mailing_street_address_2,"Personal Mailing Street Address 2" , class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+       
+        <%= f.text_field :personal_mailing_city, class: "form-control" %>
+         <%= f.label :personal_mailing_city,"Personal Mailing City", class: "user_feild" %>
+      </div>
+      <div class="form-group col-md-6">
+        
+        <%= f.text_field :personal_mailing_state_or_province, class: "form-control" %>
+        <%= f.label :personal_mailing_state_or_province,"Personal Mailing State or Province" , class: "user_feild"%>      
+      </div>
+      <div class="form-group col-md-6">
+        
+          <%= f.country_select :personal_mailing_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+        <%= f.label :personal_mailing_country,"Personal Mailing Country" , class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+        
+        <%= f.text_field :personal_mailing_postal_code, class: "form-control" %>
+        <%= f.label :personal_mailing_postal_code,"Personal Mailing Postal Code" , class: "user_feild"%>
+      </div>
       <div class="form-group col-md-6">
         
         <%= f.text_field :identification_photo, class: "form-control" %>
         <%= f.label :identification_photo ,"Identification Photo", class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+       
+        <%= f.text_field :date_of_hire, class: "form-control" %>
+         <%= f.label :date_of_hire ,"Date of Hire", class: "user_feild"%>
       </div>
       <div class="form-group col-md-6">
         
@@ -164,44 +204,31 @@
           <%= f.country_select :country_of_citizenship, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
          <%= f.label :country_of_citizenship,"Country of Citizenship" , class: "user_feild"%>
       </div>
-      <div class="form-group col-md-6">
-       
-        <%= f.text_field :date_of_hire, class: "form-control" %>
-         <%= f.label :date_of_hire ,"Date of Hire", class: "user_feild"%>
-      </div>
       
-      <div class="form-group col-md-6">
-        
-        <%= f.text_field :personal_mailing_postal_code, class: "form-control" %>
-        <%= f.label :personal_mailing_postal_code,"Personal Mailing Postal Code" , class: "user_feild"%>
-      </div>
-      <div class="form-group col-md-6">
-        
-        <%= f.text_field :personal_mailing_state_or_province, class: "form-control" %>
-        <%= f.label :personal_mailing_state_or_province,"Personal Mailing State or Province" , class: "user_feild"%>      
-      </div>
-      <div class="form-group col-md-6">
-       
-        <%= f.text_field :personal_mailing_city, class: "form-control" %>
-         <%= f.label :personal_mailing_city,"Personal Mailing City", class: "user_feild" %>
-      </div>
-      <div class="form-group col-md-6">
-        
-        <%= f.text_field :personal_mailing_street_2, class: "form-control" %>
-        <%= f.label :personal_mailing_street_2,"Personal Mailing Street 2" , class: "user_feild"%>
-      </div>
-      <div class="form-group col-md-6">
-        
-          <%= f.country_select :personal_mailing_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
-        <%= f.label :personal_mailing_country,"Personal Mailing Country" , class: "user_feild"%>
-      </div>
+      
+      
+      
+      
+      
+
+      
       <div class="col-md-12">
       <h3 class="region-breaker">EMERGENCY CONTACT INFORMATION</h3>
       </div>
       <div class="form-group col-md-6">
         
-        <%= f.text_field :emergency_contact_mailing_city, class: "form-control" %>
-        <%= f.label :emergency_contact_mailing_city,"Emergency Contact Mailing City" , class: "user_feild"%>
+        <%= f.text_field :emergency_contact_first_name, class: "form-control" %>
+        <%= f.label :emergency_contact_first_name,"Emergency Contact First Fame" , class: "user_feild"%>
+      </div>  
+       <div class="form-group col-md-6">
+        
+        <%= f.text_field :emergency_contact_last_name, class: "form-control" %>
+        <%= f.label :emergency_contact_last_name,"Emergency Contact Last Name" , class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+        
+        <%= f.text_field :emergency_contact_mailing_street_1, class: "form-control" %>
+        <%= f.label :emergency_contact_mailing_street_1,"Emergency Contact Mailing Street 1" , class: "user_feild"%>
       </div>
       <div class="form-group col-md-6">
        
@@ -210,9 +237,20 @@
       </div>
       <div class="form-group col-md-6">
         
-        <%= f.text_field :emergency_contact_mailing_street_1, class: "form-control" %>
-        <%= f.label :emergency_contact_mailing_street_1,"Emergency Contact Mailing Street 1" , class: "user_feild"%>
+        <%= f.text_field :emergency_contact_mailing_city, class: "form-control" %>
+        <%= f.label :emergency_contact_mailing_city,"Emergency Contact Mailing City" , class: "user_feild"%>
       </div>
+      <div class="form-group col-md-6">
+        
+        <%= f.text_field :emergency_contact_mailing_state, class: "form-control" %>
+        <%= f.label :emergency_contact_mailing_state,"Emergency Contact Mailing State" , class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+       
+          <%= f.country_select :emergency_contact_mailing_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+         <%= f.label :emergency_contact_mailing_country,"Emergency Contact Mailing Country" , class: "user_feild"%>
+      </div>
+      
       <div class="form-group col-md-6">
         
         <%= f.text_field :emergency_contact_relationship, class: "form-control" %>
@@ -228,22 +266,12 @@
         <%= f.text_field :emergency_contact_email, class: "form-control" %>
         <%= f.label :emergency_contact_email,"Emergency Contact Email" , class: "user_feild"%>
       </div>
-      <div class="form-group col-md-6">
-        
-        <%= f.text_field :emergency_contact_last_name, class: "form-control" %>
-        <%= f.label :emergency_contact_last_name,"Emergency Contact Last Name" , class: "user_feild"%>
-      </div>
-      <div class="form-group col-md-6">
-        
-        <%= f.text_field :emergency_contact_first_name, class: "form-control" %>
-        <%= f.label :emergency_contact_first_name,"Emergency Contact First Fame" , class: "user_feild"%>
-      </div>
+     
 
       <%= f.submit t('.update', :default => "Update"), class: "btn btn-primary col-md-12" %></div>
   <% end %>
-  <p><%= t('.unhappy', :default => 'Unhappy') %>? <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete %>.</p>
+  
 
-<%= link_to "Back", :back %>
 
   </div>
   <% @region = Region.new %>
@@ -337,6 +365,9 @@
 
 
 <script type="text/javascript">
+  $(document).ready(function(){
+    $(".birthday").datepicker();
+  })
   $(".region").append("<option value='newregion'>Add new region</option>");
   $(".region").change(function(){
     var val = $(this).val();
@@ -352,12 +383,13 @@
     url = "/users/subregion_options?parent_region="+yourSelect.options[yourSelect.selectedIndex].value;;
     select_wrapper.load(url)
   });
+  $("#user_emergency_contact_mailing_country").select2();
   $("#user_country_of_citizenship").select2();
    $("#user_country_of_residence").select2();
   $("#user_personal_mailing_country").select2();
   $("#company_mailing_state_or_province").select2();
   $("#user_company_mailing_country").select2();
   $("#user_company_mailing_state_or_province").select2();
-  
-  
+
+
 </script>

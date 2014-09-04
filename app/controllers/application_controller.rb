@@ -7,13 +7,21 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:role_id,:division_id,:division, :region_user_number, :parent_region, :region_id,:user_main_id,:company_mailing_state_or_province, :password, :password_confirmation, :first_name, :middle_name, :last_name, :sex, :age) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:role_id,:division_id,:division, :region_user_number, :parent_region, :region_id,:user_main_id,:company_mailing_state_or_province, :password, :password_confirmation, :first_name, :middle_name, :last_name, :sex, :birthday) }
+    
+    devise_parameter_sanitizer.for(:account_update) << :skype_id
+    devise_parameter_sanitizer.for(:account_update) << :photo_id
+    devise_parameter_sanitizer.for(:account_update) << :government_tax_id_number  
     devise_parameter_sanitizer.for(:account_update) << :salutation
     devise_parameter_sanitizer.for(:account_update) << :first_name
+    devise_parameter_sanitizer.for(:account_update) << :skype_id
+    devise_parameter_sanitizer.for(:account_update) << :personal_mailing_street_address_2
     devise_parameter_sanitizer.for(:account_update) << :middle_name
     devise_parameter_sanitizer.for(:account_update) << :last_name
     devise_parameter_sanitizer.for(:account_update) << :sex
-    devise_parameter_sanitizer.for(:account_update) << :age
+    devise_parameter_sanitizer.for(:account_update) << :emergency_contact_mailing_state
+    devise_parameter_sanitizer.for(:account_update) << :emergency_contact_mailing_country
+    devise_parameter_sanitizer.for(:account_update) << :birthday
     devise_parameter_sanitizer.for(:account_update) << :title
     devise_parameter_sanitizer.for(:account_update) << :company_email
     devise_parameter_sanitizer.for(:account_update) << :company_phone

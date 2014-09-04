@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
   has_many :entertainments
   belongs_to :role
   validates_presence_of :role_id, :division_id, :region_id
-  validates_numericality_of :age, :only_integer =>true, 
-                          :greater_than_or_equal_to =>0, 
-                          :message => "invalid"
+  #validates_numericality_of :age, :only_integer =>true, 
+  #                        :greater_than_or_equal_to =>0, 
+  #                        :message => "invalid"
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

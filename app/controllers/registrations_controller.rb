@@ -14,10 +14,10 @@ class RegistrationsController < Devise::RegistrationsController
     end
     @user_number_two_digits = sprintf '%02d', resource[:region_user_number] 
     @region_id_two_digits = sprintf '%02d', resource[:region_id]
-    if resource[:role_id] ==  5                       #"Division Director"
-      @is_DD = 1;
+    if resource[:role_id] == 5                       #"Division Director"
+      @is_DD = resource[:division_id]
     else
-      @is_DD = 0;  
+      @is_DD = 0  
     end
     resource[:user_main_id] = resource[:division_id].to_s+"#{@is_DD}"+@region_id_two_digits.to_s+@user_number_two_digits.to_s
     

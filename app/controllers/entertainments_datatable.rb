@@ -36,8 +36,10 @@ private
 
   def fetch_entertainments
     if current_user.role.present?
-      if current_user.role.name == "Division Director"
-        entertainments = Entertainments.order("#{sort_column} #{sort_direction}")
+      if current_user.role.name == "Senior Director"
+        entertainments = Entertainment.order("#{sort_column} #{sort_direction}")
+      elsif current_user.role.name == "Division Director"
+        entertainments = Entertainment.where(division: current_user.division.name).order("#{sort_column} #{sort_direction}")  
       else
         entertainments = current_user.entertainments.order("#{sort_column} #{sort_direction}")
       end

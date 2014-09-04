@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902100351) do
+ActiveRecord::Schema.define(version: 20140904124504) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -105,6 +105,11 @@ ActiveRecord::Schema.define(version: 20140902100351) do
     t.string   "contact_person_salutation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "representative_name"
+    t.string   "division"
+    t.string   "parent_company_contact_person_skype_id"
+    t.string   "webpage_director_skype_id"
+    t.string   "webpage_director_first_name"
   end
 
   create_table "funny_images", force: true do |t|
@@ -245,6 +250,13 @@ ActiveRecord::Schema.define(version: 20140902100351) do
     t.integer  "division_id"
     t.integer  "region_user_number"
     t.integer  "role_id"
+    t.string   "emergency_contact_mailing_state"
+    t.string   "emergency_contact_mailing_country"
+    t.string   "corporate_email"
+    t.string   "personal_mailing_street_address_2"
+    t.string   "skype_id"
+    t.string   "government_tax_id_number"
+    t.integer  "photo_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

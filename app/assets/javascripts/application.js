@@ -21,4 +21,6 @@
 //= require dataTables/jquery.dataTables.editable
 //= require entertainments_datatable
 //= requre select2
+//= require entertainments
+//= require main_menu
 //= require_tree .

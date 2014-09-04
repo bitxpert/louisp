@@ -366,3 +366,9 @@ Division.create(id: 1, name: 'Eastern Division')
 Division.create(id: 2, name: 'East Central')
 Division.create(id: 3, name: 'West Central')
 Division.create(id: 4, name: 'Western Divisions')
+
+
+Role.create(name: 'Regional Representative')
+Role.create(name: 'Divisional Director')
+Role.create(name: 'Data Acquisition Personnel')
+Role.create(name: 'Senior Director')
