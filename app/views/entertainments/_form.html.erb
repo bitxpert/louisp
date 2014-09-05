@@ -19,7 +19,7 @@
   
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :representative_name, value: current_user.first_name+" #{current_user.middle_name} "+current_user.last_name, :class => 'form-control', :readonly=>true %>
+      <%= f.text_field :representative_name, :class => 'form-control', :readonly=>true %>
     </div>
     <%= f.label :representative_name,"Representative Name", :class => 'control-label user_feild' %>
 
@@ -27,7 +27,7 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :representative_id, value: current_user.user_main_id, :class => 'form-control', :readonly=>true %>
+      <%= f.text_field :representative_id, :class => 'form-control', :readonly=>true %>
     </div>
     <%= f.label :representative_id,"Representative Id", :class => 'control-label user_feild disable' %>
 
@@ -35,14 +35,14 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :division, value: current_user.division.name, :class => 'form-control' %>
+      <%= f.text_field :division, :class => 'form-control' %>
     </div>
     <%= f.label :division, :class => 'control-label user_feild' %>
     <%= error_span(@entertainment[:division]) %>
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :region, value: current_user.region.name, :class => 'form-control' %>
+      <%= f.text_field :region, :class => 'form-control' %>
     </div>
     <%= f.label :region, :class => 'control-label user_feild' %>
     <%= error_span(@entertainment[:region]) %>
@@ -177,17 +177,16 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :ee_user_id, value: current_user.user_main_id, :class => 'form-control' %>
+      <%= f.text_field :ee_user_id, :class => 'form-control' %>
     </div>
     <%= f.label :user_id , "EE User ID", :class => 'control-label user_feild' %>
 
     <%= error_span(@entertainment[:ee_user_id]) %>
   </div>
-  <% password_length = 12
-  password = Devise.friendly_token.first(password_length) %>
+  
   <div class="control-group col-md-6">
     <div class="controls ">
-      <%= f.password_field :password, value: password, :class => 'form-control' %>
+      <%= f.password_field :password, :class => 'form-control' %>
     </div>
     <%= f.label :password,"EE Password", :class => 'control-label user_feild' %>
 

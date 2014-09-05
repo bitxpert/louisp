@@ -13,6 +13,13 @@ class EntertainmentsController < ApplicationController
 
   def new
     @entertainment = Entertainment.new
+    @entertainment.representative_name = current_user.first_name+" #{current_user.middle_name} "+current_user.last_name
+    @entertainment.representative_id = current_user.user_main_id
+    @entertainment.division = current_user.division.name
+    @entertainment.region = current_user.region.name
+    password_length = 12
+    @entertainment.password = Devise.friendly_token.first(password_length)
+    @entertainment.ee_user_id = current_user.user_main_id
   end
 
   def edit
