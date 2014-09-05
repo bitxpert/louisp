@@ -153,6 +153,14 @@ input:focus{
 	border: 3px solid #D6D700 !important;
 
 }
+input{
+	font-size: 17.95px !important;
+	color: black !important;
+}
+.select2-choice{
+	font-size: 17.95px !important;
+	color: black !important;
+}
 .signin-body{
 	position: absolute;
 	margin: -682px 0;

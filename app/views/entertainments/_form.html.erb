@@ -19,7 +19,7 @@
   
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :representative_name, value: current_user.first_name+" #{current_user.middle_name} "+current_user.last_name, :class => 'form-control' %>
+      <%= f.text_field :representative_name, value: current_user.first_name+" #{current_user.middle_name} "+current_user.last_name, :class => 'form-control', :readonly=>true %>
     </div>
     <%= f.label :representative_name,"Representative Name", :class => 'control-label user_feild' %>
 
@@ -27,9 +27,9 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :representative_id, value: current_user.user_main_id, :class => 'form-control' %>
+      <%= f.text_field :representative_id, value: current_user.user_main_id, :class => 'form-control', :readonly=>true %>
     </div>
-    <%= f.label :representative_id,"Representative Id", :class => 'control-label user_feild' %>
+    <%= f.label :representative_id,"Representative Id", :class => 'control-label user_feild disable' %>
 
     <%= error_span(@entertainment[:representative_id]) %>
   </div>
@@ -177,11 +177,11 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :user_id, value: current_user.user_main_id, :class => 'form-control' %>
+      <%= f.text_field :ee_user_id, value: current_user.user_main_id, :class => 'form-control' %>
     </div>
     <%= f.label :user_id , "EE User ID", :class => 'control-label user_feild' %>
 
-    <%= error_span(@entertainment[:user_id]) %>
+    <%= error_span(@entertainment[:ee_user_id]) %>
   </div>
   <% password_length = 12
   password = Devise.friendly_token.first(password_length) %>
