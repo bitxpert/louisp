@@ -14,6 +14,7 @@ group :production do
 	gem 'pg', '~> 0.17.1'
 end
 
+gem 'rename'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'jquery-datatables-editable-rails', github: 'kindjal/jquery-datatables-editable-rails'
