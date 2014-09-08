@@ -90,7 +90,7 @@
   </div>
   <div class="control-group col-md-6">
       <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"]) %>
-      <%= f.select :function,   options, { :include_blank=>"Select Role"}, { :class => '' } %>
+      <%= f.select :function,   options, { :include_blank=>"Select Function"}, { :class => '' } %>
     <%= f.label :function, :class => 'control-label user_feild' %>
     <%= error_span(@entertainment[:function]) %>
   </div>
