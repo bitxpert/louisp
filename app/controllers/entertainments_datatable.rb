@@ -23,7 +23,7 @@ private
         entertainment.id,
         entertainment.name,
         entertainment.state_or_province,
-        link_to(entertainment.url, "http://#{entertainment.url}"),
+        link_to(entertainment.url, entertainment.url),
         entertainment.phone_number,
         link_to("edit", "/entertainments/#{entertainment.id}/edit", method: :get)
       ]
