@@ -89,9 +89,8 @@
     <%= error_span(@entertainment[:sub_category]) %>
   </div>
   <div class="control-group col-md-6">
-    <div class="controls">
-      <%= f.text_field :function, :class => 'form-control' %>
-    </div>
+      <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"]) %>
+      <%= f.select :function,   options, { :include_blank=>"Select Role"}, { :class => '' } %>
     <%= f.label :function, :class => 'control-label user_feild' %>
     <%= error_span(@entertainment[:function]) %>
   </div>
@@ -177,7 +176,7 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :ee_user_id, :class => 'form-control' %>
+      <%= f.text_field :ee_user_id, :class => 'form-control', :readonly => true %>
     </div>
     <%= f.label :user_id , "EE User ID", :class => 'control-label user_feild' %>
 
@@ -186,7 +185,7 @@
   
   <div class="control-group col-md-6">
     <div class="controls ">
-      <%= f.password_field :password, :class => 'form-control' %>
+      <%= f.text_field :password, :class => 'form-control', :readonly => true %>
     </div>
     <%= f.label :password,"EE Password", :class => 'control-label user_feild' %>
 

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Upload Professional Photo:</h3>
+  <h3>Upload Professional Image:</h3>
 </div>
 <% if current_user.painting.present? %>
 <%= render 'form', :url=> painting_path(current_user.painting), :method => "patch"%>
@@ -8,7 +8,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Upload Funny Photo:</h3>
+  <h3>Upload Party Image:</h3>
 </div>
 
 <% if current_user.funny_image.present? %>

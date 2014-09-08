@@ -19,7 +19,7 @@ class EntertainmentsController < ApplicationController
     @entertainment.region = current_user.region.name
     password_length = 12
     @entertainment.password = Devise.friendly_token.first(password_length)
-    @entertainment.ee_user_id = current_user.user_main_id
+    @entertainment.ee_user_id = User.order("id desc").first.id
   end
 
   def edit

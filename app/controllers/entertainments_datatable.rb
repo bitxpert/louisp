@@ -23,7 +23,7 @@ private
         entertainment.id,
         entertainment.name,
         entertainment.state_or_province,
-        entertainment.url,
+        link_to(entertainment.url, "http://#{entertainment.url}"),
         entertainment.phone_number,
         link_to("edit", "/entertainments/#{entertainment.id}/edit", method: :get)
       ]
@@ -38,13 +38,13 @@ private
     if current_user.role.present?
       if current_user.role.name == "Senior Director"
         entertainments = Entertainment.order("#{sort_column} #{sort_direction}")
-      elsif current_user.role.name == "Division Director"
+      elsif current_user.role.name == "Divisional Director"
         entertainments = Entertainment.where(division: current_user.division.name).order("#{sort_column} #{sort_direction}")  
       else
-        entertainments = current_user.entertainments.order("#{sort_column} #{sort_direction}")
+        entertainments = Entertainment.where(region: current_user.region.name).order("#{sort_column} #{sort_direction}")  
       end
     else
-      entertainments = current_user.entertainments.order("#{sort_column} #{sort_direction}")  
+      entertainments = Entertainment.where(region: current_user.region.name).order("#{sort_column} #{sort_direction}")  
     end
     entertainments = entertainments.page(page).per_page(per_page)
     if params[:sSearch].present?

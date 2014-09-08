@@ -360,12 +360,14 @@ Region.create(id: 6, name: 'Region 6')
 Region.create(id: 7, name: 'Region 7')
 Region.create(id: 8, name: 'Region 8')
 Region.create(id: 9, name: 'Region 9')
+Region.create(id: 2, name: 'Region 2')
 
 
 Division.create(id: 1, name: 'Eastern Division')
 Division.create(id: 2, name: 'East Central')
 Division.create(id: 3, name: 'West Central')
 Division.create(id: 4, name: 'Western Divisions')
+Division.create(id: 5, name: 'All Divisions')
 
 
 Role.create(name: 'Regional Representative')
@@ -382,7 +384,7 @@ User.create(user_main_id: '2015001', password: 'Can123', password_confirmation: 
 User.create(user_main_id: '2016001', password: 'Samer123', password_confirmation: 'Samer123', first_name: 'Samer', middle_name: 'Fakhreldin Ahmed Mohsen', last_name: 'Abdelhalim', division_id: 2, region_id: 16, title: 'Regional Representative Region 15', email: 'samer@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 15' )
 User.create(user_main_id: '3321001', password: 'Clelia123', password_confirmation: 'Clelia123', first_name: 'Clélia', middle_name: '', last_name: 'Hardy', division_id: 3, region_id: 21, title: 'West-Central Division Director of Operations', email: 'clelia@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'West-Central Division Director of Operations' )
 User.create(user_main_id: '3026001', password: 'Silvia123', password_confirmation: 'Silvia123', first_name: 'Silvia', middle_name: '', last_name: 'Martinez', division_id: 3, region_id: 26, title: 'Regional Representative Region 25', email: 'silvia@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 25' )
-User.create(user_main_id: '104001', password: 'Sara123', password_confirmation: 'Sara123', first_name: 'Sara', middle_name: '', last_name: 'Ceesay', division_id: 1, region_id: 4, title: 'Regional Representative Region 4', email: 'sara@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 4' )
+User.create(user_main_id: '1004001', password: 'Sara123', password_confirmation: 'Sara123', first_name: 'Sara', middle_name: '', last_name: 'Ceesay', division_id: 1, region_id: 4, title: 'Regional Representative Region 4', email: 'sara@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 4' )
 User.create(user_main_id: '1101001', password: 'Mitch123', password_confirmation: 'Mitch123', first_name: 'Mitch ', middle_name: '', last_name: 'St. Pierre', division_id: 1, region_id: 1, title: 'Eastern Division Director of Operations', email: 'mitch@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Eastern Division Director of Operations' )
 User.create(user_main_id: '1003001', password: 'Carrie123', password_confirmation: 'Carrie123', first_name: 'Carrie', middle_name: 'Anne', last_name: 'Yu', division_id: 1, region_id: 3, title: 'Regional Representative Region 3', email: 'carrie@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 3' )
 User.create(user_main_id: '2009001', password: 'Andrey123', password_confirmation: 'Andrey123', first_name: 'Andrey', middle_name: 'Goncharenko', last_name: 'Konstantinovich', division_id: 2, region_id: 9, title: 'Regional Representative Region 8', email: 'andrey@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 8' )
@@ -396,3 +398,10 @@ User.create(user_main_id: '1008001', password: 'Erik1234', password_confirmation
 User.create(user_main_id: '4024001', password: 'Maria123', password_confirmation: 'Maria123', first_name: 'Maria Jose', middle_name: '', last_name: 'Semino', division_id: 4, region_id: 24, title: 'Regional Representative Region 25', email: 'Maria', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 25' )
 User.create(user_main_id: '3020001', password: 'Andy1234', password_confirmation: 'Andy1234', first_name: 'Andy ', middle_name: '', last_name: 'Watts', division_id: 3, region_id: 20, title: 'Regional Representative Region 20', email: 'Andy@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 20' )
 User.create(user_main_id: '2010001', password: 'Jason123', password_confirmation: 'Jason123', first_name: 'Jason', middle_name: ' Ward', last_name: 'Kharkonger', division_id: 2, region_id: 10, title: 'Regional Representative Region 10', email: 'jasonward@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 10' )
+
+User.create(user_main_id: '1005001', password: 'Juan1234', password_confirmation: 'Juan1234', first_name: 'Juan', middle_name: '', last_name: 'Ibagon', division_id: 1, region_id: 5, title: 'Regional Representative Region 5', email: 'juan@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 5' )
+User.create(user_main_id: '5001001', password: 'Brian1234', password_confirmation: 'Brian1234', first_name: 'Brian', middle_name: '', last_name: 'Martin', division_id: 5, region_id: 1, title: 'Development Director', email: 'brian@louisp.info', role_id: 4, region_user_number: 1, job_reference: 'Development Director' )
+User.create(user_main_id: '5002001', password: 'Brad1234', password_confirmation: 'Brad1234', first_name: 'Brad', middle_name: '', last_name: 'Gardner', division_id: 5, region_id: 2, title: '', email: 'Brad@louisp.info', role_id: 4, region_user_number: 1, job_reference: '' )
+User.create(user_main_id: '2014001', password: 'Nouran123', password_confirmation: 'Nouran123', first_name: 'Nouran', middle_name: '', last_name: 'Sleat', division_id: 2, region_id: 14, title: 'Regional Representative Region 14', email: 'Nouran@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 14' )
+User.create(user_main_id: '3017001', password: 'Valencia123', password_confirmation: 'Valencia123', first_name: 'Valencia', middle_name: '', last_name: 'Visagie', division_id: 3, region_id: 17, title: 'Regional Representative Region 17', email: 'Valencia@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 17' )
+User.create(user_main_id: '4023001', password: 'Scott123', password_confirmation: 'Scott123', first_name: 'Scott', middle_name: '', last_name: 'Sanderson', division_id: 4, region_id: 23, title: 'Regional Representative Region 23', email: 'Scott@louisp.info', role_id: 1, region_user_number: 1, job_reference: 'Regional Representative Region 23' )
