@@ -1,5 +1,5 @@
 <%- model_class = Entertainment -%>
-
+<div class="table_area">
 <table id="flip-scroll">
   <thead>
     <tr>
@@ -16,19 +16,20 @@
   <tbody>
     <% @entertainments.each do |entertainment| %> 
       <tr>
+        <td data-title="Url" class="numeric"><%= link_to(entertainment.url,entertainment.url) %></td>
         <td data-title="Representative"><%= entertainment.representative_id %></td>
         <td data-title="Function"><%= entertainment.function %></td>
         <td data-title="Category" class="numeric"><%= entertainment.category %></td>
         <td data-title="Sub category" class="numeric"><%= entertainment.sub_category %></td>
-        <td data-title="Country %" class="numeric"><%= Carmen::Country.coded(entertainment.country).name %></td>
         <td data-title="State or province" class="numeric"><%= entertainment.state_or_province %></td>
         <td data-title="Name" class="numeric"><%= entertainment.name %></td>
-        <td data-title="Url" class="numeric"><%= link_to(entertainment.url,entertainment.url) %></td>
+        <td data-title="Country %" class="numeric"><%= Carmen::Country.coded(entertainment.country).name %></td>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 
 
 
