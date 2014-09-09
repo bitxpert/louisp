@@ -83,14 +83,14 @@ class EntertainmentsController < ApplicationController
         @by = Entertainment.uniq.pluck(:function)
       elsif current_user.role.name == "Divisional Director"
         @entertainments = Entertainment.where(division: current_user.division.name).order("function asc")
-        @by = Entertainment.where(division: current_user.division.name).order("country asc").uniq.pluck(:function)
+        @by = Entertainment.where(division: current_user.division.name).order("function asc").uniq.pluck(:function)
       else
         @entertainments = Entertainment.where(region: current_user.region.name).order("function asc")
-        @by = Entertainment.where(region: current_user.region.name).order("country asc").uniq.pluck(:function)  
+        @by = Entertainment.where(region: current_user.region.name).order("function asc").uniq.pluck(:function)  
       end
     else
       @entertainments = Entertainment.where(region: current_user.region.name).order("function asc")
-      @by = Entertainment.where(region: current_user.region.name).order("country asc").uniq.pluck(:function)
+      @by = Entertainment.where(region: current_user.region.name).order("function asc").uniq.pluck(:function)
     end
   end
 
