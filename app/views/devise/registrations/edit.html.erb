@@ -8,7 +8,7 @@
       <h3 class="region-breaker">louišP INFORMATION</h3>
       <div class="form-group col-md-6">
         
-        <%= f.text_field :user_main_id, :readonly => true, :autocomplete => "off", class: "form-control" %>
+        <%= f.text_field :user_main_id, :disabled => 'disabled', :readonly => true, :autocomplete => "off", class: "form-control" %>
         <%= f.label :user_main_id,"User ID", class: "user_feild" %>
       </div>
       <div class="form-group col-md-6">
@@ -24,12 +24,12 @@
       
       <div class="form-group col-md-6">
         
-        <%= f.text_field :division,value: current_user.division.name, :readonly => true, :autocomplete => "off", class: "form-control"  %>
+        <%= f.text_field :division,value: current_user.division.name, :disabled => 'disabled', :readonly => true, :autocomplete => "off", class: "form-control"  %>
         <%= f.label :division,"Division", class: "user_feild" %>
       </div>
       <div class="form-group col-md-6">
         
-         <%= f.text_field :region,value: current_user.region.name, :readonly => true, :autocomplete => "off", class: "form-control" %>
+         <%= f.text_field :region,value: current_user.region.name, :disabled => 'disabled', :readonly => true, :autocomplete => "off", class: "form-control" %>
         <%= f.label :region,"Region", class: "user_feild" %>
         
       </div>
@@ -131,7 +131,7 @@
       </div>
       
       <div class="form-group col-md-6">
-        
+
         <%= f.text_field :birthday, class: "form-control birthday" %>
         <%= f.label :birthday , class: "user_feild" %>
       </div>
@@ -139,11 +139,6 @@
         
         <%= f.text_field :sex, class: "form-control" %>
         <%= f.label :sex , class: "user_feild"%>
-      </div>
-      <div class="form-group col-md-6">
-        
-        <%= f.text_field :corporate_email, class: "form-control" %>
-        <%= f.label :corporate_email ,"Corporate Email", class: "user_feild"%>
       </div>
       
       <div class="form-group col-md-6">

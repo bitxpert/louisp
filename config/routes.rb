@@ -9,6 +9,9 @@ Rails.application.routes.draw do
    collection do
     post 'dumy_update'
     get 'initial_page' 
+    get 'report'
+    get 'report_by_function'
+    get 'report_by_country'
    end 
   end
   resources :paintings do

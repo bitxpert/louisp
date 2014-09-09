@@ -62,6 +62,56 @@ class EntertainmentsController < ApplicationController
     end
   end
 
+  def report
+    if current_user.role.present?
+      if current_user.role.name == "Senior Director"
+        @entertainments = Entertainment.all
+      elsif current_user.role.name == "Divisional Director"
+        @entertainments = Entertainment.where(division: current_user.division.name)
+      else
+        @entertainments = Entertainment.where(region: current_user.region.name)  
+      end
+    else
+      @entertainments = Entertainment.where(region: current_user.region.name)
+    end
+  end
+
+  def report_by_function
+    if current_user.role.present?
+      if current_user.role.name == "Senior Director"
+        @entertainments = Entertainment.all.order("function asc")
+        @by = Entertainment.uniq.pluck(:function)
+      elsif current_user.role.name == "Divisional Director"
+        @entertainments = Entertainment.where(division: current_user.division.name).order("function asc")
+        @by = Entertainment.where(division: current_user.division.name).order("country asc").uniq.pluck(:function)
+      else
+        @entertainments = Entertainment.where(region: current_user.region.name).order("function asc")
+        @by = Entertainment.where(region: current_user.region.name).order("country asc").uniq.pluck(:function)  
+      end
+    else
+      @entertainments = Entertainment.where(region: current_user.region.name).order("function asc")
+      @by = Entertainment.where(region: current_user.region.name).order("country asc").uniq.pluck(:function)
+    end
+  end
+
+  def report_by_country
+    if current_user.role.present?
+      if current_user.role.name == "Senior Director"
+        @entertainments = Entertainment.all.order("country asc")
+        @by = Entertainment.uniq.pluck(:country)
+      elsif current_user.role.name == "Divisional Director"
+        @entertainments = Entertainment.where(division: current_user.division.name).order("country asc")
+        @by = Entertainment.where(division: current_user.division.name).order("country asc").uniq.pluck(:country)
+      else
+        @entertainments = Entertainment.where(region: current_user.region.name).order("country asc")  
+        @by = Entertainment.where(region: current_user.region.name).order("country asc").uniq.pluck(:country)
+      end
+    else
+      @entertainments = Entertainment.where(region: current_user.region.name).order("country asc")
+      @by = Entertainment.where(region: current_user.region.name).order("country asc").uniq.pluck(:country)
+    end
+  end
+
   def dumy_update
   end
 

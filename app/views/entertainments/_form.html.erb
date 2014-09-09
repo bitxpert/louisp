@@ -19,7 +19,7 @@
   
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :representative_name, :class => 'form-control', :readonly=>true %>
+      <%= f.text_field :representative_name, :class => 'form-control', :disabled => 'disabled', :readonly=>true %>
     </div>
     <%= f.label :representative_name,"Representative Name", :class => 'control-label user_feild' %>
 
@@ -27,7 +27,7 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :representative_id, :class => 'form-control', :readonly=>true %>
+      <%= f.text_field :representative_id, :class => 'form-control', :disabled => 'disabled', :readonly=>true %>
     </div>
     <%= f.label :representative_id,"Representative Id", :class => 'control-label user_feild disable' %>
 
@@ -176,7 +176,7 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :ee_user_id, :class => 'form-control', :readonly => true %>
+      <%= f.text_field :ee_user_id, :class => 'form-control', :disabled => 'disabled', :readonly => true %>
     </div>
     <%= f.label :user_id , "EE User ID", :class => 'control-label user_feild' %>
 
@@ -185,7 +185,7 @@
   
   <div class="control-group col-md-6">
     <div class="controls ">
-      <%= f.text_field :password, :class => 'form-control', :readonly => true %>
+      <%= f.text_field :password, :class => 'form-control', :disabled => 'disabled', :readonly => true %>
     </div>
     <%= f.label :password,"EE Password", :class => 'control-label user_feild' %>
 
@@ -240,6 +240,7 @@
     <%= error_span(@entertainment[:parent_company_postal_code]) %>
   </div>
   
+  <h3 class="region-breaker col-md-12">PARENT COMPANY CONTACT PERSON</h3>
   <div class="control-group col-md-6">
     <div class="controls">
       <%= f.text_field :parent_company_contact_person_salutation, :class => 'form-control' %>
@@ -248,13 +249,6 @@
 
     <%= error_span(@entertainment[:parent_company_contact_person_salutation]) %>
   </div>
-  
- 
-  
-  
-  
-  
-  <h3 class="region-breaker col-md-12">PARENT COMPANY CONTACT PERSON</h3>
   <div class="control-group col-md-6">
     <div class="controls">
       <%= f.text_field :parent_company_contact_person_first_name, :class => 'form-control' %>
@@ -267,7 +261,7 @@
     <div class="controls">
       <%= f.text_field :parent_company_contact_person_last_name, :class => 'form-control' %>
     </div>
-    <%= f.label :parent_company_contact_person_last_name, "Parent Company Contact Person First Name", :class => 'control-label user_feild' %>
+    <%= f.label :parent_company_contact_person_last_name, "Parent Company Contact Person Last Name", :class => 'control-label user_feild' %>
 
     <%= error_span(@entertainment[:parent_company_contact_person_last_name]) %>
   </div> 

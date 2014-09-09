@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Report By Country</h1>
+</div>
+<%- model_class = Entertainment -%>
+<table id="flip-scroll">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th class="numeric">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @by.each do |entertainment| %> 
+      <tr>
+        <td data-title="Country %" class="numeric"><%= Carmen::Country.coded(entertainment).name %></td>
+        <% if current_user.role.name == 'Divisional Director' %>
+          <% @count = Entertainment.where("country='#{entertainment}' and division='#{current_user.division.name}'").count %>
+        <% elsif current_user.role.name == 'Senior Director' %>
+          <% @count = Entertainment.where("country='#{entertainment}'").count %>
+        <% else %>
+          <% @count = Entertainment.where("country='#{entertainment}' and region='#{current_user.region.name}'").count %>   
+        <% end %>  
+        <td data-title="Url" class="numeric"><%= @count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= render :partial => 'report' %>

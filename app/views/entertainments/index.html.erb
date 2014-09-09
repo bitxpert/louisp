@@ -2,10 +2,15 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<%= link_to "Total EE's", new_entertainment_path, :class => 'btn col-md-6 btn-border'%>
-<%= link_to "EE's By COUNTRY", new_entertainment_path, :class => 'btn col-md-6 btn-border'%>
-<%= link_to "EE's By CATAGORY", new_entertainment_path, :class => 'btn col-md-6 btn-border'%>
-<%= link_to "EE's By FUNCTION", new_entertainment_path, :class => 'btn col-md-6 btn-border'%>
+<div class="col-md-12 btn_area">
+  <%= link_to "Total EE's", report_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
+  <%= link_to "EE's By COUNTRY", report_by_country_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
+</div>
+<div class="col-md-12 btn_area">
+  <%= link_to "EE's By CATEGORY", new_entertainment_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
+  <%= link_to "EE's By FUNCTION", report_by_function_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
+</div>
+
 
 <table id="entertainments" class="table table-striped edit" data-source="<%= entertainments_url(format: "json") %>">
   <thead>
