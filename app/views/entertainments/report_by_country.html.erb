@@ -14,11 +14,11 @@
       <tr>
         <td data-title="Country %" class="numeric"><%= Carmen::Country.coded(entertainment).name %></td>
         <% if current_user.role.name == 'Divisional Director' %>
-          <% @count = Entertainment.where("country='#{entertainment}' and division='#{current_user.division.name}'").count %>
+          <% @count = Entertainment.where(country: entertainment, division: current_user.division.name).count %>
         <% elsif current_user.role.name == 'Senior Director' %>
-          <% @count = Entertainment.where("country='#{entertainment}'").count %>
+          <% @count = Entertainment.where(country: entertainment).count %>
         <% else %>
-          <% @count = Entertainment.where("country='#{entertainment}' and region='#{current_user.region.name}'").count %>   
+          <% @count = Entertainment.where(country: entertainment, region: current_user.region.name).count %>   
         <% end %>  
         <td data-title="Url" class="numeric"><%= @count %></td>
       </tr>
