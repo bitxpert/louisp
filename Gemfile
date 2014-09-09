@@ -13,6 +13,7 @@ end
 group :production do 
 	gem 'pg', '~> 0.17.1'
 	gem 'unicorn'
+	gem 'rails_12factor'
 end
 
 gem 'rename'
