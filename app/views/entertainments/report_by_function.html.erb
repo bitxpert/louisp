@@ -10,13 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @by.each do |entertainment| %> 
-      <tr>
-        <td><%= entertainment %></td>
-          <% @count = Entertainment.where(function: entertainment).count %>
-        <td data-title="Url" class="numeric"><%= @count %></td>
-      </tr>
-    <% end %>
+    
   </tbody>
 </table>
 <%= render :partial => 'report' %>
