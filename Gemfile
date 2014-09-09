@@ -12,6 +12,7 @@ group :development do
 end
 group :production do 
 	gem 'pg', '~> 0.17.1'
+	gem 'unicorn'
 end
 
 gem 'rename'
@@ -55,7 +56,7 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+# 
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
