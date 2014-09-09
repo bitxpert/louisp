@@ -12,14 +12,8 @@
   <tbody>
     <% @by.each do |entertainment| %> 
       <tr>
-        <td data-title="Function %" class="numeric"><%= entertainment %></td>
-        <% if current_user.role.name == 'Divisional Director' %>
-          <% @count = Entertainment.where(function: entertainment, division: current_user.division.name).count %>
-        <% elsif current_user.role.name == 'Senior Director' %>
+        <td><%= entertainment %></td>
           <% @count = Entertainment.where(function: entertainment).count %>
-        <% else %>
-          <% @count = Entertainment.where(function: entertainment, region: current_user.region.name).count %>   
-        <% end %>  
         <td data-title="Url" class="numeric"><%= @count %></td>
       </tr>
     <% end %>
