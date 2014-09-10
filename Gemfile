@@ -9,9 +9,11 @@ ruby '2.1.2'
 # Use SCSS for stylesheets
 group :development do 
 	gem 'sqlite3'
+
 end
+gem 'pg', '~> 0.17.1'
 group :production do 
-	gem 'pg', '~> 0.17.1'
+	
 	gem 'unicorn'
 	gem 'rails_12factor'
 end
