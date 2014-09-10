@@ -2,7 +2,7 @@
   <h1>Report By Country</h1>
 </div>
 <%- model_class = Entertainment -%>
-<table id="flip-scroll">
+<table id="flip-scroll" class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:country) %></th>
@@ -13,14 +13,7 @@
     <% @by.each do |entertainment| %> 
       <tr>
         <td data-title="Country %" class="numeric"><%= Carmen::Country.coded(entertainment).name %></td>
-        <% if current_user.role.name == 'Divisional Director' %>
-          <% @count = Entertainment.where(country: entertainment, division: current_user.division.name).count %>
-        <% elsif current_user.role.name == 'Senior Director' %>
-          <% @count = Entertainment.where(country: entertainment).count %>
-        <% else %>
-          <% @count = Entertainment.where(country: entertainment, region: current_user.region.name).count %>   
-        <% end %>  
-        <td data-title="Url" class="numeric"><%= @count %></td>
+        <td data-title="Url" class="numeric"><%= @count[entertainment] %></td>
       </tr>
     <% end %>
   </tbody>
