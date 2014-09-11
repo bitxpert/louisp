@@ -25,7 +25,7 @@ class EntertainmentsController < ApplicationController
 
   def edit
 
-    @entertainment = current_user.entertainments.find(params[:id])
+    @entertainment = Entertainment.find(params[:id])
     @function = @entertainment.function
   end
 

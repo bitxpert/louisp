@@ -44,11 +44,11 @@ private
         entertainments = Entertainment.where(region: current_user.try(:region).try(:name)).order("#{sort_column} #{sort_direction}")  
       end
     else
-      entertainments = Entertainment.where(region: current_user.region.name).order("#{sort_column} #{sort_direction}")  
+      entertainments = Entertainment.where(region: current_user.region.name).where("name like '%tai%'").order("#{sort_column} #{sort_direction}")  
     end
     entertainments = entertainments.page(page).per_page(per_page)
     if params[:sSearch].present?
-      entertainments = entertainments.where("name like :search or country like :search or state_or_province like :search  or url like :search or phone_number like :search", search: "%#{params[:sSearch]}%")
+      entertainments = entertainments.where("name ilike :search or country ilike :search or state_or_province ilike :search  or url ilike :search or phone_number ilike :search", search: "%#{params[:sSearch]}%")
     end
     entertainments
   end
