@@ -23,7 +23,14 @@ class EntertainmentsController < ApplicationController
   end
 
   def edit
-    @entertainment = current_user.entertainments.find(params[:id])
+    if current_user.try(:role).try(:name) == "Senior Director"
+        entertainments = Entertainment.find(params[:id])
+      elsif current_user.try(:role).try(:name) == "Divisional Director"
+        entertainments = Entertainment.where(division: current_user.try(:division).try(:name)).find(params[:id])  
+      else
+        entertainments = Entertainment.where(region: current_user.try(:region).try(:name)).find(params[:id])  
+      end
+    entertainments = Entertainment.where(region: current_user.try(:region).try(:name)).find(params[:id])  
   end
 
   def create

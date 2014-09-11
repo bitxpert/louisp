@@ -41,7 +41,7 @@ private
       elsif current_user.role.name == "Divisional Director"
         entertainments = Entertainment.where(division: current_user.division.name).order("#{sort_column} #{sort_direction}")  
       else
-        entertainments = Entertainment.where(region: current_user.region.name).order("#{sort_column} #{sort_direction}")  
+        entertainments = Entertainment.where(region: current_user.try(:region).try(:name)).order("#{sort_column} #{sort_direction}")  
       end
     else
       entertainments = Entertainment.where(region: current_user.region.name).order("#{sort_column} #{sort_direction}")  
