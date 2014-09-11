@@ -3,7 +3,7 @@ $("#entertainment_country").select2();
 $("#entertainment_parent_company_country").select2();
 $("#entertainment_function").select2();
 //$("#entertainment_representative_name").attr("disabled","disabled") 
- $("input[type='submit']").click(
+ $("input[value='Create Entertainment']").click(
       function(event) {
         event.preventDefault();
         $("#entertainment_representative_name").removeAttr("disabled")
