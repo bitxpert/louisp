@@ -20,17 +20,13 @@ class EntertainmentsController < ApplicationController
     password_length = 12
     @entertainment.password = Devise.friendly_token.first(password_length)
     @entertainment.ee_user_id = Entertainment.order("id desc").first.id
+    @function = ''
   end
 
   def edit
-    if current_user.try(:role).try(:name) == "Senior Director"
-        entertainments = Entertainment.find(params[:id])
-      elsif current_user.try(:role).try(:name) == "Divisional Director"
-        entertainments = Entertainment.where(division: current_user.try(:division).try(:name)).find(params[:id])  
-      else
-        entertainments = Entertainment.where(region: current_user.try(:region).try(:name)).find(params[:id])  
-      end
-    entertainments = Entertainment.where(region: current_user.try(:region).try(:name)).find(params[:id])  
+
+    @entertainment = current_user.entertainments.find(params[:id])
+    @function = @entertainment.function
   end
 
   def create

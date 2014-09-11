@@ -89,8 +89,8 @@
     <%= error_span(@entertainment[:sub_category]) %>
   </div>
   <div class="control-group col-md-6">
-      <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"]) %>
-      <%= f.select :function,   options, { :include_blank=>"Select Function"}, { :class => '' } %>
+      <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"], selected: @function ) %>
+      <%= f.select :function ,options,{ :include_blank=>"Select Function"} %>
     <%= f.label :function, :class => 'control-label user_feild' %>
     <%= error_span(@entertainment[:function]) %>
   </div>
