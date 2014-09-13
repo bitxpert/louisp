@@ -18,6 +18,7 @@ group :production do
 	gem 'rails_12factor'
 end
 
+gem "nested_form"
 gem 'rename'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'

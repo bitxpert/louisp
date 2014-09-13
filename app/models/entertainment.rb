@@ -1,7 +1,7 @@
 class Entertainment < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :entertainment_parent_company
-	validates_presence_of :country
+	validates_presence_of :country, :name, :function
 	validate :at_least_one_field
 
 	def at_least_one_field

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :post_attachments
   resources :regions
   resources :posts
+  resources :entertainment_parent_companies
   resources :entertainments do
    collection do
     post 'dumy_update'

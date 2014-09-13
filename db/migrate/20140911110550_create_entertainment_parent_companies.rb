@@ -27,3 +27,4 @@ class CreateEntertainmentParentCompanies < ActiveRecord::Migration
     end
   end
 end
+EntertainmentParentCompany.create(id: ,parent_company_postal_code: '', parent_company_street_address_2: '', parent_company_street_address_1: '', parent_company_city: '', parent_company_contact_person_salutation: '', parent_company_state_or_province: '', parent_company_contact_person_email_address: '', parent_company_contact_person_last_name: '', parent_company_country: '', parent_company_contact_person_phone_number: '', parent_company_contact_person_first_name: '', parent_comapny_name: '', webpage_director_phone_number: '', webpage_director_email_address: '', webpage_director_salutation: '', webpage_director_salutation: '', webpage_director_last_name: '', webpage_director_contact_person_first_name: '', webpage_director_company: '', webpage_director_first_name: '', webpage_director_skype_id: '', password: '', parent_company_contact_person_skype_id: '')
