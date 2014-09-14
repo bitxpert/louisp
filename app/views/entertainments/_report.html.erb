@@ -1,6 +1,6 @@
 <%- model_class = Entertainment -%>
 <div class="table_area">
-<table id="flip-scroll" class="table table-bordered table-striped">
+<table id="flip-scroll" class="table table-bordered table-striped tablesorter">
   <thead>
     <tr>
       <th>Action</th>
@@ -34,5 +34,7 @@
 </table>
 </div>
 
-
+<script type="text/javascript">
+  $("table").tablesorter({ theme: 'blue' });
+</script>
 

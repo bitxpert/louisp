@@ -18,6 +18,7 @@ group :production do
 	gem 'rails_12factor'
 end
 
+gem 'jquery-tablesorter', :git => 'https://github.com/themilkman/jquery-tablesorter-rails'
 gem "nested_form"
 gem 'rename'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',

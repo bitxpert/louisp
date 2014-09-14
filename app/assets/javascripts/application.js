@@ -21,6 +21,7 @@
 //= require dataTables/jquery.dataTables.editable
 //= require entertainments_datatable
 //= requre select2
+//= require jquery-tablesorter
 //= require jquery_nested_form
 //= require main_menu
 //= require_tree .
