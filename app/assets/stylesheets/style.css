@@ -323,3 +323,6 @@ background: linear-gradient(to bottom, #b6b76b 0%,#c7c86b 5%,#d4d26b 11%,#d9d86b
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
 margin: 0px 4px !important;
 }
+.btn_to_right {
+	float: right !important;
+}

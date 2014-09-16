@@ -25,8 +25,8 @@ before_filter :authenticate_user!
 
   def edit
 
-    @entertainment = Entertainment.find(params[:id])
-    @function = @entertainment.function
+    @entertainment_parent_company = EntertainmentParentCompany.find(params[:id])
+    @function = ''
   end
 
   def create

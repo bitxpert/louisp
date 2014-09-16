@@ -1,3 +1,4 @@
+<% javascript_include_tag "entertainment_parent_companies.js" %>
 <%= javascript_include_tag :defaults, "nested_form" %>
 <%- model_class = EntertainmentParentCompany -%>
 <div>
@@ -24,35 +25,38 @@
   <% end %>  
   <%= f.fields_for :entertainments do |entertainment_form| %>
     <h3 class="region-breaker col-md-12"> DAP 1 INFO </h3>
+    <%= entertainment_form.link_to_remove "remove", class: "btn_to_right btn btn_side btn_add col-md-3" %>
+    <br class="col-md-12"></br>
+    <h3 class="col-md-12"></h3>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :representative_name, :value => @entertainment_representative_name, :class => 'form-control', :disabled => 'disabled' %>
+        <%= entertainment_form.text_field :representative_name, :value => current_user.first_name+" #{current_user.middle_name} "+current_user.last_name, :class => 'form-control representative_name', :disabled => 'disabled' %>
       </div>
       <%= entertainment_form.label :representative_name,"Representative Name", :class => 'control-label user_feild' %>
 
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :representative_id, :value => @entertainment_representative_id, :class => 'form-control', :disabled => 'disabled' %>
+        <%= entertainment_form.text_field :representative_id, :value => current_user.user_main_id, :class => 'form-control representative_id', :disabled => 'disabled' %>
       </div>
       <%= entertainment_form.label :representative_id,"Representative Id", :class => 'control-label user_feild disable' %>
 
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :division, :value => @entertainment_division, :class => 'form-control' %>
+        <%= entertainment_form.text_field :division, :value => current_user.division.name, :class => 'form-control' %>
       </div>
       <%= entertainment_form.label :division, :class => 'control-label user_feild' %>
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :region, :value => @entertainment_region, :class => 'form-control' %>
+        <%= entertainment_form.text_field :region, :value => current_user.region.name, :class => 'form-control' %>
       </div>
       <%= entertainment_form.label :region, :class => 'control-label user_feild' %>
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.country_select :country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+        <%= entertainment_form.country_select :country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control entertainment_country" %>
       </div>
       <%= entertainment_form.label :country, :class => 'control-label user_feild' %>
       <% error_span(@entertainment_parent_company[:country]) %>
@@ -89,7 +93,7 @@
     <div class="control-group col-md-6">
         <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"], selected: @function ) %>
         <%= entertainment_form.select :function ,options,{ :include_blank=>"Select Function"} %>
-      <%= entertainment_form.label :function, :class => 'control-label user_feild' %>
+      <%= entertainment_form.label :function, :class => 'control-label user_feild entertainment_function' %>
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
@@ -149,7 +153,7 @@
     </div>  
 
 <% end %>
-<p><%= f.link_to_add "Add a task", :entertainments %></p>
+<%= f.link_to_add "Add Affiliate", :entertainments, class: "btn_to_right add_nested_fields btn btn_side btn_add col-md-3" %>
 
   
   <h3 class="region-breaker col-md-12"> DAP 1 INFO </h3>
@@ -337,8 +341,41 @@
   
    
 
-  <%= f.submit nil, :class => 'btn btn-primary col-md-12' %>
+  <%= f.submit nil, :class => 'btn btn-primary col-md-12 EPC' %>
   
 <% end %>
 
 <br/><br/>
+<script type="text/javascript">
+  window.onload = function() {
+
+$("select").select2()
+$(".add_nested_fields").click(function(event){
+  window.setTimeout(function () {$("select").select2();}, 500);
+});
+$("#entertainment_parent_company_parent_company_country").select2();
+//$("#entertainment_representative_name").attr("disabled","disabled") 
+ 
+
+ $("input[value='Create Entertainment parent company']").click(
+      function(event) {
+        event.preventDefault();
+        $(".representative_name").removeAttr("disabled")
+        $(".representative_id").removeAttr("disabled")
+        // $("#entertainment_category").removeAttr("disabled")
+        // $("#entertainment_sub_category").removeAttr("disabled")
+        // $("#entertainment_icon").removeAttr("disabled")
+        $("#entertainment_parent_company_ee_user_id").removeAttr("disabled")
+        $("#entertainment_parent_company_password").removeAttr("disabled")
+        $('#new_entertainment_parent_company').submit();
+      }
+    );
+/*$(".DAP1-info").hide()
+$(".DAP1_btn").click(function(){
+  $(".DAP1_btn").hide(100);   
+  $(".DAP1-info").show(600);
+}); 
+*/
+
+};
+</script>

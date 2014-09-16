@@ -1,0 +1,344 @@
+<%= javascript_include_tag :defaults, "nested_form" %>
+<%- model_class = EntertainmentParentCompany -%>
+<div>
+</div>
+<div class="page-header">
+  <h3><b><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></b>
+  </h3>
+</div>
+
+<%= nested_form_for @entertainment_parent_company do |f| %>
+  <% if @entertainment_parent_company.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@entertainment_parent_company.errors.count, "error") %> prohibited this entertainment from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @entertainment_parent_company.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>  
+  <%= f.fields_for :entertainments do |entertainment_form| %>
+    <h3 class="region-breaker col-md-12"> DAP 1 INFO </h3>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :representative_name, :value => @entertainment_representative_name, :class => 'form-control', :disabled => 'disabled' %>
+      </div>
+      <%= entertainment_form.label :representative_name,"Representative Name", :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :representative_id, :value => @entertainment_representative_id, :class => 'form-control', :disabled => 'disabled' %>
+      </div>
+      <%= entertainment_form.label :representative_id,"Representative Id", :class => 'control-label user_feild disable' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :division, :value => @entertainment_division, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :division, :class => 'control-label user_feild' %>
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :region, :value => @entertainment_region, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :region, :class => 'control-label user_feild' %>
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.country_select :country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+      </div>
+      <%= entertainment_form.label :country, :class => 'control-label user_feild' %>
+      <% error_span(@entertainment_parent_company[:country]) %>
+    </div>
+    
+     <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :url, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :url, :class => 'control-label user_feild' %>
+
+    </div>
+     <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :name, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :name, "EE Name", :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :category, :class => 'form-control', disabled: 'disbaled' %>
+      </div>
+      <%= entertainment_form.label :category, :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :sub_category, :class => 'form-control', disabled: 'disbaled' %>
+      </div>
+      <%= entertainment_form.label :sub_category,"Sub Category", :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+        <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"], selected: @function ) %>
+        <%= entertainment_form.select :function ,options,{ :include_blank=>"Select Function"} %>
+      <%= entertainment_form.label :function, :class => 'control-label user_feild' %>
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :icon, :class => 'form-control', disabled: 'disbaled' %>
+      </div>
+      <%= entertainment_form.label :icon, :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :email, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :email, :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :phone_number, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :phone_number,"Phone Number", :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :street_address_1, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :street_address_1,"Street Address 1", :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :street_address_2, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :street_address_2,"Street Address 2", :class => 'control-label user_feild' %>
+
+    </div> 
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :city, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :city, :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :state_or_province, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :state_or_province,"State or Province", :class => 'control-label user_feild' %>
+
+    </div>
+    <div class="control-group col-md-6">
+      <div class="controls">
+        <%= entertainment_form.text_field :postal_code, :class => 'form-control' %>
+      </div>
+      <%= entertainment_form.label :postal_code, "Postal Code", :class => 'control-label user_feild' %>
+
+    </div>  
+
+<% end %>
+<p><%= f.link_to_add "Add a task", :entertainments %></p>
+
+  
+  <h3 class="region-breaker col-md-12"> DAP 1 INFO </h3>
+  <div class="col-md-12"></div>
+  <br><br>
+  <h4 class="region-breaker col-md-12">PARENT COMPANY INFORMATION</h4>
+  <div class="col-md-12"></div>
+  
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_comapny_name, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_comapny_name, "Parent Comapny Name", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_comapny_name]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :id, :value => @entertainment_parent_company_id, :class => 'form-control', :disabled => 'disabled' %>
+    </div>
+    <%= f.label :id , "EE User ID", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:id]) %>
+  </div>
+  
+  <div class="control-group col-md-6">
+    <div class="controls ">
+      <%= f.text_field :password, :class => 'form-control', :disabled => 'disabled' %>
+    </div>
+    <%= f.label :password,"EE Password", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:password]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_street_address_1, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_street_address_1,"Parent Company Street Address 1", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_street_address_1]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_street_address_2, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_street_address_2, "Parent Company Street Address 2" , :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_street_address_2]) %>
+  </div>
+  <div class="control-group col-md-6">
+  <div class="controls">
+      <%= f.text_field :parent_company_city, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_city,"Parent Company City", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_city]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_state_or_province, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_state_or_province, "Parent Company State or Province", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_state_or_province]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.country_select :parent_company_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+    </div>
+    <%= f.label :parent_company_country,"Parent Company Country", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_country]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_postal_code, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_postal_code, "Parent Company Postal Code", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_postal_code]) %>
+  </div>
+  
+  <h3 class="region-breaker col-md-12">PARENT COMPANY CONTACT PERSON</h3>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_contact_person_salutation, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_contact_person_salutation, "Parent Company Contact Person Salutation", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_contact_person_salutation]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_contact_person_first_name, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_contact_person_first_name, "Parent Company Contact Person First Name", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_contact_person_first_name]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_contact_person_last_name, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_contact_person_last_name, "Parent Company Contact Person Last Name", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_contact_person_last_name]) %>
+  </div> 
+   
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_contact_person_phone_number, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_contact_person_phone_number, "Parent Company Contact Person Phone Number", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_contact_person_phone_number]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_contact_person_email_address, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_contact_person_email_address,"Parent Company Contact Person Email Address", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_contact_person_email_address]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :parent_company_contact_person_skype_id, :class => 'form-control' %>
+    </div>
+    <%= f.label :parent_company_contact_person_skype_id,"Parent Company Contact Person Skype Id", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:parent_company_contact_person_skype_id]) %>
+  </div>
+  
+  <h3 class="region-breaker col-md-12">EE WEBMASTER INFORMATION</h3>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :webpage_director_company, :class => 'form-control' %>
+    </div>
+    <%= f.label :webpage_director_company,"WebMaster Company Name",  :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:webpage_director_company]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :webpage_director_first_name, :class => 'form-control' %>
+    </div>
+    <%= f.label :webpage_director_first_name,"WebMaster First Name", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:webpage_director_last_name]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :webpage_director_last_name, :class => 'form-control' %>
+    </div>
+    <%= f.label :webpage_director_last_name,"WebMaster Last Name", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:webpage_director_last_name]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :webpage_director_phone_number, :class => 'form-control' %>
+    </div>
+    <%= f.label :webpage_director_phone_number,"WebMaster Phone Number", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:webpage_director_phone_number]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :webpage_director_email_address, :class => 'form-control' %>
+    </div>
+    <%= f.label :webpage_director_email_address,"WebMaster Email Address", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:webpage_director_email_address]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :webpage_director_skype_id, :class => 'form-control' %>
+    </div>
+    <%= f.label :webpage_director_skype_id,"WebMaster Skype ID", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment_parent_company[:webpage_director_skype_id]) %>
+  </div>
+  
+  
+  
+   
+
+  <%= f.submit nil, :class => 'btn btn-primary col-md-12' %>
+  
+<% end %>
+
+<br/><br/>
