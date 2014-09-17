@@ -1,3 +1,16 @@
+$(document).ready(function(){
+
+  $('form').on('click', '.add_fields', function(event) {
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    return event.preventDefault();
+  });
+    
+});
+
+
 window.onload = function() {
 //$("#entertainment_country").select2();
 //$("#entertainment_parent_company_country").select2();
@@ -17,6 +30,7 @@ window.onload = function() {
         // $('#new_entertainment').submit();
       }
     );
+
 /*$(".DAP1-info").hide()
 $(".DAP1_btn").click(function(){
   $(".DAP1_btn").hide(100);   

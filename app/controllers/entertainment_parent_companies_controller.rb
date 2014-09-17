@@ -19,7 +19,6 @@ before_filter :authenticate_user!
     @entertainment_region = current_user.region.name
     password_length = 12
     @entertainment_parent_company.password = Devise.friendly_token.first(password_length)
-    @entertainment_parent_company_id = @entertainment_parent_company.id
     @function = ''
   end
 
