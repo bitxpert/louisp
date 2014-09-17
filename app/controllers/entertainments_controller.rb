@@ -26,30 +26,30 @@ class EntertainmentsController < ApplicationController
   def edit
 
     @entertainment = Entertainment.find(params[:id])
-    # @entertainment_parent_company =  EntertainmentParentCompany.find(@entertainment.ee_user_id)
+    @entertainment_parent_company =  EntertainmentParentCompany.find(@entertainment.ee_user_id)
 
-    #  @entertainment.parent_company_postal_code = @entertainment_parent_company.parent_company_postal_code
-    #   @entertainment.parent_company_street_address_2 = @entertainment_parent_company.parent_company_street_address_2
-    #   @entertainment.parent_company_street_address_1 = @entertainment_parent_company.parent_company_street_address_1
-    #   @entertainment.parent_company_city  = @entertainment_parent_company.parent_company_city 
-    #   @entertainment.parent_company_contact_person_salutation = @entertainment_parent_company.parent_company_contact_person_salutation
-    #   @entertainment.parent_company_state_or_province = @entertainment_parent_company.parent_company_state_or_province
-    #   @entertainment.parent_company_contact_person_email_address = @entertainment_parent_company.parent_company_contact_person_email_address
-    #   @entertainment.parent_company_contact_person_last_name = @entertainment_parent_company.parent_company_contact_person_last_name
-    #   @entertainment.parent_company_country = @entertainment_parent_company.parent_company_country
-    #   @entertainment.parent_company_contact_person_phone_number = @entertainment_parent_company.parent_company_contact_person_phone_number
-    #   @entertainment.parent_company_contact_person_first_name = @entertainment_parent_company.parent_company_contact_person_first_name
-    #   @entertainment.parent_comapny_name  = @entertainment_parent_company.parent_comapny_name 
-    #   @entertainment.webpage_director_phone_number = @entertainment_parent_company.webpage_director_phone_number
-    #   @entertainment.webpage_director_email_address = @entertainment_parent_company.webpage_director_email_address
-    #   @entertainment.webpage_director_salutation = @entertainment_parent_company.webpage_director_salutation
-    #   @entertainment.webpage_director_last_name = @entertainment_parent_company.webpage_director_last_name
-    #   @entertainment.webpage_director_contact_person_first_name = @entertainment_parent_company.webpage_director_contact_person_first_name
-    #   @entertainment.webpage_director_company = @entertainment_parent_company.webpage_director_company
-    #   @entertainment.webpage_director_first_name = @entertainment_parent_company.webpage_director_first_name
-    #   @entertainment.webpage_director_skype_id = @entertainment_parent_company.webpage_director_skype_id
-    #   @entertainment.password = @entertainment_parent_company.password
-    #   @entertainment.parent_company_contact_person_skype_id = @entertainment_parent_company.parent_company_contact_person_skype_id
+     @entertainment.parent_company_postal_code = @entertainment_parent_company.parent_company_postal_code
+      @entertainment.parent_company_street_address_2 = @entertainment_parent_company.parent_company_street_address_2
+      @entertainment.parent_company_street_address_1 = @entertainment_parent_company.parent_company_street_address_1
+      @entertainment.parent_company_city  = @entertainment_parent_company.parent_company_city 
+      @entertainment.parent_company_contact_person_salutation = @entertainment_parent_company.parent_company_contact_person_salutation
+      @entertainment.parent_company_state_or_province = @entertainment_parent_company.parent_company_state_or_province
+      @entertainment.parent_company_contact_person_email_address = @entertainment_parent_company.parent_company_contact_person_email_address
+      @entertainment.parent_company_contact_person_last_name = @entertainment_parent_company.parent_company_contact_person_last_name
+      @entertainment.parent_company_country = @entertainment_parent_company.parent_company_country
+      @entertainment.parent_company_contact_person_phone_number = @entertainment_parent_company.parent_company_contact_person_phone_number
+      @entertainment.parent_company_contact_person_first_name = @entertainment_parent_company.parent_company_contact_person_first_name
+      @entertainment.parent_comapny_name  = @entertainment_parent_company.parent_comapny_name 
+      @entertainment.webpage_director_phone_number = @entertainment_parent_company.webpage_director_phone_number
+      @entertainment.webpage_director_email_address = @entertainment_parent_company.webpage_director_email_address
+      @entertainment.webpage_director_salutation = @entertainment_parent_company.webpage_director_salutation
+      @entertainment.webpage_director_last_name = @entertainment_parent_company.webpage_director_last_name
+      @entertainment.webpage_director_contact_person_first_name = @entertainment_parent_company.webpage_director_contact_person_first_name
+      @entertainment.webpage_director_company = @entertainment_parent_company.webpage_director_company
+      @entertainment.webpage_director_first_name = @entertainment_parent_company.webpage_director_first_name
+      @entertainment.webpage_director_skype_id = @entertainment_parent_company.webpage_director_skype_id
+      @entertainment.password = @entertainment_parent_company.password
+      @entertainment.parent_company_contact_person_skype_id = @entertainment_parent_company.parent_company_contact_person_skype_id
     @function = @entertainment.function
   end
 
@@ -69,10 +69,10 @@ class EntertainmentsController < ApplicationController
 
   def update
     @entertainment = Entertainment.find(params[:id])
-    #@entertainment_parent_company = EntertainmentParentCompany.find(@entertainment.ee_user_id)
-    #and @entertainment_parent_company.update(entertainment_parent_company_params)
+    @entertainment_parent_company = EntertainmentParentCompany.find(@entertainment.ee_user_id)
+    
     respond_to do |format|
-      if @entertainment.update(entertainment_params) 
+      if @entertainment.update(entertainment_params) and @entertainment_parent_company.update(entertainment_parent_company_params) 
         format.html { redirect_to entertainments_path, notice: 'Entertainment was successfully updated.' }
         format.json { render :show, status: :ok, location: @entertainment }
       else
