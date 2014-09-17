@@ -26,7 +26,7 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
 gem 'jquery-datatables-editable-rails', github: 'kindjal/jquery-datatables-editable-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
-gem 'will_paginate'
+gem 'will_paginate', "3.0.7"
 gem 'carmen-rails'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'bootstrap-modal-rails'

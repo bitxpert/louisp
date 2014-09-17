@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end  
   resources :products
   resources :home
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
 
   devise_scope :user do
   
