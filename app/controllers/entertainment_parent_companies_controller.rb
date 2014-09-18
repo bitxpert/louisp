@@ -31,7 +31,7 @@ before_filter :authenticate_user!
   def create
   	@entertainment_parent_company = EntertainmentParentCompany.new(entertainment_params)
   	if @entertainment_parent_company.save
-        redirect_to new_entertainment_path, notice: 'Entertainment was successfully established.'
+        redirect_to new_entertainment_parent_company_path, notice: 'Entertainment was successfully established.'
       else
         render :new
       end
