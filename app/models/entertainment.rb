@@ -1,6 +1,6 @@
 class Entertainment < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :entertainment_parent_company
+	belongs_to :entertainment_parent_company, :foreign_key => :ee_user_id
 	validates_presence_of :country, :name, :function
 	validate :at_least_one_field
 

@@ -26,6 +26,12 @@ class EntertainmentsController < ApplicationController
   def edit
 
     @entertainment = Entertainment.find(params[:id])
+    if(@entertainment.entertainment_parent_company.nil?)
+      password_length = 12
+      @password = Devise.friendly_token.first(password_length)
+      @entertainment.ee_user_id = EntertainmentParentCompany.create(password: @password).id
+      @entertainment.save(:validate => false)
+    end  
     @entertainment_parent_company =  EntertainmentParentCompany.find(@entertainment.ee_user_id)
 
      @entertainment.parent_company_postal_code = @entertainment_parent_company.parent_company_postal_code
