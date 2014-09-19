@@ -24,8 +24,6 @@ class EntertainmentsController < ApplicationController
   end
 
   def edit
-
-    redirect_to edit_entertainment_parent_company_path
     @entertainment = Entertainment.find(params[:id])
     if(@entertainment.entertainment_parent_company.nil?)
       password_length = 12
@@ -33,6 +31,8 @@ class EntertainmentsController < ApplicationController
       @entertainment.ee_user_id = EntertainmentParentCompany.create(password: @password).id
       @entertainment.save(:validate => false)
     end  
+    redirect_to edit_entertainment_parent_company_path
+    
     
 
 
