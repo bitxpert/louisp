@@ -25,6 +25,7 @@ class EntertainmentsController < ApplicationController
 
   def edit
 
+    redirect_to edit_entertainment_parent_company_path
     @entertainment = Entertainment.find(params[:id])
     if(@entertainment.entertainment_parent_company.nil?)
       password_length = 12
@@ -32,31 +33,34 @@ class EntertainmentsController < ApplicationController
       @entertainment.ee_user_id = EntertainmentParentCompany.create(password: @password).id
       @entertainment.save(:validate => false)
     end  
+    
+
+
     @entertainment_parent_company =  EntertainmentParentCompany.find(@entertainment.ee_user_id)
 
-     @entertainment.parent_company_postal_code = @entertainment_parent_company.parent_company_postal_code
-      @entertainment.parent_company_street_address_2 = @entertainment_parent_company.parent_company_street_address_2
-      @entertainment.parent_company_street_address_1 = @entertainment_parent_company.parent_company_street_address_1
-      @entertainment.parent_company_city  = @entertainment_parent_company.parent_company_city 
-      @entertainment.parent_company_contact_person_salutation = @entertainment_parent_company.parent_company_contact_person_salutation
-      @entertainment.parent_company_state_or_province = @entertainment_parent_company.parent_company_state_or_province
-      @entertainment.parent_company_contact_person_email_address = @entertainment_parent_company.parent_company_contact_person_email_address
-      @entertainment.parent_company_contact_person_last_name = @entertainment_parent_company.parent_company_contact_person_last_name
-      @entertainment.parent_company_country = @entertainment_parent_company.parent_company_country
-      @entertainment.parent_company_contact_person_phone_number = @entertainment_parent_company.parent_company_contact_person_phone_number
-      @entertainment.parent_company_contact_person_first_name = @entertainment_parent_company.parent_company_contact_person_first_name
-      @entertainment.parent_comapny_name  = @entertainment_parent_company.parent_comapny_name 
-      @entertainment.webpage_director_phone_number = @entertainment_parent_company.webpage_director_phone_number
-      @entertainment.webpage_director_email_address = @entertainment_parent_company.webpage_director_email_address
-      @entertainment.webpage_director_salutation = @entertainment_parent_company.webpage_director_salutation
-      @entertainment.webpage_director_last_name = @entertainment_parent_company.webpage_director_last_name
-      @entertainment.webpage_director_contact_person_first_name = @entertainment_parent_company.webpage_director_contact_person_first_name
-      @entertainment.webpage_director_company = @entertainment_parent_company.webpage_director_company
-      @entertainment.webpage_director_first_name = @entertainment_parent_company.webpage_director_first_name
-      @entertainment.webpage_director_skype_id = @entertainment_parent_company.webpage_director_skype_id
-      @entertainment.password = @entertainment_parent_company.password
-      @entertainment.parent_company_contact_person_skype_id = @entertainment_parent_company.parent_company_contact_person_skype_id
-    @function = @entertainment.function
+    #  @entertainment.parent_company_postal_code = @entertainment_parent_company.parent_company_postal_code
+    #   @entertainment.parent_company_street_address_2 = @entertainment_parent_company.parent_company_street_address_2
+    #   @entertainment.parent_company_street_address_1 = @entertainment_parent_company.parent_company_street_address_1
+    #   @entertainment.parent_company_city  = @entertainment_parent_company.parent_company_city 
+    #   @entertainment.parent_company_contact_person_salutation = @entertainment_parent_company.parent_company_contact_person_salutation
+    #   @entertainment.parent_company_state_or_province = @entertainment_parent_company.parent_company_state_or_province
+    #   @entertainment.parent_company_contact_person_email_address = @entertainment_parent_company.parent_company_contact_person_email_address
+    #   @entertainment.parent_company_contact_person_last_name = @entertainment_parent_company.parent_company_contact_person_last_name
+    #   @entertainment.parent_company_country = @entertainment_parent_company.parent_company_country
+    #   @entertainment.parent_company_contact_person_phone_number = @entertainment_parent_company.parent_company_contact_person_phone_number
+    #   @entertainment.parent_company_contact_person_first_name = @entertainment_parent_company.parent_company_contact_person_first_name
+    #   @entertainment.parent_comapny_name  = @entertainment_parent_company.parent_comapny_name 
+    #   @entertainment.webpage_director_phone_number = @entertainment_parent_company.webpage_director_phone_number
+    #   @entertainment.webpage_director_email_address = @entertainment_parent_company.webpage_director_email_address
+    #   @entertainment.webpage_director_salutation = @entertainment_parent_company.webpage_director_salutation
+    #   @entertainment.webpage_director_last_name = @entertainment_parent_company.webpage_director_last_name
+    #   @entertainment.webpage_director_contact_person_first_name = @entertainment_parent_company.webpage_director_contact_person_first_name
+    #   @entertainment.webpage_director_company = @entertainment_parent_company.webpage_director_company
+    #   @entertainment.webpage_director_first_name = @entertainment_parent_company.webpage_director_first_name
+    #   @entertainment.webpage_director_skype_id = @entertainment_parent_company.webpage_director_skype_id
+    #   @entertainment.password = @entertainment_parent_company.password
+    #   @entertainment.parent_company_contact_person_skype_id = @entertainment_parent_company.parent_company_contact_person_skype_id
+    # @function = @entertainment.function
   end
 
   def create
@@ -171,6 +175,25 @@ class EntertainmentsController < ApplicationController
           @count[country] = Entertainment.where(country: country, region: current_user.region.name).count 
       end
     end
+  end
+
+  def report_by_rep
+    @count = {}
+    if current_user.role.present?
+      if current_user.role.name == "Senior Director"
+        @entertainments = Entertainment.all.order("representative_id desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
+        @by = Entertainment.uniq.pluck(:representative_id)
+        @by.each do |representative_id|
+          @count[representative_id] = Entertainment.where(representative_id: representative_id).count
+        end
+      elsif current_user.role.name == "Divisional Director"
+        @entertainments = Entertainment.where(division: current_user.division.name).order("representative_id desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
+        @by = Entertainment.where(division: current_user.division.name).order("representative_id asc").uniq.pluck(:representative_id)
+        @by.each do |representative_id|
+          @count[representative_id] = Entertainment.where(representative_id: representative_id, division: current_user.division.name).count 
+        end
+      end
+     end 
   end
 
   def dumy_update

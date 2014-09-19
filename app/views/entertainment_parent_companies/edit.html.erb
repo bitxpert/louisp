@@ -1,9 +1,8 @@
-<%= javascript_include_tag :defaults, "nested_form" %>
 <%- model_class = EntertainmentParentCompany -%>
 <div>
 </div>
 <div class="page-header">
-  <h3><b><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></b>
+  <h3><b>Edit Entertainment Parent Company</b>
   </h3>
 </div>
 
@@ -21,32 +20,45 @@
         </ul>
       </div>
     </div>
-  <% end %>  
-  <%= f.fields_for :entertainments do |entertainment_form| %>
+  <% end %> 
+
+  <%= f.fields_for :entertainments, @specific_entertainment do |entertainment_form| %>
     <h3 class="region-breaker col-md-12"> DAP 1 INFO </h3>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :representative_name, :value => @entertainment_representative_name, :class => 'form-control', :disabled => 'disabled' %>
+        <% test4 =  entertainment_form.object.id.present? %>
+        <% hash = {:class => 'form-control', readonly: true} %>
+        <% hash.merge!({value: current_user.first_name+" #{current_user.middle_name} "+current_user.last_name}) unless test4 %>
+        <%= entertainment_form.text_field :representative_name, hash %>
       </div>
       <%= entertainment_form.label :representative_name,"Representative Name", :class => 'control-label user_feild' %>
 
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :representative_id, :value => @entertainment_representative_id, :class => 'form-control', :disabled => 'disabled' %>
+        <% test =  entertainment_form.object.id.present? %>
+        <% hash = {:class => 'form-control', readonly: true} %>
+        <% hash.merge!({value: current_user.user_main_id}) unless test %>
+        <%= entertainment_form.text_field :representative_id, hash %>
       </div>
       <%= entertainment_form.label :representative_id,"Representative Id", :class => 'control-label user_feild disable' %>
 
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :division, :value => @entertainment_division, :class => 'form-control' %>
+        <% test1 =  entertainment_form.object.id.present? %>
+        <% hash = {:class => 'form-control', readonly: true} %>
+        <% hash.merge!({value: current_user.division.name}) unless test1 %>
+        <%= entertainment_form.text_field :division, hash %>
       </div>
       <%= entertainment_form.label :division, :class => 'control-label user_feild' %>
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :region, :value => @entertainment_region, :class => 'form-control' %>
+        <% test3 =  entertainment_form.object.id.present? %>
+        <% hash = {:class => 'form-control', readonly: true} %>
+        <% hash.merge!({value: current_user.region.name}) unless test3 %>
+        <%= entertainment_form.text_field :region, hash %>
       </div>
       <%= entertainment_form.label :region, :class => 'control-label user_feild' %>
     </div>
@@ -74,26 +86,29 @@
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :category, :class => 'form-control', disabled: 'disbaled' %>
+        <%= entertainment_form.text_field :category, :class => 'form-control', readonly: true %>
       </div>
       <%= entertainment_form.label :category, :class => 'control-label user_feild' %>
 
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :sub_category, :class => 'form-control', disabled: 'disbaled' %>
+        <%= entertainment_form.text_field :sub_category, :class => 'form-control', readonly: true %>
       </div>
       <%= entertainment_form.label :sub_category,"Sub Category", :class => 'control-label user_feild' %>
 
     </div>
     <div class="control-group col-md-6">
-        <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"], selected: @function ) %>
+        <% test =  entertainment_form.object.id.present? %>
+        <% sel = false %>
+        <% sel = (@specific_entertainment.try(:function)) if test %>
+        <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"], selected: sel ) %>
         <%= entertainment_form.select :function ,options,{ :include_blank=>"Select Function"} %>
       <%= entertainment_form.label :function, :class => 'control-label user_feild' %>
     </div>
     <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :icon, :class => 'form-control', disabled: 'disbaled' %>
+        <%= entertainment_form.text_field :icon, :class => 'form-control', readonly: true %>
       </div>
       <%= entertainment_form.label :icon, :class => 'control-label user_feild' %>
 
@@ -149,7 +164,7 @@
     </div>  
 
 <% end %>
-<p><%= f.link_to_add "Add a task", :entertainments %></p>
+<p><%= f.link_to_add "Add Affiliate", :entertainments, class: "btn_to_right add_nested_fields btn btn_side btn_add col-md-3" %></p>
 
   
   <h3 class="region-breaker col-md-12"> DAP 1 INFO </h3>
@@ -168,7 +183,7 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.text_field :id, :value => @entertainment_parent_company_id, :class => 'form-control', :disabled => 'disabled' %>
+      <%= f.text_field :id, :class => 'form-control', :disabled => 'disabled' %>
     </div>
     <%= f.label :id , "EE User ID", :class => 'control-label user_feild' %>
 
@@ -332,7 +347,7 @@
 
     <%= error_span(@entertainment_parent_company[:webpage_director_skype_id]) %>
   </div>
-  
+    <%= hidden_field_tag :hidden_id, @hidden_id %>
   
   
    
@@ -342,3 +357,36 @@
 <% end %>
 
 <br/><br/>
+<script type="text/javascript">
+  window.onload = function() {
+
+$("select").select2()
+$(".add_nested_fields").click(function(event){
+  window.setTimeout(function () {$("select").select2();}, 500);
+});
+$("#entertainment_parent_company_parent_company_country").select2();
+//$("#entertainment_representative_name").attr("disabled","disabled") 
+ 
+
+ $("input[value='Create Entertainment parent company']").click(
+      function(event) {
+        event.preventDefault();
+        $(".representative_name").removeAttr("disabled")
+        $(".representative_id").removeAttr("disabled")
+        // $("#entertainment_category").removeAttr("disabled")
+        // $("#entertainment_sub_category").removeAttr("disabled")
+        // $("#entertainment_icon").removeAttr("disabled")
+        $("#entertainment_parent_company_ee_user_id").removeAttr("disabled")
+        $("#entertainment_parent_company_password").removeAttr("disabled")
+        $('#new_entertainment_parent_company').submit();
+      }
+    );
+/*$(".DAP1-info").hide()
+$(".DAP1_btn").click(function(){
+  $(".DAP1_btn").hide(100);   
+  $(".DAP1-info").show(600);
+}); 
+*/
+
+};
+</script>

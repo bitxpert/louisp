@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1>Report By Rep</h1>
+</div>
+<%- model_class = Entertainment -%>
+<table id="flip-scroll" class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:representative_id) %></th>
+      <th class="numeric">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @by.each do |entertainment| %> 
+      <tr>
+        <td data-title="Representative" class="numeric"><%= entertainment %></td>
+        <td data-title="Url" class="numeric"><%= @count[entertainment] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= render :partial => 'report' %>

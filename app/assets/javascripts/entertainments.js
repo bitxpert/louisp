@@ -16,6 +16,10 @@ $("#entertainment_function").select2();
       	$('#new_entertainment').submit();
       }
     );
+
+ $('.delete_node').each( function (index, data) {
+    $('#delete_node').remove();
+});
 /*$(".DAP1-info").hide()
 $(".DAP1_btn").click(function(){
   $(".DAP1_btn").hide(100);		

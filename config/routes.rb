@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'report'
     get 'report_by_function'
     get 'report_by_country'
+    get 'report_by_rep'
    end 
   end
   resources :paintings do
