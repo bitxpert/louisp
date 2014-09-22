@@ -17,17 +17,30 @@ class EntertainmentsDatatable
 private
 
   def data
-    entertainments.map do |entertainment|
-      [
-        #link_to(entertainment.country, url_options = {}, html_options = {class: "first-column"}),
-        entertainment.id,
-        entertainment.name,
-        entertainment.state_or_province,
-        link_to(entertainment.url, entertainment.url),
-        entertainment.phone_number,
-        link_to("edit", "/entertainments/#{entertainment.id}/edit", method: :get)
-      ]
-    end
+    if current_user.role.name == "Data Acquisition Personnel"
+      entertainments.map do |entertainment|
+        [
+          #link_to(entertainment.country, url_options = {}, html_options = {class: "first-column"}),
+          entertainment.id,
+          entertainment.name,
+          entertainment.state_or_province,
+          link_to(entertainment.url, entertainment.url),
+          entertainment.phone_number,
+        ]
+      end
+    else
+      entertainments.map do |entertainment|
+        [
+          #link_to(entertainment.country, url_options = {}, html_options = {class: "first-column"}),
+          entertainment.id,
+          entertainment.name,
+          entertainment.state_or_province,
+          link_to(entertainment.url, entertainment.url),
+          entertainment.phone_number,
+          link_to("edit", "/entertainments/#{entertainment.id}/edit", method: :get)
+        ]
+      end
+    end       
   end
 
   def entertainments
@@ -40,11 +53,13 @@ private
         entertainments = Entertainment.order("#{sort_column} #{sort_direction}")
       elsif current_user.role.name == "Divisional Director"
         entertainments = Entertainment.where(division: current_user.division.name).order("#{sort_column} #{sort_direction}")  
+      elsif current_user.role.name == "Regional Representative"
+        entertainments = Entertainment.where(region: current_user.try(:region).try(:name)).order("#{sort_column} #{sort_direction}")  
       else
         entertainments = Entertainment.where(region: current_user.try(:region).try(:name)).order("#{sort_column} #{sort_direction}")  
       end
     else
-      entertainments = Entertainment.where(region: current_user.region.name).where("name like '%tai%'").order("#{sort_column} #{sort_direction}")  
+      
     end
     entertainments = entertainments.page(page).per_page(per_page)
     if params[:sSearch].present?

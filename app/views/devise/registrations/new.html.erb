@@ -9,54 +9,33 @@
             <%= f.text_field :first_name, class: "form-control signin-field" %>
           </div>
           <div class="form-group background-signup">
-            <%= f.label :middle_name, class: "align-label" %>
-            <%= f.text_field :middle_name, class: "form-control signin-field" %>
-          </div>
-          <div class="form-group background-signup">
             <%= f.label :last_name, class: "align-label" %>
             <%= f.text_field :last_name, class: "form-control signin-field" %>
           </div>
           <div class="form-group background-signup">
-            <%= f.label :birthday, class: "align-label" %>
-            <%= f.text_field :birthday, class: "form-control signin-field" %>
-          </div>
-          <div class="form-group background-signup">
-            <%= f.label :sex, class: "align-label" %>
-            <%= f.text_field :sex, class: "form-control signin-field" %>
+            <%= f.label :country_of_residence, class: "align-label" %>
+            <%= f.country_select :country_of_residence, priority: %w(US CA), prompt: 'Please select a country',class: "form-control drop_down_rltv_pos" %>
           </div>
           <div class="form-group background-signup">
             <%= f.label :email, class: "align-label" %>
             <%= f.email_field :email, class: "form-control signin-field" %>
           </div>
-          <div class="form-group  background-signup">
-            <%= f.label :role_id, class: "align-label" %>
-            <% options = options_from_collection_for_select(Role.all, 'id', 'name') %>
-            <%= f.select :role_id,   options, { :include_blank=>"Select Role"}, { :class => 'form-control region signin-field' } %>
+          <div class="form-group background-signup">
+            <%= f.label :personal_phone, class: "align-label" %>
+            <%= f.text_field :personal_phone, class: "form-control signin-field" %>
           </div>
-          <div class="form-group  background-signup">
-            <%= f.label :region_id, class: "align-label" %>
-            <% options = options_from_collection_for_select(Region.all, 'id', 'name') %>
-            <%= f.select :region_id,   options, { :include_blank=>"Select Region"}, { :class => 'form-control region signin-field' } %>
-          </div>
-          <div class="form-group  background-signup">
-            <%= f.label :division, class: "align-label" %>
-            <% options = options_from_collection_for_select(Division.all, 'id', 'name') %>
-            <%= f.select :division_id,   options, { :include_blank=>"Select Division"}, { :class => 'form-control region signin-field' } %>
+          <% password_length = 12
+          @password = Devise.friendly_token.first(password_length) %>
+          <div class="form-group background-signup">
+            <%= f.text_field :password, :value => @password, hidden: "hidden" %>
           </div>
           <div class="form-group background-signup">
-            <%= f.label :password, class: "align-label" %><br />
-            <%= f.password_field :password, class: "form-control signin-field" %>
+            <%= f.text_field :password_confirmation, :value => @password, hidden: "hidden" %>
           </div>
           <div class="form-group background-signup">
-            <%= f.label :password_confirmation, class: "small-label" %>
-            <%= f.password_field :password_confirmation, class: "form-control signin-field" %>
+            <%= hidden_field_tag "user_main_id", "nil" %>
           </div>
-          <div class="form-group background-signup">
-            <%= f.text_field :user_main_id, hidden: "hidden" %>
-          </div>
-          <div class="form-group background-signup">
-            <%= f.text_field :region_user_number, hidden: "hidden" %>
-          </div>
+          
           <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
         <% end %>
       </div>

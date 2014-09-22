@@ -1,0 +1,182 @@
+<%= bootstrap_devise_error_messages! %>
+    
+    <div class="panel-heading">
+      <h3><b>Personal Profile</b></h3>
+    </div>
+    <div class="panel-body">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <h3 class="region-breaker">PERSONAL INFORMATION</h3>
+      <div class="form-group col-md-6">
+        
+        <%= f.text_field :user_main_id, :disabled => 'disabled', :readonly => true, :autocomplete => "off", class: "form-control" %>
+        <%= f.label :user_main_id,"User ID", class: "user_feild" %>
+      </div>
+      <div class="form-group col-md-6">
+        
+        <%= f.text_field :first_name, class: "form-control" %>
+        <%= f.label :first_name, "First Name", class: "user_feild" %>
+      </div>
+      
+      <div class="form-group col-md-6">
+       
+        <%= f.text_field :last_name, class: "form-control" %>
+         <%= f.label :last_name ,"Last Name", class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+       
+        <%= f.text_field :personal_phone, class: "form-control" %>
+         <%= f.label :personal_phone ,"Personal Phone", class: "user_feild"%>
+      </div>
+      <div class="form-group col-md-6">
+       
+        <%= f.email_field :email, class: "form-control" %>
+         <%= f.label :email,"Personal Email" , class: "user_feild"%>
+      </div>
+     
+      <div class="form-group col-md-6">
+          <!--<div class="ui-widget">-->
+            <%= f.country_select :country_of_residence, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+          <!--</div>
+          <button id="toggle">Show underlying select</button>-->
+        <%= f.label :country_of_residence,"Country of Residence" , class: "user_feild"%>
+
+      </div>
+      <div class="form-group col-md-6">
+        
+        <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
+        <%= f.label :password,"Password (leave blank if you don't want to change it)", class: "user_feild" %>
+      </div>
+      <div class="form-group col-md-6">
+        
+        <%= f.password_field :password_confirmation, class: "form-control"  %>
+        <%= f.label :password_confirmation,"Password Confirmation" , class: "user_feild"%>
+      </div>
+      
+      
+      
+      
+      <%= f.submit t('.update', :default => "Update"), class: "btn btn-primary col-md-12" %></div>
+  <% end %>
+  
+
+
+  </div>
+  <% @region = Region.new %>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><h3 class="panel-title"><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h3></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @region, :html => { :class => "form-horizontal entertainment" } do |f| %>
+
+    <% if @region.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @region.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :territory, :class => 'form-control' %>
+    </div>
+    <%= f.label :territory, :class => 'control-label user_feild' %>
+    <%= error_span(@region[:territory]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :gdp_usd_billion, :class => 'form-control' %>
+    </div>
+    <%= f.label :gdp_usd_billion, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:gdp_usd_billion]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :population, :class => 'form-control' %>
+    </div>
+    <%= f.label :population, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:population]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :ee_score, :class => 'form-control' %>
+    </div>
+    <%= f.label :ee_score, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:ee_score]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :first_language, :class => 'form-control' %>
+    </div>
+    <%= f.label :first_language, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:first_language]) %>
+  </div>
+   <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.text_field :second_language, :class => 'form-control' %>
+    </div>
+    <%= f.label :second_language, :class => 'control-label user_feild' %>
+
+    <%= error_span(@region[:second_language]) %>
+  </div>
+   
+
+  
+
+      </div>
+      <div class="modal-footer">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            authenticated_root_path, :class => 'btn btn-default' %>
+
+<% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".birthday").datepicker();
+  })
+  $(".region").append("<option value='newregion'>Add new region</option>");
+  $(".region").change(function(){
+    var val = $(this).val();
+    if(val=="newregion")
+      {$('#myModal').modal('show');}
+  });
+
+  $("#user_company_mailing_country").change(function(){
+  select_wrapper = $('#order_state_code_wrapper')
+
+    $('select', select_wrapper).attr('disabled', true)
+    var yourSelect = document.getElementById('user_company_mailing_country');
+    url = "/users/subregion_options?parent_region="+yourSelect.options[yourSelect.selectedIndex].value;;
+    select_wrapper.load(url)
+  });
+  $("#user_emergency_contact_mailing_country").select2();
+  $("#user_country_of_citizenship").select2();
+   $("#user_country_of_residence").select2();
+  $("#user_personal_mailing_country").select2();
+  $("#company_mailing_state_or_province").select2();
+  $("#user_company_mailing_country").select2();
+  $("#user_company_mailing_state_or_province").select2();
+
+
+</script>

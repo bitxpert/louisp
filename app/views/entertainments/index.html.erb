@@ -2,6 +2,7 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<% if current_user.role.name != "Data Acquisition Personnel" %>
 <div class="col-md-12 btn_area">
   <%= link_to "Total EE's", report_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
   <%= link_to "EE's By COUNTRY", report_by_country_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
@@ -10,7 +11,7 @@
   <%= link_to "EE's By REP", report_by_rep_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
   <%= link_to "EE's By FUNCTION", report_by_function_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
 </div>
-
+<%end%>
 
 <table id="entertainments" class="table table-striped edit" data-source="<%= entertainments_url(format: "json") %>">
   <thead>
@@ -20,8 +21,9 @@
       <th><%= model_class.human_attribute_name(:state_or_province) %></th>
       <th><%= model_class.human_attribute_name(:url) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
-      
+      <% if current_user.role.name != "Data Acquisition Personnel" %>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% end %>
     </tr>
   </thead>
 </table>

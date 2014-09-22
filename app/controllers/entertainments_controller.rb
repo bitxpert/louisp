@@ -13,10 +13,10 @@ class EntertainmentsController < ApplicationController
 
   def new
    @entertainment = Entertainment.new
-    @entertainment.representative_name = current_user.first_name+" #{current_user.middle_name} "+current_user.last_name
-    @entertainment.representative_id = current_user.user_main_id
-    @entertainment.division = current_user.division.name
-    @entertainment.region = current_user.region.name
+    @entertainment.representative_name = current_user.try(:first_name)+" #{current_user.try(:middle_name)} "+current_user.try(:last_name)
+    @entertainment.representative_id = current_user.try(:user_main_id)
+    @entertainment.division = current_user.try(:division).try(:name)
+    @entertainment.region = current_user.try(:region).try(:name)
     password_length = 12
     @entertainment.password = Devise.friendly_token.first(password_length)
     @entertainment.ee_user_id = Entertainment.order("id desc").first.id
@@ -176,6 +176,10 @@ class EntertainmentsController < ApplicationController
       end
     end
   end
+#[68, 57, 58, 51, 70, 66, 55, 62, 73, 69, 59, 53, 63, 67, 71, 72, 60, 64, 61, 54, 76, 77, 56, nil]
+
+
+#Entertainment.where(user_id: 68).update_all(representative_id: User.find(68).user_main_id)
 
   def report_by_rep
     @count = {}

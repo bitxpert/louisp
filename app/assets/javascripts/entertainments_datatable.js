@@ -74,17 +74,19 @@ $(document).ready(function() {
                     console.log(otable.fnGetData(aPos));
                     console.log(input);*/
                     // update_url = "http://localhost:3000/entertainments/"+row_id
-                    $.ajax({
-                        url: "/entertainments/"+row_id,
-                        type: "put",
-                        data: {
-                            'entertainment[id]' : x[0].innerHTML,
-                            'entertainment[name]' : x[1].innerHTML,
-                            'entertainment[state_or_province]' : x[2].innerHTML,
-                            'entertainment[url]' : x[3].innerHTML,
-                            'entertainment[phone_number]' : x[4].innerHTML
-                          }
-                    });
+                    
+
+                    // $.ajax({
+                    //     url: "/entertainments/"+row_id,
+                    //     type: "put",
+                    //     data: {
+                    //         'entertainment[id]' : x[0].innerHTML,
+                    //         'entertainment[name]' : x[1].innerHTML,
+                    //         'entertainment[state_or_province]' : x[2].innerHTML,
+                    //         'entertainment[url]' : x[3].innerHTML,
+                    //         'entertainment[phone_number]' : x[4].innerHTML
+                    //       }
+                    // });
 
                       
                    otable.fnDraw();

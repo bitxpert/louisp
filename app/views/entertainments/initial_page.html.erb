@@ -1,2 +1,6 @@
-<%= link_to "ADD", new_entertainment_parent_company_path, { :class=>"btn btn_side image-upload btn_add "}%>
+<% if current_user.try(:role).try(:name) == "Data Acquisition Personnel"%>
+	<%= link_to "ADD", new_entertainment_path, { :class=>"btn btn_side image-upload btn_add "}%>
+<% else %>
+	<%= link_to "ADD", new_entertainment_parent_company_path, { :class=>"btn btn_side image-upload btn_add "}%>
+<%end%>	
 <%= link_to "EDIT", entertainments_path, { :class=>"btn btn_side image-upload btn_add"}%>

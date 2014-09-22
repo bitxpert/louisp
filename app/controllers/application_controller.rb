@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:role_id,:division_id,:division, :region_user_number, :parent_region, :region_id,:user_main_id,:company_mailing_state_or_province, :password, :password_confirmation, :first_name, :middle_name, :last_name, :sex, :birthday) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:personal_phone,:country_of_residence, :email,:role_id,:division_id,:division, :region_user_number, :parent_region, :region_id,:user_main_id,:company_mailing_state_or_province, :password, :password_confirmation, :first_name, :middle_name, :last_name, :sex, :birthday) }
     
     devise_parameter_sanitizer.for(:account_update) << :skype_id
     devise_parameter_sanitizer.for(:account_update) << :photo_id

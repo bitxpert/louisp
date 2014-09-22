@@ -20,5 +20,7 @@
         <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary hide" %>
       <% end %>
     </div>
-
+    <div class="panel-body signin-body DAP-signup">
+      <%= link_to "DAP", new_user_registration_path,  :method => :get,:class => 'signin-field btn btn-xs btn-danger sign_out background DAP-btn-style'%>  
+    </div> 
 </div>

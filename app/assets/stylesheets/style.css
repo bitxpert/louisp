@@ -326,3 +326,15 @@ margin: 0px 4px !important;
 .btn_to_right {
 	float: right !important;
 }
+.drop_down_rltv_pos{
+	position: relative !important;
+}
+.DAP-signup{
+	right: 170px !important;
+	
+}
+.DAP-btn-style{
+	color: white !important;
+	text-decoration: blink !important;
+	font-weight: bold !important;
+}
