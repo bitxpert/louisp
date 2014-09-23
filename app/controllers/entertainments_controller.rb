@@ -179,7 +179,7 @@ class EntertainmentsController < ApplicationController
 #[68, 57, 58, 51, 70, 66, 55, 62, 73, 69, 59, 53, 63, 67, 71, 72, 60, 64, 61, 54, 76, 77, 56, nil]
 
 
-#Entertainment.where(user_id: 68).update_all(representative_id: User.find(68).user_main_id)
+#Entertainment.where(user_id: 56).update_all(representative_id: User.find(56).user_main_id)
 
   def report_by_rep
     @count = {}
@@ -187,6 +187,7 @@ class EntertainmentsController < ApplicationController
       if current_user.role.name == "Senior Director"
         @entertainments = Entertainment.all.order("representative_id desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
         @by = Entertainment.uniq.pluck(:representative_id)
+        @by.shift
         @by.each do |representative_id|
           @count[representative_id] = Entertainment.where(representative_id: representative_id).count
         end
