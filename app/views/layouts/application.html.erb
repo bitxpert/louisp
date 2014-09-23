@@ -45,7 +45,7 @@
               <%= link_to "UPLOAD NEW IMAGE <br>".html_safe, new_painting_path, { :class=>"btn btn_side bar_btn_height #{"#{params[:controller]}#{params[:action]}" == "paintingsnew"? "active2": ""}"}%>
               <%= link_to "UPDATE PROFILE", edit_user_registration_path, { :class=>"btn btn_side bar_btn_height #{"#{params[:controller]}#{params[:action]}" == "registrationsedit"? "active2": ""}"} %>
               <%= link_to "ADD/EDIT ENTERTAINMENT <br> ESTABLISHMENTS".html_safe, initial_page_entertainments_path, { :class=>"btn btn_side #{"#{params[:controller]}#{params[:action]}" == "entertainmentsinitial_page"? "active2": ""}"} %>
-              <%= link_to "CONTACTS LIST", "javascript:void(0);", { :class=>"btn btn_side bar_btn_height"} %>
+              <%= link_to "CONTACTS LIST", new_user_registration_path, { :class=>"btn btn_side bar_btn_height"} %>
               <%= link_to "CALENDAR", "javascript:void(0);", { :class=>"btn btn_side bar_btn_height"} %>
             <% else %>
               <%= link_to "sign in", new_user_session_path,{ :class=>"btn btn_side bar_btn_height"} %>

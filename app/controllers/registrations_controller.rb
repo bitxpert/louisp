@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_filter :require_no_authentication, :only => :none
+  before_filter :custome_auth
   def new
     super
   end
@@ -9,6 +11,9 @@ class RegistrationsController < Devise::RegistrationsController
     resource[:user_main_id] = 6000+User.order(id: :desc).limit(1).pluck(:id)[0]
     resource[:approved] = true
     resource[:role_id] = 3   #DAP
+    resource[:referrer] = current_user.user_main_id
+    resource[:division_id] = current_user.division.id
+    resource[:region_id] = current_user.region.id
     
     resource_saved = resource.save
     yield resource if block_given?
@@ -16,7 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message :notice, :your_password if is_flashing_format?
         sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource), notice: "hello"
+        respond_with resource, location: after_sign_up_path_for(resource)
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
         expire_data_after_sign_in!
@@ -51,5 +56,10 @@ class RegistrationsController < Devise::RegistrationsController
   def sign_up_params
     devise_parameter_sanitizer.sanitize(:sign_up)
   end
-	  	
+
+  def custome_auth
+    if current_user.role.name == "Data Acquisition Personnel"
+      redirect_to authenticated_root_url, notice: "Umm Umm! you don't have access to this page"
+    end
+	end  	
 end 

@@ -139,6 +139,10 @@
 .image-upload{
 	margin: 130px 31%;
 }
+.btn-center{
+	margin: 30px 31% !important;
+
+}
 .sorting_1{
 	background-color: #70AD47;
 }
