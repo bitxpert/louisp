@@ -64,6 +64,9 @@ class EntertainmentsController < ApplicationController
   end
 
   def create
+    puts "==============================================="
+    puts params.inspect
+    puts "==============================================="
     @entertainment = current_user.entertainments.build(entertainment_params)
 
     respond_to do |format|

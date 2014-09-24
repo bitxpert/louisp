@@ -88,7 +88,8 @@
     <%= f.label :function, :class => 'control-label user_feild' %>
     <%= error_span(@entertainment[:function]) %>
   </div>
-  
+ <%= hidden_field_tag "division", current_user.try(:division).try(:name) %>
+ <%= hidden_field_tag "region", current_user.try(:division).try(:name) %>
   
   
    
