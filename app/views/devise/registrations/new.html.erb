@@ -43,6 +43,22 @@
         <% end %>
       </div>
 
+      <table id="flip-scroll" class="table table-striped">
+        <thead>
+          <tr>
+            <th>DAP ID</th>
+            <th class="numeric">Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @My_daps.each do |dap| %> 
+            <tr>
+              <td data-title="DAP ID" class="numeric"><%= dap.user_main_id %></td>
+              <td data-title="Password" class="numeric"><%= dap.password_clone %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
       <script type="text/javascript">
         $("#user_country_of_residence").select2();
       </script>
