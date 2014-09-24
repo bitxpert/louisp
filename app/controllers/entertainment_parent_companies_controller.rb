@@ -24,9 +24,6 @@ before_filter :authenticate_user!
   end
 
   def edit
-    puts"=========================================="
-    puts params[:id].inspect
-    puts"============================================="
     @specific_entertainment = Entertainment.find(params[:id])
     @hidden_id = Entertainment.find(params[:id]).try(:id)
     @entertainment_parent_company = EntertainmentParentCompany.find(@specific_entertainment.entertainment_parent_company.id)
@@ -43,9 +40,6 @@ before_filter :authenticate_user!
   end
 
   def update
-    puts"=========================================="
-    puts params[:id].inspect
-    puts"============================================="
     @entertainment_parent_company = EntertainmentParentCompany.find(params[:id])
     
     respond_to do |format|
