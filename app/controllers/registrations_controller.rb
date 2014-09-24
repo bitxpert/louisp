@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :require_no_authentication, :only => :none
-  before_filter :custome_auth
+  before_filter :custome_auth,  only: [ :new, :create ]
   def new
     @My_daps = User.where(referrer: current_user.user_main_id)
     super
@@ -51,9 +51,7 @@ class RegistrationsController < Devise::RegistrationsController
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
-    puts "========================================================================="
-    puts resource_params.inspect
-    puts "==========================================================================="
+    resource[:password_clone] = resource_params[:password]
     resource_updated = update_resource(resource, account_update_params)
     yield resource if block_given?
     if resource_updated
