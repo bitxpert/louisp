@@ -28,7 +28,7 @@
             <%= f.label :personal_phone, class: "control-label user_feild" %>
           </div>
           <% password_length = 12
-          @password = Devise.friendly_token.first(password_length) %>
+          @password = rand(100000..900000) %>
           <div class="form-group col-md-6">
             <%= f.text_field :password, :value => @password, hidden: "hidden" %>
           </div>
@@ -46,6 +46,7 @@
       <table id="flip-scroll" class="table table-bordered table-striped">
         <thead>
           <tr>
+            <th>Name</th>
             <th>DAP ID</th>
             <th class="numeric">Password</th>
           </tr>
@@ -53,6 +54,7 @@
         <tbody>
           <% @My_daps.each do |dap| %> 
             <tr>
+              <td data-title="DAP ID" class="numeric"><%= dap.first_name+" #{dap.last_name}" %></td>
               <td data-title="DAP ID" class="numeric"><%= dap.user_main_id %></td>
               <td data-title="Password" class="numeric"><%= dap.password_clone %></td>
             </tr>
