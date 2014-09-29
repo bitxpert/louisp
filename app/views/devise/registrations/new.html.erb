@@ -52,6 +52,7 @@
           </tr>
         </thead>
         <tbody>
+        <% if @My_daps.present?%>
           <% @My_daps.each do |dap| %> 
             <tr>
               <td data-title="DAP ID" class="numeric"><%= dap.first_name+" #{dap.last_name}" %></td>
@@ -59,6 +60,7 @@
               <td data-title="Password" class="numeric"><%= dap.password_clone %></td>
             </tr>
           <% end %>
+        <% end %>  
         </tbody>
       </table>
       <script type="text/javascript">
