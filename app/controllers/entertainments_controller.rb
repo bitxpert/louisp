@@ -64,9 +64,6 @@ class EntertainmentsController < ApplicationController
   end
 
   def create
-    puts "==============================================="
-    puts params.inspect
-    puts "==============================================="
     @entertainment = current_user.entertainments.build(entertainment_params)
 
     respond_to do |format|
@@ -107,14 +104,14 @@ class EntertainmentsController < ApplicationController
   def report
     if current_user.role.present?
       if current_user.role.name == "Senior Director"
-        @entertainments = Entertainment.all.order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.all.limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
       elsif current_user.role.name == "Divisional Director"
-        @entertainments = Entertainment.where(division: current_user.division.name).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.where(division: current_user.division.name).limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
       else
-        @entertainments = Entertainment.where(region: current_user.region.name).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")  
+        @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")  
       end
     else
-      @entertainments = Entertainment.where(region: current_user.region.name).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+      @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
     end
   end
 
@@ -122,26 +119,26 @@ class EntertainmentsController < ApplicationController
     @count = {}
     if current_user.role.present?
       if current_user.role.name == "Senior Director"
-        @entertainments = Entertainment.all.order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.all.limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
         @by = Entertainment.uniq.pluck(:function)
         @by.each do |function|
           @count[function] = Entertainment.where(function: function).count
         end
       elsif current_user.role.name == "Divisional Director"
-        @entertainments = Entertainment.where(division: current_user.division.name).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.where(division: current_user.division.name).limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
         @by = Entertainment.where(division: current_user.division.name).order("function asc").uniq.pluck(:function)
         @by.each do |function|
           @count[function] = Entertainment.where(function: function, division: current_user.division.name).count 
         end
       else
-        @entertainments = Entertainment.where(region: current_user.region.name).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
         @by = Entertainment.where(region: current_user.region.name).order("function asc").uniq.pluck(:function)  
         @by.each do |function|
           @count[function] = Entertainment.where(function: function, region: current_user.region.name).count 
         end
       end
     else
-      @entertainments = Entertainment.where(region: current_user.region.name).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+      @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(3).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
       @by = Entertainment.where(region: current_user.region.name).order("function asc").uniq.pluck(:function)
       @by.each do |function|
           @count[function] = Entertainment.where(function: function, region: current_user.region.name).count 
@@ -149,30 +146,50 @@ class EntertainmentsController < ApplicationController
     end
   end
 
+  def function_rep
+    if current_user.role.name == "Senior Director"
+      @entertainments = Entertainment.all.limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+    elsif current_user.role.name == "Divisional Director"
+      @entertainments = Entertainment.where(division: current_user.division.name).limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+    else
+      @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+    end
+    
+    respond_to do |format|
+    format.html
+    format.json do 
+      @entertainments.each do |e|
+        e.country = Carmen::Country.coded(e.country).name
+      end
+      render json: @entertainments
+    end
+    end
+  end
+
   def report_by_country
     @count = {}
     if current_user.role.present?
       if current_user.role.name == "Senior Director"
-        @entertainments = Entertainment.all.order("country desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.all.limit(100).offset(0).order("country desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
         @by = Entertainment.uniq.pluck(:country)
         @by.each do |country|
           @count[country] = Entertainment.where(country: country).count
         end
       elsif current_user.role.name == "Divisional Director"
-        @entertainments = Entertainment.where(division: current_user.division.name).order("country desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.where(division: current_user.division.name).limit(100).offset(0).order("country desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
         @by = Entertainment.where(division: current_user.division.name).order("country asc").uniq.pluck(:country)
         @by.each do |country|
           @count[country] = Entertainment.where(country: country, division: current_user.division.name).count 
         end
       else
-        @entertainments = Entertainment.where(region: current_user.region.name).order("country desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")  
+        @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(0).order("country desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")  
         @by = Entertainment.where(region: current_user.region.name).order("country asc").uniq.pluck(:country)
         @by.each do |country|
           @count[country] = Entertainment.where(country: country, region: current_user.region.name).count 
         end
       end
     else
-      @entertainments = Entertainment.where(region: current_user.region.name).order("country desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
+      @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(0).order("country desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
       @by = Entertainment.where(region: current_user.region.name).order("country asc").uniq.pluck(:country)
       @by.each do |country|
           @count[country] = Entertainment.where(country: country, region: current_user.region.name).count 
@@ -188,14 +205,14 @@ class EntertainmentsController < ApplicationController
     @count = {}
     if current_user.role.present?
       if current_user.role.name == "Senior Director"
-        @entertainments = Entertainment.all.order("representative_id desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.all.limit(100).offset(0).order("representative_id desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
         @by = Entertainment.uniq.pluck(:representative_id)
         @by.shift
         @by.each do |representative_id|
           @count[representative_id] = Entertainment.where(representative_id: representative_id).count
         end
       elsif current_user.role.name == "Divisional Director"
-        @entertainments = Entertainment.where(division: current_user.division.name).order("representative_id desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.where(division: current_user.division.name).limit(100).offset(0).order("representative_id desc").order("category desc").order("function asc").order("state_or_province asc").order("name asc")
         @by = Entertainment.where(division: current_user.division.name).order("representative_id asc").uniq.pluck(:representative_id)
         @by.each do |representative_id|
           @count[representative_id] = Entertainment.where(representative_id: representative_id, division: current_user.division.name).count 

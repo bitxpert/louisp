@@ -342,3 +342,8 @@ margin: 0px 4px !important;
 	text-decoration: blink !important;
 	font-weight: bold !important;
 }
+.see-more{
+	color: white !important;
+	font-weight: bold !important;
+	margin-left: 30%
+}

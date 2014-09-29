@@ -1,6 +1,6 @@
 <%- model_class = Entertainment -%>
 <div class="table_area">
-<table id="flip-scroll" class="table table-bordered table-striped tablesorter">
+<table id="flip-scroll" class="table table-bordered table-striped tablesorter report">
   <thead>
     <tr>
       <th>Action</th>
@@ -33,8 +33,29 @@
   </tbody>
 </table>
 </div>
-
+<%= link_to 'See more', 'javascript:void(0)', :id => "new_product_link", class: "btn col-md-5 btn-border backgrnd-enter-btns see-more" %>
 <script type="text/javascript">
   $("table").tablesorter({ theme: 'blue' });
+   var offset = 100;
+  $(document).ready(function() {
+   
+    $('#new_product_link').click(function () {
+      $.ajax({
+        url: "/entertainments/function_rep",
+        type: "get",
+        dataType: 'JSON',
+        data: {
+            'offset' : offset
+          },
+        success:function(data){
+          console.log(data[0]['id']);
+          offset = offset+100;
+            for (index = 0; index < data.length; ++index) {
+              $(".report").append('<tr><td><a class="btn btn-default btn-xs" href="/entertainments/'+data[index]['id']+'/edit">Edit</a></td><td>'+data[index]['representative_id']+'</td><td>'+data[index]['function']+'</td><td>'+data[index]['category']+'</td><td>'+data[index]['sub_category']+'</td><td>'+data[index]['country']+'</td><td>'+data[index]['state_or_province']+'</td><td>'+data[index]['name']+'</td></td><td><a href="'+data[index]['url']+'">'+data[index]['url']+'</a></td></tr>');
+            }    
+          }  
+        });
+      }); 
+    }); 
 </script>
 

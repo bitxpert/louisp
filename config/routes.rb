@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     post 'dumy_update'
     get 'initial_page' 
     get 'report'
+    get 'function_rep'
     get 'report_by_function'
     get 'report_by_country'
     get 'report_by_rep'
