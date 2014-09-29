@@ -14,7 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     
 
-    resource[:user_main_id] = 6000+User.order(id: :desc).limit(1).pluck(:id)[0]
+    resource[:user_main_id] = 2000+User.order(id: :desc).limit(1).pluck(:id)[0]
     resource[:approved] = true
     resource[:role_id] = 3   #DAP
     resource[:referrer] = current_user.user_main_id
