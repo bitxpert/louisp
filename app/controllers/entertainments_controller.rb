@@ -1,6 +1,7 @@
 class EntertainmentsController < ApplicationController
   before_filter :authenticate_user!
-  
+  before_filter :custome_auth,  only: [ :edit, :update ]
+
 	def index
     respond_to do |format|
     format.html
@@ -225,7 +226,13 @@ class EntertainmentsController < ApplicationController
   end
 
   def initial_page
-  end  
+  end 
+
+  def custome_auth
+    if current_user.role.name == "Data Acquisition Personnel"
+      redirect_to authenticated_root_url, notice: "Umm Umm! you don't have access to this page"
+    end
+  end 
 
   private
 
