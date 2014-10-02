@@ -19,8 +19,6 @@
           <div id="user_nav">
             <div class="image_holder">
               <% if user_signed_in? %>
-                <% @painting = current_user.painting %>
-                <% @funny_image = current_user.funny_image %>
 
                 <% if @funny_image.nil? %>
                 <img src="/assets/user.png">
