@@ -63,8 +63,8 @@
       <%= entertainment_form.label :region, :class => 'control-label user_feild' %>
     </div>
     <div class="control-group col-md-6">
-      <div class="controls">
-        <%= entertainment_form.country_select :country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+      <div class="controls validate-country" id="country">
+        <%= entertainment_form.country_select :country, priority: %w(US CA), prompt: 'Please select a country',:class => "form-control validate-country" %>
       </div>
       <%= entertainment_form.label :country, :class => 'control-label user_feild' %>
       <% error_span(@entertainment_parent_company[:country]) %>
@@ -72,14 +72,14 @@
     
      <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :url, :class => 'form-control' %>
+        <%= entertainment_form.text_field :url, :class => 'form-control validate' %>
       </div>
       <%= entertainment_form.label :url, :class => 'control-label user_feild' %>
 
     </div>
      <div class="control-group col-md-6">
       <div class="controls">
-        <%= entertainment_form.text_field :name, :class => 'form-control' %>
+        <%= entertainment_form.text_field :name, :class => 'form-control validate' %>
       </div>
       <%= entertainment_form.label :name, "EE Name", :class => 'control-label user_feild' %>
 
@@ -103,7 +103,7 @@
         <% sel = false %>
         <% sel = (@specific_entertainment.try(:function)) if test %>
         <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"], selected: sel ) %>
-        <%= entertainment_form.select :function ,options,{ :include_blank=>"Select Function"} %>
+        <%= entertainment_form.select :function ,options,{ :include_blank=>"Select Function"}, :class => 'validate-function' %>
       <%= entertainment_form.label :function, :class => 'control-label user_feild' %>
     </div>
     <div class="control-group col-md-6">
@@ -232,9 +232,9 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
-      <%= f.country_select :parent_company_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
+      <%= f.country_select :parent_company_country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control validate" %>
     </div>
-    <%= f.label :parent_company_country,"Parent Company Country", :class => 'control-label user_feild' %>
+    <%= f.label :parent_company_country,"Parent Company Country", :class => 'control-label user_feild ' %>
 
     <%= error_span(@entertainment_parent_company[:parent_company_country]) %>
   </div>
@@ -368,19 +368,55 @@ $("#entertainment_parent_company_parent_company_country").select2();
 //$("#entertainment_representative_name").attr("disabled","disabled") 
  
 
- $("input[value='Create Entertainment parent company']").click(
+ $("input[value='Update Entertainment parent company']").click(
       function(event) {
         event.preventDefault();
-        $(".representative_name").removeAttr("disabled")
-        $(".representative_id").removeAttr("disabled")
-        // $("#entertainment_category").removeAttr("disabled")
-        // $("#entertainment_sub_category").removeAttr("disabled")
-        // $("#entertainment_icon").removeAttr("disabled")
-        $("#entertainment_parent_company_ee_user_id").removeAttr("disabled")
-        $("#entertainment_parent_company_password").removeAttr("disabled")
-        $('#new_entertainment_parent_company').submit();
+        x = $(".edit_entertainment_parent_company").find(".validate");
+         for(i = 0; i < x.length; i++)
+          {
+            $("#"+x[i].id).removeClass("error");
+            if( x[i].value == "")
+            {
+              $("#"+x[i].id).addClass("error");
+              // alert("null mae ");
+              //$("#"+x[2].id).find(".select2-chosen").text()
+            }
+          } 
+        functions = $(".edit_entertainment_parent_company").find(".validate-function");
+         for(i = 0; i < functions.length; i++)
+          {
+            $("#"+functions[i].id).find(".select2-choice").removeClass("error");
+            if( $("#"+functions[i].id).find(".select2-chosen").text() == "Select Function")
+            {
+              $("#"+functions[i].id).find(".select2-choice").addClass("error");
+              // alert("null mae ");
+              //$("#"+x[2].id).find(".select2-chosen").text()
+            }
+          }   
+        var country = $(".edit_entertainment_parent_company").find(".validate-country");
+         for(i = 0; i < country.length; i++)
+          {
+            //$("#"+country[i].id).find(".select2-choice").removeClass("error");
+            country.find(".select2-choice")[i].setAttribute("class","select2-choice form-control col-md-6")
+            if( country.find("select")[i].value == "")
+            {
+              country.find(".select2-choice")[i].setAttribute("class","select2-choice form-control col-md-6 error")
+              //$("#"+x[2].id).find(".select2-chosen").text()
+            }
+          }       
+        // $(".representative_name").removeAttr("disabled")
+        // $(".representative_id").removeAttr("disabled")
+        
+        // $("#entertainment_parent_company_ee_user_id").removeAttr("disabled")
+        // $("#entertainment_parent_company_password").removeAttr("disabled")
+        if($(".error").length == 0)
+         $('.edit_entertainment_parent_company').submit();
+       else
+        alert("Please fill in the fields colored red");
       }
     );
+
+ 
 /*$(".DAP1-info").hide()
 $(".DAP1_btn").click(function(){
   $(".DAP1_btn").hide(100);   
@@ -388,5 +424,7 @@ $(".DAP1_btn").click(function(){
 }); 
 */
 
+
 };
+
 </script>

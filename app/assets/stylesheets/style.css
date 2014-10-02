@@ -130,7 +130,7 @@
 	 }
 .form-control.error,
 .user_feild.error{
-	border: 2px solid red !important;
+	border: 3px solid red !important;
 }
 .form-horizontal .control-label{ text-align: center !important;font-size: 15px;
 	line-height:17px; padding: 0;}
@@ -346,4 +346,7 @@ margin: 0px 4px !important;
 	color: white !important;
 	font-weight: bold !important;
 	margin-left: 30%
+}
+.error{
+	border: 3px solid red !important;
 }
