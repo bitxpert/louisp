@@ -15,6 +15,7 @@ gem 'pg', '~> 0.17.1'
 group :production do 
 	
 	gem 'unicorn'
+	gem 'puma'
 	gem 'rails_12factor'
 end
 
