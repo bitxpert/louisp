@@ -57,8 +57,10 @@ class ApplicationController < ActionController::Base
     
   end
   def my_images
-    @painting = current_user.painting
-    @funny_image = current_user.funny_image
+    if user_signed_in?
+        @painting = current_user.painting
+        @funny_image = current_user.funny_image
+    end
   end
 
  
