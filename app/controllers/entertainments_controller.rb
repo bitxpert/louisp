@@ -1,6 +1,7 @@
 class EntertainmentsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :custome_auth,  only: [ :edit, :update ]
+  before_filter :custome_auth,  only: [ :edit, :update, :index, :dap_entertainments ]
+  before_filter :current_user_to_model
 
 	def index
     respond_to do |format|
@@ -65,6 +66,7 @@ class EntertainmentsController < ApplicationController
   end
 
   def create
+
     @entertainment = current_user.entertainments.build(entertainment_params)
 
     respond_to do |format|
@@ -231,6 +233,17 @@ class EntertainmentsController < ApplicationController
   def custome_auth
     if current_user.role.name == "Data Acquisition Personnel"
       redirect_to authenticated_root_url, notice: "Umm Umm! you don't have access to this page"
+    end
+  end 
+
+  def current_user_to_model
+    @current_user_role = current_user.try(:role).try(:name)
+  end
+
+  def dap_entertainments
+    respond_to do |format|
+    format.html
+    format.json { render json: ::EntertainmentsDapDatatable.new(view_context) }
     end
   end 
 

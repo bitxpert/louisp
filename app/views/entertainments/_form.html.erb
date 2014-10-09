@@ -35,6 +35,14 @@
   </div>
   <div class="control-group col-md-6">
     <div class="controls">
+      <%= f.country_select :city, priority: %w(US CA), prompt: 'Please select a city',class: "form-control" %>
+    </div>
+    <%= f.label :city, :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:city]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
       <%= f.country_select :country, priority: %w(US CA), prompt: 'Please select a country',class: "form-control" %>
     </div>
     <%= f.label :country, :class => 'control-label user_feild' %>
@@ -57,6 +65,14 @@
     <%= f.label :name, "EE Name", :class => 'control-label user_feild' %>
 
     <%= error_span(@entertainment[:name]) %>
+  </div>
+  <div class="control-group col-md-6">
+    <div class="controls">
+      <%= f.email_field :email, :class => 'form-control' %>
+    </div>
+    <%= f.label :email,"Email", :class => 'control-label user_feild' %>
+
+    <%= error_span(@entertainment[:email]) %>
   </div>
  <div class="control-group col-md-6">
     <div class="controls">
@@ -83,10 +99,8 @@
     <%= error_span(@entertainment[:street_address_2]) %>
   </div> 
   <div class="control-group col-md-6">
-      <% options = options_for_select(["Establishment", "Event Center", "Promoter", "Department"], selected: @function ) %>
-      <%= f.select :function ,options,{ :include_blank=>"Select Function"} %>
-    <%= f.label :function, :class => 'control-label user_feild' %>
-    <%= error_span(@entertainment[:function]) %>
+      
+      <%= f.text_field :function ,:value => "N/A", hidden: "hidden" %>
   </div>
  <%= hidden_field_tag "division", current_user.try(:division).try(:name) %>
  <%= hidden_field_tag "region", current_user.try(:division).try(:name) %>
