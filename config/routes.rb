@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     get 'report_by_country'
     get 'report_by_rep'
     get 'dap_entertainments'
+
+   end
+   member do
+    get 'edit_dap'
+    patch 'update_dap'
    end 
   end
   resources :paintings do

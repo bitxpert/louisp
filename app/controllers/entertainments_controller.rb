@@ -245,7 +245,30 @@ class EntertainmentsController < ApplicationController
     format.html
     format.json { render json: ::EntertainmentsDapDatatable.new(view_context) }
     end
-  end 
+  end
+
+  def edit_dap
+      @entertainment = Entertainment.find(params[:id])
+      if @entertainment.user.role.name == 'Data Acquisition Personnel'
+      else
+         redirect_to authenticated_root_url, notice: "Umm Umm! you don't have access to this page" 
+      end  
+
+  end
+
+  def update_dap
+    @entertainment = Entertainment.find(params[:id])
+    
+    respond_to do |format|
+      if @entertainment.update(entertainment_params) 
+        format.html { redirect_to entertainments_path, notice: 'Entertainment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @entertainment }
+      else
+        format.html { render :edit }
+        format.json { render json: @entertainment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   private
 
