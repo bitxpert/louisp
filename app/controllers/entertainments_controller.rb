@@ -1,6 +1,6 @@
 class EntertainmentsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :custome_auth,  only: [ :edit, :update, :index, :dap_entertainments ]
+  before_filter :custome_auth,  only: [ :edit, :update, :index, :dap_entertainmentsm, :edit_dap, :update_dap ]
   before_filter :current_user_to_model
 
 	def index

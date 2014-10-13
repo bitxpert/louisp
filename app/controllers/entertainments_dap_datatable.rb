@@ -25,8 +25,8 @@ private
           entertainment.city,
           link_to(entertainment.url, entertainment.url),
           entertainment.email,
-          entertainment.representative_name
-          #link_to("edit", "/entertainments/#{entertainment.id}/edit", method: :get)
+          entertainment.representative_name,
+          link_to("edit", "/entertainments/#{entertainment.id}/edit_dap", method: :get)
         ]
       end
   end

@@ -105,6 +105,7 @@
   <div class="control-group col-md-6">
       
       <%= f.text_field :function ,:value => "N/A", hidden: "hidden" %>
+      
   </div>
  <%= hidden_field_tag "division", current_user.try(:division).try(:name) %>
  <%= hidden_field_tag "region", current_user.try(:division).try(:name) %>
