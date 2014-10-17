@@ -23,6 +23,8 @@
       <th class="numeric"><%= model_class.human_attribute_name(:sub_category) %></th>
       <th class="numeric"><%= model_class.human_attribute_name(:name) %></th>
       <th class="numeric"><%= model_class.human_attribute_name(:url) %></th>
+      <th class="numeric"><%= model_class.human_attribute_name(:created_at) %></th>
+      <th class="numeric">Last edited</th>
     </tr>
   </thead>
   <tbody>
@@ -38,6 +40,8 @@
         <td data-title="Sub category %" class="numeric"><%= entertainment.sub_category %></td>
         <td data-title="Name" class="numeric"><%= entertainment.name %></td>
         <td data-title="Url" class="numeric"><%= link_to(entertainment.url,entertainment.url) %></td>
+        <td data-title="Created at" class="numeric"><%= entertainment.created_at %></td> 
+        <td data-title="Last edited" class="numeric"><%= entertainment.updated_at %></td> 
                 
       </tr>
     <% end %>
