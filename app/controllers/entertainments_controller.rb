@@ -199,6 +199,39 @@ class EntertainmentsController < ApplicationController
       end
     end
   end
+
+  def report_by_stateorprovince
+    @count = {}
+    if current_user.role.present?
+      if current_user.role.name == "Senior Director"
+        @entertainments = Entertainment.all.limit(100).offset(0).order("state_or_province desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @by = Entertainment.uniq.pluck(:state_or_province)
+        @by.each do |state_or_province|
+          @count[state_or_province] = Entertainment.where(state_or_province: state_or_province).count
+        end
+      elsif current_user.role.name == "Divisional Director"
+        @entertainments = Entertainment.where(division: current_user.division.name).limit(100).offset(0).order("state_or_province desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @by = Entertainment.where(division: current_user.division.name).order("state_or_province asc").uniq.pluck(:state_or_province)
+        @by.each do |state_or_province|
+          @count[state_or_province] = Entertainment.where(state_or_province: state_or_province, division: current_user.division.name).count 
+        end
+      else
+        @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(0).order("state_or_province desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @by = Entertainment.where(region: current_user.region.name).order("state_or_province asc").uniq.pluck(:state_or_province)  
+        @by.each do |state_or_province|
+          @count[state_or_province] = Entertainment.where(state_or_province: state_or_province, region: current_user.region.name).count 
+        end
+      end
+    else
+      @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(3).order("state_or_province desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+      @by = Entertainment.where(region: current_user.region.name).order("state_or_province asc").uniq.pluck(:state_or_province)
+      @by.each do |state_or_province|
+          @count[state_or_province] = Entertainment.where(state_or_province: state_or_province, region: current_user.region.name).count 
+      end
+    end
+  end
+
+
 #[68, 57, 58, 51, 70, 66, 55, 62, 73, 69, 59, 53, 63, 67, 71, 72, 60, 64, 61, 54, 76, 77, 56, nil]
 
 

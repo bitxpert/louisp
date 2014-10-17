@@ -3,13 +3,24 @@
 <table id="flip-scroll" class="table table-bordered table-striped tablesorter report">
   <thead>
     <tr>
+      <th class="text-center">-</th>
+      <th class="text-center">-</th>
+      <th colspan="7" >Sort All Columns</th>
+    </tr>
+    <tr>
+      <th class="text-center">-</th>
+      <th class="text-center">-</th>
+      <th colspan="2" >First Group</th>
+      <th colspan="5" >Second Group</th>
+    </tr>
+    <tr>
       <th>Action</th>
       <th><%= model_class.human_attribute_name(:representative_id) %></th>
+      <th class="numeric"><%= model_class.human_attribute_name(:country) %></th>
+      <th class="numeric"><%= model_class.human_attribute_name(:state_or_province) %></th>
       <th><%= model_class.human_attribute_name(:function) %></th>
       <th class="numeric"><%= model_class.human_attribute_name(:category) %></th>
       <th class="numeric"><%= model_class.human_attribute_name(:sub_category) %></th>
-      <th class="numeric"><%= model_class.human_attribute_name(:country) %></th>
-      <th class="numeric"><%= model_class.human_attribute_name(:state_or_province) %></th>
       <th class="numeric"><%= model_class.human_attribute_name(:name) %></th>
       <th class="numeric"><%= model_class.human_attribute_name(:url) %></th>
     </tr>
@@ -20,11 +31,11 @@
         <td data-title="Action"><%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_entertainment_path(entertainment), :class => 'btn btn-default btn-xs' %></td>
         <td data-title="Representative"><%= entertainment.representative_id %></td>
+        <td data-title="Country" class="numeric"><%= Carmen::Country.coded(entertainment.country).name %></td>
+        <td data-title="State or province" class="numeric"><%= entertainment.state_or_province %></td>
         <td data-title="Function"><%= entertainment.function %></td>
         <td data-title="Category" class="numeric"><%= entertainment.category %></td>
-        <td data-title="Country %" class="numeric"><%= entertainment.sub_category %></td>
-        <td data-title="Sub category" class="numeric"><%= Carmen::Country.coded(entertainment.country).name %></td>
-        <td data-title="State or province" class="numeric"><%= entertainment.state_or_province %></td>
+        <td data-title="Sub category %" class="numeric"><%= entertainment.sub_category %></td>
         <td data-title="Name" class="numeric"><%= entertainment.name %></td>
         <td data-title="Url" class="numeric"><%= link_to(entertainment.url,entertainment.url) %></td>
                 
@@ -35,7 +46,21 @@
 </div>
 <%= link_to 'See more', 'javascript:void(0)', :id => "new_product_link", class: "btn col-md-5 btn-border backgrnd-enter-btns see-more" %>
 <script type="text/javascript">
-  $("table").tablesorter({ theme: 'blue' });
+  $("table").tablesorter({ theme: 'blue',
+  widgets: ["zebra", "filter"],
+    widgetOptions : {
+      // filter_anyMatch replaced! Instead use the filter_external option
+      // Set to use a jQuery selector (or jQuery object) pointing to the
+      // external filter (column specific or any match)
+      filter_external : '.search',
+      // add a default type search to the first name column
+      filter_defaultFilter: { 1 : '~{query}' },
+      // include column filters
+      filter_columnFilters: true,
+      filter_placeholder: { search : 'Search...' },
+      filter_saveFilters : false,
+      filter_reset: '.reset'
+    } });
    var offset = 100;
   $(document).ready(function() {
    

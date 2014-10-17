@@ -11,6 +11,9 @@
   <%= link_to "EE's By REP", report_by_rep_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
   <%= link_to "EE's By FUNCTION", report_by_function_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
 </div>
+<div class="col-md-12 btn_area">
+  <%= link_to "EE's By State", report_by_stateorprovince_entertainments_path, :class => 'btn col-md-5 btn-border backgrnd-enter-btns'%>
+</div>
 <%end%>
 
 <table id="entertainments" class="table table-striped edit" data-source="<%= entertainments_url(format: "json") %>">

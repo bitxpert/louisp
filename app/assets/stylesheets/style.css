@@ -350,3 +350,6 @@ margin: 0px 4px !important;
 .error{
 	border: 3px solid red !important;
 }
+.tablesorter-blue th, .tablesorter-blue td{
+	font-size: 15px !important;
+}
