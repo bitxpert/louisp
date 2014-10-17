@@ -21,8 +21,12 @@
       </div>
     </div>
   <% end %> 
-
-  <%= f.fields_for :entertainments, @specific_entertainment do |entertainment_form| %>
+  <% @EE_ids_list = [] %>
+  <%= f.fields_for :entertainments do |entertainment_form| %>
+    
+    <% if entertainment_form.object.id.present? %>
+      <% @EE_ids_list.push(entertainment_form.object.id) %>
+    <% end %>
     <h3 class="region-breaker col-md-12"> DAP 1 INFO </h3>
     <div class="control-group col-md-6">
       <div class="controls">
@@ -347,7 +351,7 @@
 
     <%= error_span(@entertainment_parent_company[:webpage_director_skype_id]) %>
   </div>
-    <%= hidden_field_tag :hidden_id, @hidden_id %>
+    <%= hidden_field_tag :hidden_id, @EE_ids_list %>
   
   
    

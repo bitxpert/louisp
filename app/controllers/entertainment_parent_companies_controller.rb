@@ -40,11 +40,14 @@ before_filter :custome_auth,  only: [ :edit, :update ]
   end
 
   def update
+     @EE_ids = []
+    @EE_ids = params[:hidden_id].split(/ /)
+    puts @EE_ids
     @entertainment_parent_company = EntertainmentParentCompany.find(params[:id])
     
     respond_to do |format|
       if @entertainment_parent_company.update(entertainment_params)
-          Entertainment.find(params[:hidden_id]).destroy
+        @EE_ids.each {|id| Entertainment.find(id).destroy }
         format.html { redirect_to entertainments_path, notice: 'Entertainment was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
