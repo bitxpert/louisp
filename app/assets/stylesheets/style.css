@@ -153,6 +153,9 @@
 	border: 1px solid !important;
 	text-decoration: none !important;
 }
+.undecorate{
+	text-decoration: none !important;	
+}
 .btn-border:hover{
 	border: 1px solid !important;
 	background: #3fb897;

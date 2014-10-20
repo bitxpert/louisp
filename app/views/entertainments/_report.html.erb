@@ -69,12 +69,18 @@
   $(document).ready(function() {
    
     $('#new_product_link').click(function () {
+    result = window.location.pathname.split('/');
+
       $.ajax({
         url: "/entertainments/function_rep",
         type: "get",
         dataType: 'JSON',
         data: {
-            'offset' : offset
+            'offset' : offset,
+            'country' : result[3],
+            'rep' : result[4],
+            'function' : result[5],
+            'state' : result[6]
           },
         success:function(data){
           console.log(data[0]['id']);

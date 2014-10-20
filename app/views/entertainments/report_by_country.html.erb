@@ -12,10 +12,9 @@
   <tbody>
     <% @by.each do |entertainment| %> 
       <tr>
-        <td data-title="Country %" class="numeric"><%= Carmen::Country.coded(entertainment).name %></td>
+        <td data-title="Country %" class="numeric"><%= link_to Carmen::Country.coded(entertainment).name,'/entertainments/report/'+entertainment+'/1/1/1/', :class => 'undecorate'  %></td>
         <td data-title="Url" class="numeric"><%= @count[entertainment] %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= render :partial => 'report' %>

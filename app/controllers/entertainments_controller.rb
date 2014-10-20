@@ -105,16 +105,20 @@ class EntertainmentsController < ApplicationController
   end
 
   def report
+     puts "ss"*22
+     puts params.inspect
+     puts Carmen::Country.coded(params[:country]).inspect 
+     puts "ss"*22
     if current_user.role.present?
       if current_user.role.name == "Senior Director"
-        @entertainments = Entertainment.all.limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.where("country='#{params[:country]}' or representative_id='#{params[:rep]}' or function='#{params[:function]}' or state_or_province='#{params[:state]}'").limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
       elsif current_user.role.name == "Divisional Director"
-        @entertainments = Entertainment.where(division: current_user.division.name).limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+        @entertainments = Entertainment.where(division: current_user.division.name).where("country='#{params[:country]}' or representative_id='#{params[:rep]}' or function='#{params[:function]}' or state_or_province='#{params[:state]}'").limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
       else
-        @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")  
+        @entertainments = Entertainment.where(region: current_user.region.name).where("country='#{params[:country]}' or representative_id='#{params[:rep]}' or function='#{params[:function]}' or state_or_province='#{params[:state]}'").limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")  
       end
     else
-      @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+      @entertainments = Entertainment.where(region: current_user.region.name).where("country='#{params[:country]}' or representative_id='#{params[:rep]}' or function='#{params[:function]}' or state_or_province='#{params[:state]}'").limit(100).offset(0).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
     end
   end
 
@@ -150,12 +154,13 @@ class EntertainmentsController < ApplicationController
   end
 
   def function_rep
+    
     if current_user.role.name == "Senior Director"
-      @entertainments = Entertainment.all.limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+      @entertainments = Entertainment.where("country='#{params[:country]}' or representative_id='#{params[:rep]}' or function='#{params[:function]}' or state_or_province='#{params[:state]}'").limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
     elsif current_user.role.name == "Divisional Director"
-      @entertainments = Entertainment.where(division: current_user.division.name).limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+      @entertainments = Entertainment.where(division: current_user.division.name).where("country='#{params[:country]}' or representative_id='#{params[:rep]}' or function='#{params[:function]}' or state_or_province='#{params[:state]}'").limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
     else
-      @entertainments = Entertainment.where(region: current_user.region.name).limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
+      @entertainments = Entertainment.where(region: current_user.region.name).where("country='#{params[:country]}' or representative_id='#{params[:rep]}' or function='#{params[:function]}' or state_or_province='#{params[:state]}'").limit(100).offset(params[:offset]).order("function desc").order("category desc").order("country asc").order("state_or_province asc").order("name asc")
     end
     
     respond_to do |format|

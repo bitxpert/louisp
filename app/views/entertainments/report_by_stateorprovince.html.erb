@@ -12,10 +12,12 @@
   <tbody>
     <% @by.each do |entertainment| %> 
       <tr>
-        <td><%= entertainment %></td>
+        <% until entertainment.present? %>
+        <% entertainment = 'null' %>  
+        <% end %> 
+        <td><%= link_to entertainment,'/entertainments/report/1/1/1/'+entertainment+'', :class => 'undecorate'  %></td>
         <td data-title="Url" class="numeric"><%= @count[entertainment] %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= render :partial => 'report' %>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :regions
   resources :posts
   resources :entertainment_parent_companies
+
+
   resources :entertainments do
    collection do
     post 'dumy_update'
@@ -31,7 +33,9 @@ Rails.application.routes.draw do
     collection do
       post 'create_funny_image'
     end     
-  end  
+  end
+  #map.getproduct '/report', :controller => 'entertainments_controller', :action => 'report'  
+  match "/entertainments/report/:country/:rep/:function/:state" => "entertainments#report", via: [:get]
   resources :products
   resources :home
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
